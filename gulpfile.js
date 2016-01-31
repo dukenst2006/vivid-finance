@@ -17,7 +17,7 @@ require('laravel-elixir-stylus');
 elixir(function(mix) {
     var directories = {
         javascript: {
-            input: 'app.js',
+            input: 'main.js',
             output: 'public/js/app.js'
         },
         stylus: {
