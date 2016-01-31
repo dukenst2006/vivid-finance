@@ -1,7 +1,7 @@
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-vueify');
 require('laravel-elixir-stylus');
+require('laravel-elixir-webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ require('laravel-elixir-stylus');
  |
  */
 
-elixir(function(mix) {
+elixir(function (mix) {
     var directories = {
         javascript: {
             input: 'main.js',
@@ -24,9 +24,41 @@ elixir(function(mix) {
             input: 'vivid-finance.styl',
             output: 'public/css/app.css'
         },
-        images : {
-            input : 'resources/assets/img',
-            output : 'public/img'
+        images: {
+            input: 'resources/assets/img',
+            output: 'public/img'
+        }
+    };
+
+    var webpackConfig = {
+        outputDir: "public/js",
+        output: {
+            filename: "app.js"
+        },
+
+        // other options ...
+        module: {
+            loaders: [
+                {
+                    // use vue-loader for *.vue files
+                    test: /\.vue$/,
+                    loader: 'vue'
+                },
+                {
+                    // use babel-loader for *.js files
+                    test: /\.js$/,
+                    loader: 'babel',
+                    // important: exclude files in node_modules
+                    // otherwise it's going to be really slow!
+                    exclude: /node_modules/
+                }
+            ]
+        },
+        // if you are using babel-loader directly then
+        // the babel config block becomes required.
+        babel: {
+            presets: ['es2015'],
+            plugins: ['transform-runtime']
         }
     };
 
@@ -82,7 +114,7 @@ elixir(function(mix) {
     ];
 
     mix
-        .browserify(directories.javascript.input, directories.javascript.output)
+        .webpack(directories.javascript.input, webpackConfig)
         .stylus(directories.stylus.input, directories.stylus.output)
         .copy(directories.images.input, directories.images.output)
         .version(version)
