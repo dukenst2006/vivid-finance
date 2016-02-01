@@ -1,5 +1,5 @@
 var elixir = require('laravel-elixir'),
-    config = require('./elixir.config.json');
+    config = require('./elixir.json');
 
 require('laravel-elixir-stylus');
 require('laravel-elixir-webpack');

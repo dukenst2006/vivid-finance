@@ -1,4 +1,4 @@
-var config = require('./elixir.config.json');
+var elixir = require('./elixir.json');
 
 module.exports = {
     outputDir: config.directories.javascript.output.dir,
