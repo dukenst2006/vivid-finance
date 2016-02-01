@@ -3,10 +3,35 @@
 namespace VividFinance\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use VividFinance\Http\Requests;
+use VividFinance\Invoice;
+use VividFinance\Transformers\InvoiceTransformer;
 
+/**
+ * Class InvoiceController
+ * @package VividFinance\Http\Controllers\API
+ */
 class InvoiceController extends Controller
 {
+
+    /**
+     * The transformer used to transform the data
+     *
+     * @var InvoiceTransformer The transformer
+     */
+    protected $invoiceTransformer;
+
+    /**
+     * InvoiceController constructor.
+     *
+     * @param \VividFinance\Transformers\InvoiceTransformer $invoiceTransformer The transformer
+     */
+    public function __construct(InvoiceTransformer $invoiceTransformer)
+    {
+        $this->invoiceTransformer = $invoiceTransformer;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,23 +39,22 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
-    }
+        if (Input::get('limit')) {
+            $this->setPagination(Input::get('limit'));
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $invoices = Invoice::paginate($this->getPagination());
+
+        return $this->respondWithPagination($invoices, [
+            'data' => $this->invoiceTransformer->transformCollection($invoices->all())
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,21 +65,11 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * @param  \VividFinance\Invoice $invoice
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show(Invoice $invoice)
     {
         //
     }
@@ -63,11 +77,12 @@ class InvoiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  \VividFinance\Invoice $invoice
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Invoice $invoice)
     {
         //
     }
@@ -75,10 +90,11 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \VividFinance\Invoice $invoice
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Invoice $invoice)
     {
         //
     }
