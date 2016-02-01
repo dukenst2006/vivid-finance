@@ -1,0 +1,62 @@
+{
+  "directories": {
+    "javascript": {
+      "input": "main.js",
+      "output": {
+        "dir": "./public/js",
+        "fileName": "app.js",
+        "publicPath": "/js/"
+      }
+    },
+    "stylus": {
+      "input": "vivid-finance.styl",
+      "output": "public/css/app.css"
+    },
+    "images": {
+      "input": "resources/assets/img",
+      "output": "public/img"
+    }
+  },
+  "version" : [
+    "css/app.css",
+
+    "js/app.js",
+
+    "img/icons/favicon/favicon.ico",
+    "img/icons/favicon/favicon-16x16.png",
+    "img/icons/favicon/favicon-32x32.png",
+    "img/icons/favicon/favicon-96x96.png",
+    "img/icons/favicon/favicon-194x194.png",
+
+    "img/icons/android/android-chrome-36x36.png",
+    "img/icons/android/android-chrome-48x48.png",
+    "img/icons/android/android-chrome-72x72.png",
+    "img/icons/android/android-chrome-96x96.png",
+    "img/icons/android/android-chrome-144x144.png",
+    "img/icons/android/android-chrome-192x192.png",
+    "img/icons/android/manifest.json",
+
+    "img/icons/apple/apple-touch-icon.png",
+    "img/icons/apple/apple-touch-icon-57x57.png",
+    "img/icons/apple/apple-touch-icon-60x60.png",
+    "img/icons/apple/apple-touch-icon-72x72.png",
+    "img/icons/apple/apple-touch-icon-76x76.png",
+    "img/icons/apple/apple-touch-icon-114x114.png",
+    "img/icons/apple/apple-touch-icon-120x120.png",
+    "img/icons/apple/apple-touch-icon-144x144.png",
+    "img/icons/apple/apple-touch-icon-152x152.png",
+    "img/icons/apple/apple-touch-icon-180x180.png",
+    "img/icons/apple/apple-touch-icon-precomposed.png",
+
+    "img/icons/microsoft/mstile-70x70.png",
+    "img/icons/microsoft/mstile-144x144.png",
+    "img/icons/microsoft/mstile-150x150.png",
+    "img/icons/microsoft/mstile-310x150.png",
+    "img/icons/microsoft/mstile-310x310.png",
+    "img/icons/microsoft/browserconfig.xml",
+
+    "img/icons/safari/safari-pinned-tab.svg",
+
+    "img/logo/logo.svg"
+  ]
+}
