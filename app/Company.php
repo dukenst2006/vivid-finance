@@ -29,7 +29,7 @@ class Company extends Model
         'country',
         'city',
         'postcode',
-        'house_number'
+        'building_number'
     ];
 
     /**

@@ -5,6 +5,8 @@ namespace VividFinance\Http\Controllers\API;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use VividFinance\Http\Requests;
+use VividFinance\Http\Requests\API\InvoiceStoreRequest;
+use VividFinance\Http\Requests\API\InvoiceUpdateRequest;
 use VividFinance\Invoice;
 use VividFinance\Transformers\InvoiceTransformer;
 
@@ -53,13 +55,17 @@ class InvoiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \VividFinance\Http\Requests\API\InvoiceStoreRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InvoiceStoreRequest $request)
     {
-        //
+        $invoice = new Invoice($request->all());
+        $invoice->company_id = $request->get('company_id');
+        $invoice->save();
+
+        return $this->respondCreated('Invoice created');
     }
 
     /**
@@ -71,20 +77,25 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        //
+        return $this->respond(
+            $this->invoiceTransformer->transform($invoice)
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \VividFinance\Http\Requests\API\InvoiceUpdateRequest $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(InvoiceUpdateRequest $request, Invoice $invoice)
     {
-        //
+        $invoice->fill($request->all());
+        $invoice->save();
+
+        return $this->respondWithSucces('The invoice has been updated');
     }
 
     /**
@@ -96,6 +107,8 @@ class InvoiceController extends Controller
      */
     public function destroy(Invoice $invoice)
     {
-        //
+        $invoice->delete();
+
+        return $this->respondWithSucces('The invoice has been deleted');
     }
 }

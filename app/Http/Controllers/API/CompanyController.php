@@ -2,10 +2,11 @@
 
 namespace VividFinance\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use VividFinance\Company;
 use VividFinance\Http\Requests;
+use VividFinance\Http\Requests\API\CompanyStoreRequest;
+use VividFinance\Http\Requests\API\CompanyUpdateRequest;
 use VividFinance\Transformers\CompanyTransformer;
 
 /**
@@ -52,13 +53,16 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \VividFinance\Http\Requests\API\CompanyStoreRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyStoreRequest $request)
     {
-        //
+        $company = new Company($request->all());
+        $company->save();
+
+        return $this->respondCreated('Company created');
     }
 
     /**
@@ -70,20 +74,25 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return $this->respond(
+            $this->companyTransformer->transform($company)
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \VividFinance\Http\Requests\API\CompanyUpdateRequest $request
      * @param  \VividFinance\Company $company
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(CompanyUpdateRequest $request, Company $company)
     {
-        //
+        $company->fill($request->all());
+        $company->save();
+
+        return $this->respondWithSucces('The company has been updated');
     }
 
     /**
@@ -93,8 +102,10 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($company)
+    public function destroy(Company $company)
     {
-        //
+        $company->delete();
+
+        return $this->respondWithSucces('The company has been deleted');
     }
 }
