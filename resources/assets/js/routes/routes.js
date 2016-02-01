@@ -1,71 +1,82 @@
-import UserIndex from './../components/views/user/Index.vue';
-import UserAdd from './../components/views/user/Add.vue';
-import UserShow from './../components/views/user/Show.vue';
-import UserEdit from './../components/views/user/Edit.vue';
-import CompanyIndex from './../components/views/company/Index.vue';
-import CompanyAdd from './../components/views/company/Add.vue';
-import CompanyShow from './../components/views/company/Show.vue';
-import CompanyEdit from './../components/views/company/Edit.vue';
-import InvoiceIndex from './../components/views/invoice/Index.vue';
-import InvoiceAdd from './../components/views/invoice/Add.vue';
-import InvoiceShow from './../components/views/invoice/Show.vue';
-import InvoiceEdit from './../components/views/invoice/Edit.vue';
-
 export default {
     getRoutes () {
         return {
             // User Resource
             '/user': {
                 name: 'user.index',
-                component: UserIndex
+                component (resolve) {
+                    require(['./../components/views/user/Index.vue'], resolve)
+                }
             },
             '/user/add': {
                 name: 'user.add',
-                component: UserAdd
+                component (resolve) {
+                    require(['./../components/views/user/Add.vue'], resolve)
+                }
             },
             '/user/:user': {
                 name: 'user.show',
-                component: UserShow
+                component (resolve) {
+                    require(['./../components/views/user/Show.vue'], resolve)
+                }
             },
             '/user/:user/edit': {
                 name: 'user.edit',
-                component: UserEdit
+                component (resolve) {
+                    require(['./../components/views/user/Edit.vue'], resolve)
+                }
             },
 
             // Company Resource
             '/company': {
                 name: 'company.index',
-                component: CompanyIndex
+                component (resolve) {
+                    require(['./../components/views/company/Index.vue'], resolve)
+                }
             },
             '/company/add': {
                 name: 'company.add',
-                component: CompanyAdd
+                component (resolve) {
+                    require(['./../components/views/company/Add.vue'], resolve)
+                }
             },
             '/company/:company': {
                 name: 'company.show',
-                component: CompanyShow
+                component (resolve) {
+                    require(['./../components/views/company/Show.vue'], resolve)
+                }
             },
             '/company/:company/edit': {
                 name: 'company.edit',
-                component: CompanyEdit
+                component (resolve) {
+                    require(['./../components/views/company/Edit.vue'], resolve)
+                }
             },
 
             // Invoice Resource
             '/invoice': {
                 name: 'invoice.index',
-                component: InvoiceIndex
+                component (resolve) {
+                    require(['./../components/views/invoice/Index.vue'], resolve)
+                }
             },
             '/invoice/add': {
                 name: 'invoice.add',
-                component: InvoiceAdd
+                component (resolve) {
+                    require(['./../components/views/invoice/Add.vue'], resolve)
+                }
             },
             '/invoice/:invoice': {
                 name: 'invoice.show',
-                component: InvoiceShow
+                component (resolve) {
+                    require(['./../components/views/invoice/Show.vue'], resolve)
+                }
             },
             '/invoice/:invoice/edit': {
                 name: 'invoice.edit',
-                component: InvoiceEdit
+                component (resolve) {
+                    require(['./../components/views/invoice/Edit.vue'], resolve)
+                }
             }
         }
     },

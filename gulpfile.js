@@ -31,9 +31,10 @@ elixir(function (mix) {
     };
 
     var webpackConfig = {
-        outputDir: "public/js",
+        outputDir: './public/js',
         output: {
-            filename: "app.js"
+            filename: 'app.js',
+            publicPath : '/js/'
         },
 
         // other options ...
