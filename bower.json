@@ -1,0 +1,36 @@
+{
+  "name": "vivid-finance",
+  "description": "A simple to use finance program build with Laravel and Vue.js",
+  "main": "",
+  "authors": [
+    "Peter van Meijgaard <peter@vivid-websolutions.nl>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Vivid",
+    "Websolutions",
+    "Finance",
+    "Node",
+    "Vue",
+    "Laravel",
+    "SPA",
+    "Single",
+    "Page",
+    "Application"
+  ],
+  "homepage": "https://github.com/PetervMeijgaard/vivid-finance",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
