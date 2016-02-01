@@ -16,7 +16,6 @@ Vue.use(VueRouter);
 // Configurate Vue
 Vue.config.debug = true;
 Vue.http.options.root = 'api/v1';
-Vue.http.headers.common['X-CSRF-TOKEN'] = document.getElementsByTagName("meta")['csrf-token'].content;
 
 app = Vue.extend(App);
 

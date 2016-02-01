@@ -13,7 +13,6 @@
         <meta name="revisit-after" content="1 month">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="theme-color" content="#009ade">
-        <meta name="csrf-token" content="{{csrf_token()}}">
 
         <!-- Fav Icon Configuration -->
         <link rel="shortcut icon" href="{{ elixir('img/icons/favicon/favicon.ico') }}">

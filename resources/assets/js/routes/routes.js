@@ -1,4 +1,8 @@
 export default {
+    /**
+     * Method used to get all the routes used in the application
+     * @returns {object} The desired routes
+     */
     getRoutes () {
         return {
             // User Resource
@@ -81,6 +85,11 @@ export default {
         }
     },
 
+    /**
+     * Method used to get all the redirects
+     *
+     * @returns {object} The redirects
+     */
     getRedirects () {
         return {}
     }
