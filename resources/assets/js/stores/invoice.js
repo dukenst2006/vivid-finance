@@ -5,13 +5,13 @@ export default {
     stub,
 
     all () {
-        http.get('invoice', {}, () => {
+        http.get('invoice', {}, response => {
 
         });
     },
 
     byId (invoice) {
-        http.get('invoice/' + invoice.id, {}, () => {
+        http.get('invoice/' + invoice.id, {}, response => {
 
         });
     },
@@ -23,13 +23,13 @@ export default {
     },
 
     update (invoice) {
-        http.put('invoice/' + invoice.id, invoice, () => {
+        http.put('invoice/' + invoice.id, invoice, response => {
 
         });
     },
 
     delete (invoice) {
-        http.delete('invoice/' + invoice.id, {}, () => {
+        http.delete('invoice/' + invoice.id, {}, response => {
 
         });
     }

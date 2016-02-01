@@ -5,13 +5,13 @@ export default {
     stub,
 
     all () {
-        http.get('company', {}, () => {
+        http.get('company', {}, response => {
 
         });
     },
 
     byId (company) {
-        http.get('company/' + company.id, {}, () => {
+        http.get('company/' + company.id, {}, response => {
 
         });
     },
@@ -23,13 +23,13 @@ export default {
     },
 
     update (company) {
-        http.put('company/' + company.id, company, () => {
+        http.put('company/' + company.id, company, response => {
 
         });
     },
 
     delete (company) {
-        http.delete('company/' + company.id, {}, () => {
+        http.delete('company/' + company.id, {}, response => {
 
         });
     }

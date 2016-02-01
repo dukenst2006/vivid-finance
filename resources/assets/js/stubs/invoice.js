@@ -6,8 +6,8 @@ export default {
     title: '',
     state: '',
     file: '',
-    filePath: '',
-    fileName: '',
-    fileExtension: '',
-    expirationDate: ''
+    file_path: '',
+    file_name: '',
+    file_extension: '',
+    expiration_date: ''
 }

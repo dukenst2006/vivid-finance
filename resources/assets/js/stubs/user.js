@@ -7,7 +7,7 @@ export default {
     email: '',
     birthday: '',
     telephone: '',
-    mobilePhone: '',
+    mobile_phone: '',
     sex: '',
     bio: ''
 }

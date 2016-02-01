@@ -9,5 +9,5 @@ export default {
     country: '',
     city: '',
     postcode: '',
-    buildingNumber: ''
+    building_number: ''
 }
