@@ -1,0 +1,19 @@
+.Menu
+  color: #fff
+  +has(item)
+    transition(100ms)
+    color: #fff
+    display: block
+    text-decoration: none
+    padding: 1rem 1rem 1rem .75rem
+    border-left: .25rem solid transparent
+    font-weight: 300
+    &:hover
+      transition(100ms)
+      background-color: #222d33
+    +variant(active)
+      border-left-color: #2196f3
+  +has(header)
+    background-color: #222d33
+    color: #fff
+    padding: 1rem

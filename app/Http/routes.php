@@ -28,12 +28,12 @@ Route::group(
         Route::put('user/{user}', ['as' => 'user.update', 'uses' => 'UserController@update']);
         Route::delete('user/{user}', ['as' => 'user.destroy', 'uses' => 'UserController@destroy']);
 
-        // Company
-        Route::get('company', ['as' => 'company.index', 'uses' => 'CompanyController@index']);
-        Route::post('company', ['as' => 'company.store', 'uses' => 'CompanyController@store']);
-        Route::get('company/{company}', ['as' => 'company.show', 'uses' => 'CompanyController@show']);
-        Route::put('company/{company}', ['as' => 'company.update', 'uses' => 'CompanyController@update']);
-        Route::delete('company/{company}', ['as' => 'company.destroy', 'uses' => 'CompanyController@destroy']);
+        // Customer
+        Route::get('customer', ['as' => 'customer.index', 'uses' => 'CustomerController@index']);
+        Route::post('customer', ['as' => 'customer.store', 'uses' => 'CustomerController@store']);
+        Route::get('customer/{customer}', ['as' => 'customer.show', 'uses' => 'CustomerController@show']);
+        Route::put('customer/{customer}', ['as' => 'customer.update', 'uses' => 'CustomerController@update']);
+        Route::delete('customer/{customer}', ['as' => 'customer.destroy', 'uses' => 'CustomerController@destroy']);
 
         // Invoice
         Route::get('invoice', ['as' => 'invoice.index', 'uses' => 'InvoiceController@index']);

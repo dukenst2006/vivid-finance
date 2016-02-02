@@ -32,5 +32,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "flexbox-grid-stylus": "master"
+  },
+  "dependencies": {
+    "mdi": "^1.4.57"
+  }
 }

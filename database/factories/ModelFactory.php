@@ -24,7 +24,7 @@ $factory->define(VividFinance\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(VividFinance\Company::class, function (Faker\Generator $faker) {
+$factory->define(VividFinance\Customer::class, function (Faker\Generator $faker) {
     return [
         'name'            => $faker->company,
         'telephone'       => $faker->phoneNumber,

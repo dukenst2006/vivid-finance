@@ -5,6 +5,20 @@ export default {
      */
     getRoutes () {
         return {
+            // Account Resource
+            '/account' : {
+                name: 'account.show',
+                component (resolve) {
+                    require(['./../views/account/Show.vue'], resolve)
+                }
+            },
+            '/account/edit' : {
+                name: 'account.edit',
+                component (resolve) {
+                    require(['./../views/account/Edit.vue'], resolve)
+                }
+            },
+
             // User Resource
             '/user': {
                 name: 'user.index',
@@ -31,29 +45,29 @@ export default {
                 }
             },
 
-            // Company Resource
-            '/company': {
-                name: 'company.index',
+            // customer Resource
+            '/customer': {
+                name: 'customer.index',
                 component (resolve) {
-                    require(['./../views/company/Index.vue'], resolve)
+                    require(['./../views/customer/Index.vue'], resolve)
                 }
             },
-            '/company/add': {
-                name: 'company.add',
+            '/customer/add': {
+                name: 'customer.add',
                 component (resolve) {
-                    require(['./../views/company/Add.vue'], resolve)
+                    require(['./../views/customer/Add.vue'], resolve)
                 }
             },
-            '/company/:company': {
-                name: 'company.show',
+            '/customer/:customer': {
+                name: 'customer.show',
                 component (resolve) {
-                    require(['./../views/company/Show.vue'], resolve)
+                    require(['./../views/customer/Show.vue'], resolve)
                 }
             },
-            '/company/:company/edit': {
-                name: 'company.edit',
+            '/customer/:customer/edit': {
+                name: 'customer.edit',
                 component (resolve) {
-                    require(['./../views/company/Edit.vue'], resolve)
+                    require(['./../views/customer/Edit.vue'], resolve)
                 }
             },
 

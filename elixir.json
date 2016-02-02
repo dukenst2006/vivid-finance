@@ -15,6 +15,22 @@
     "images": {
       "input": "resources/assets/img",
       "output": "public/img"
+    },
+    "metadata": {
+      "input": "resources/assets/metadata",
+      "output": "public/metadata"
+    },
+    "fonts" : {
+      "input" : [
+        "resources/assets/fonts"
+      ],
+      "output" : "public/fonts"
+    },
+    "materialDesignFont" : {
+      "input" : [
+        "resources/assets/vendor/mdi/fonts"
+      ],
+      "output" : "public/fonts/MaterialDesignIcons"
     }
   },
   "version" : [
@@ -22,41 +38,42 @@
 
     "js/app.js",
 
-    "img/icons/favicon/favicon.ico",
-    "img/icons/favicon/favicon-16x16.png",
-    "img/icons/favicon/favicon-32x32.png",
-    "img/icons/favicon/favicon-96x96.png",
-    "img/icons/favicon/favicon-194x194.png",
+    "metadata/favicon/favicon.ico",
+    "metadata/favicon/favicon-16x16.png",
+    "metadata/favicon/favicon-32x32.png",
+    "metadata/favicon/favicon-96x96.png",
+    "metadata/favicon/favicon-194x194.png",
 
-    "img/icons/android/android-chrome-36x36.png",
-    "img/icons/android/android-chrome-48x48.png",
-    "img/icons/android/android-chrome-72x72.png",
-    "img/icons/android/android-chrome-96x96.png",
-    "img/icons/android/android-chrome-144x144.png",
-    "img/icons/android/android-chrome-192x192.png",
-    "img/icons/android/manifest.json",
+    "metadata/android/android-chrome-36x36.png",
+    "metadata/android/android-chrome-48x48.png",
+    "metadata/android/android-chrome-72x72.png",
+    "metadata/android/android-chrome-96x96.png",
+    "metadata/android/android-chrome-144x144.png",
+    "metadata/android/android-chrome-192x192.png",
+    "metadata/android/manifest.json",
 
-    "img/icons/apple/apple-touch-icon.png",
-    "img/icons/apple/apple-touch-icon-57x57.png",
-    "img/icons/apple/apple-touch-icon-60x60.png",
-    "img/icons/apple/apple-touch-icon-72x72.png",
-    "img/icons/apple/apple-touch-icon-76x76.png",
-    "img/icons/apple/apple-touch-icon-114x114.png",
-    "img/icons/apple/apple-touch-icon-120x120.png",
-    "img/icons/apple/apple-touch-icon-144x144.png",
-    "img/icons/apple/apple-touch-icon-152x152.png",
-    "img/icons/apple/apple-touch-icon-180x180.png",
-    "img/icons/apple/apple-touch-icon-precomposed.png",
+    "metadata/apple/apple-touch-icon.png",
+    "metadata/apple/apple-touch-icon-57x57.png",
+    "metadata/apple/apple-touch-icon-60x60.png",
+    "metadata/apple/apple-touch-icon-72x72.png",
+    "metadata/apple/apple-touch-icon-76x76.png",
+    "metadata/apple/apple-touch-icon-114x114.png",
+    "metadata/apple/apple-touch-icon-120x120.png",
+    "metadata/apple/apple-touch-icon-144x144.png",
+    "metadata/apple/apple-touch-icon-152x152.png",
+    "metadata/apple/apple-touch-icon-180x180.png",
+    "metadata/apple/apple-touch-icon-precomposed.png",
 
-    "img/icons/microsoft/mstile-70x70.png",
-    "img/icons/microsoft/mstile-144x144.png",
-    "img/icons/microsoft/mstile-150x150.png",
-    "img/icons/microsoft/mstile-310x150.png",
-    "img/icons/microsoft/mstile-310x310.png",
-    "img/icons/microsoft/browserconfig.xml",
+    "metadata/microsoft/mstile-70x70.png",
+    "metadata/microsoft/mstile-144x144.png",
+    "metadata/microsoft/mstile-150x150.png",
+    "metadata/microsoft/mstile-310x150.png",
+    "metadata/microsoft/mstile-310x310.png",
+    "metadata/microsoft/browserconfig.xml",
 
-    "img/icons/safari/safari-pinned-tab.svg",
+    "metadata/safari/safari-pinned-tab.svg",
 
     "img/logo/logo.svg"
-  ]
+  ],
+  "proxy" : "vivid-finance.app"
 }

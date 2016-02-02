@@ -19,7 +19,7 @@ class InvoiceTransformer extends Transformer
     {
         return [
             'id'              => (int)$invoice->id,
-            'company_id'      => (int)$invoice->company_id,
+            'customer_id'     => (int)$invoice->customer_id,
             'title'           => $invoice->title,
             'state'           => $invoice->state,
             'file'            => $invoice->file,

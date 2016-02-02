@@ -1,0 +1,17 @@
+.IconGroup
+  position: relative
+  +has(description)
+    vertical-align: middle
+    display: inline-block
+    +variant(margin-right)
+      margin-right: 1rem
+    +variant(margin-left)
+      margin-left: 1rem
+  +has(icon)
+    vertical-align: middle
+    display: inline-block
+    +variant(align-right)
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translateY(-50%)

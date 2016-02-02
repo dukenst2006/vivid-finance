@@ -10,8 +10,8 @@ Homestead.json
 _ide_helper.php
 
 # Ignore the public directories
-/public/css
-/public/fonts
-/public/img
-/public/js
-/public/build
+/public/*
+!/public/.htaccess
+!/public/index.php
+!/public/robots.txt
+!/public/web.config

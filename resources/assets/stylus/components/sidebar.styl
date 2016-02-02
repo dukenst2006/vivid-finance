@@ -1,0 +1,32 @@
+.Sidebar
+  +variant(main)
+    background-color: #192226
+    display: inline-block
+    min-height: calc(100vh - 3.75rem)
+    position: relative
+    width: 20rem
+    vertical-align top
+
+  +has(user)
+    display: block
+    padding: 1rem 1rem
+    font-size: .9rem
+
+  +has(featured)
+    transition(100ms)
+    background-color: #2196f3
+    color: #fff
+    display: block
+    padding: 1.25rem 1rem
+    font-size: 1rem
+    font-weight: 600
+    text-decoration: none
+    &:hover
+      transition(100ms)
+      background-color: #2090e6
+
+  +has(footer)
+    position: absolute
+    bottom: 0
+    display: block
+    width: 100%
