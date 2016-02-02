@@ -18,13 +18,13 @@ class CreateInvoicesTable extends Migration
                 ->unsigned();
 
             $table
-                ->integer('company_id')
+                ->integer('customer_id')
                 ->unsigned();
 
             $table
-                ->foreign('company_id')
+                ->foreign('customer_id')
                 ->references('id')
-                ->on('companies');
+                ->on('customers');
 
             $table
                 ->string('title');

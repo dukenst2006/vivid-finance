@@ -42,13 +42,13 @@ class Invoice extends Model
     ];
 
     /**
-     * An invoice belongs to a company
+     * An invoice belongs to a customer
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The company
      */
-    public function company()
+    public function customers()
     {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Customer::class);
     }
 
     /**

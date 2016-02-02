@@ -1,0 +1,47 @@
+.User
+  +has(figure)
+    +variant(sidebar)
+      display: block
+
+  +has(image)
+    +variant(sidebar)
+      border-radius: 100%
+      display: inline-block
+      height: 6rem
+      object-fit: cover
+      vertical-align: middle
+      width: 6rem
+
+  +has(information)
+    +variant(sidebar)
+      display: inline-block
+      padding-left: 1rem
+      vertical-align: middle
+
+  +has(header)
+    +variant(sidebar)
+      margin-bottom: .75rem
+
+  +has(title)
+    +variant(sidebar)
+      color: #fff
+      font-size: 1rem
+      padding: 0
+      margin: 0
+      font-weight: 500
+
+  +has(item)
+    +variant(sidebar)
+      color: #fff
+      display: block
+      font-weight: 100
+
+  +has(actions)
+    +variant(sidebar)
+      margin-top: 1rem
+
+  +has(action)
+    +variant(sidebar)
+      color: #fff
+      font-weight: 500
+      text-decoration: none
