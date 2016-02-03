@@ -8,7 +8,7 @@
   -moz-osx-font-smoothing: grayscale
   transform: translate(0, 0)
 
-for $num in (1..length($hexes))
-  .Icon--{$names[$num]}
+for $num in (1..length($materialDesignIconHexes))
+  .Icon--{$materialDesignIconNames[$num]}
     &:before
-      content: '\' + $hexes[$num]
+      content: '\' + $materialDesignIconHexes[$num]

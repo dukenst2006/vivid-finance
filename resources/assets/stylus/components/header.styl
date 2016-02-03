@@ -5,6 +5,45 @@
     display: block
     width: 100%
 
-  +has(nav-icon)
+  +has(sidebar)
+    display: inline-block
+    background-color: #192226
+    vertical-align: middle
     width: 20rem
     min-height: 3.75rem
+    margin-right: -4px
+  +has(actions)
+    display: inline-block
+    float: right
+    vertical-align: middle
+    margin: 1rem 1rem 1rem 0
+  +has(action)
+    line-height: 1.75rem
+    color: #fff
+    font-size: 1.5rem
+    text-decoration: none
+    margin-right: 1rem
+    &:last-child
+      margin-right: 0
+  +has(logo)
+    transition(100ms)
+    background-color: #192226
+    text-align: center
+    display: inline-block
+    vertical-align: middle
+    padding: 1rem
+    height: 3.75rem
+    overflow: hidden
+    text-decoration: none
+    &:hover
+      transition(100ms)
+      background-color: #222d33
+      .Figure__description--logo
+        transition(100ms)
+        width: 55px
+        opacity: 1
+  +has(nav-icon)
+    display: inline-block
+    vertical-align: middle
+    float: right
+    padding: 1.34375rem
