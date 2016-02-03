@@ -7,6 +7,7 @@
 
   +has(sidebar)
     display: inline-block
+    background-color: #192226
     vertical-align: middle
     width: 20rem
     min-height: 3.75rem
@@ -24,7 +25,25 @@
     margin-right: 1rem
     &:last-child
       margin-right: 0
+  +has(logo)
+    transition(100ms)
+    background-color: #192226
+    text-align: center
+    display: inline-block
+    vertical-align: middle
+    padding: 1rem
+    height: 3.75rem
+    overflow: hidden
+    text-decoration: none
+    &:hover
+      transition(100ms)
+      background-color: #222d33
+      .Figure__description--logo
+        transition(100ms)
+        width: 55px
+        opacity: 1
   +has(nav-icon)
+    display: inline-block
+    vertical-align: middle
     float: right
     padding: 1.34375rem
-    background-color: #192226

@@ -1,11 +1,18 @@
 <!-- Header Begin -->
 <div class="Header Header--main">
 	<div class="Header__sidebar">
-		<div class="Header__nav-icon NavIcon">
+		<a class="Header__logo Figure Figure--logo" href="#">
+			<img class="Figure__image Figure__image--logo"
+				 src="/img/logo/logo.svg">
+			<span class="Figure__description Figure__description--logo">
+				Finance
+			</span>
+		</a>
+		<a class="Header__nav-icon NavIcon" href="#">
 			<div class="NavIcon__line NavIcon__line--first"></div>
 			<div class="NavIcon__line NavIcon__line--second"></div>
 			<div class="NavIcon__line NavIcon__line--third"></div>
-		</div>
+		</a>
 	</div>
 	<div class="Header__actions">
 		<a v-link="{name : 'account.show'}" class="Header__action">
