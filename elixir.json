@@ -25,12 +25,6 @@
         "resources/assets/fonts"
       ],
       "output" : "public/fonts"
-    },
-    "materialDesignFont" : {
-      "input" : [
-        "resources/assets/vendor/mdi/fonts"
-      ],
-      "output" : "public/fonts/MaterialDesignIcons"
     }
   },
   "version" : [

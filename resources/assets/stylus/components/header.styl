@@ -5,6 +5,26 @@
     display: block
     width: 100%
 
-  +has(nav-icon)
+  +has(sidebar)
+    display: inline-block
+    vertical-align: middle
     width: 20rem
     min-height: 3.75rem
+    margin-right: -4px
+  +has(actions)
+    display: inline-block
+    float: right
+    vertical-align: middle
+    margin: 1rem 1rem 1rem 0
+  +has(action)
+    line-height: 1.75rem
+    color: #fff
+    font-size: 1.5rem
+    text-decoration: none
+    margin-right: 1rem
+    &:last-child
+      margin-right: 0
+  +has(nav-icon)
+    float: right
+    padding: 1.34375rem
+    background-color: #192226
