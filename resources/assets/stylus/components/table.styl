@@ -1,0 +1,37 @@
+.Table
+  box-shadow: $box_shadow_normal
+  position: relative
+  padding: 0
+  width: 100%
+  height: auto
+  border-collapse: collapse
+  text-align: center
+  +has(head)
+    color: #fff
+    +variant(primary)
+      background-color: #2196F3
+  +has(head-title)
+    display: inline-block
+    vertical-align: middle
+  +has(head-sort)
+    display: inline-block
+    margin-right: .5rem
+    font-size: 1.5rem
+    vertical-align: middle
+  +has(body)
+    background-color: #ff
+  +has(row)
+    text-align: left
+    +variant(body)
+      border-bottom: 1px solid #E0E0E0
+      &:last-child
+        border-bottom: none
+  +has(col)
+    text-align: left
+    padding: 1rem
+    +variant(body)
+      font-weight: 300
+    +variant(head)
+      font-weight: 400
+    +variant(right)
+      text-align: right

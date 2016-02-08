@@ -13,7 +13,7 @@ window.Vue = Vue;
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
-// Configurate Vue
+// Configure Vue
 Vue.config.debug = true;
 Vue.http.options.root = 'api/v1';
 
