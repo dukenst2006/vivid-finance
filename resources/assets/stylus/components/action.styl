@@ -1,0 +1,17 @@
+.Action
+  border-radius: 100%
+  display: inline-block
+  padding: 1.25rem
+  font-size: 1rem
+  position: relative
+  box-shadow : $box_shadow_normal
+  +variant(primary)
+    background-color: #2196F3
+    color: #fff
+  +has(icon)
+    position: absolute
+    &:before
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
