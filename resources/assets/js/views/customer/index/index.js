@@ -35,6 +35,7 @@ export default {
                         'slug' : 'telephone'
                     }
                 ],
+                notFound : 'No customers yet...',
                 action (customer) {
                     console.log(customer);
                 }
