@@ -2,7 +2,7 @@ import Pusher from 'pusher-js'
 
 import config from './config'
 import store from './store'
-const { getAllCustomers} = store.actions;
+const { getAllCustomers, getAllInvoices } = store.actions;
 
 export default {
     components: {
@@ -22,9 +22,13 @@ export default {
 
         this.pusherChannel.bind('VividFinance\\Events\\CustomerHasBeenCreated', data => {
             getAllCustomers();
-            console.log(data);
+        });
+
+        this.pusherChannel.bind('VividFinance\\Events\\InvoiceHasBeenCreated', data => {
+            getAllInvoices();
         });
 
         getAllCustomers();
+        getAllInvoices();
     }
 }

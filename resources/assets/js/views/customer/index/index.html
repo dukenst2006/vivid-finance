@@ -4,77 +4,15 @@
 			Customer Overview
 		</h1>
 	</div>
-	<ul class="Breadcrumb">
-		<li class="Breadcrumb__item">
-			<a class="Breadcrumb__link" href="#">
-				Home
-			</a>
-		</li>
-		<li class="Breadcrumb__item">
-			<a class="Breadcrumb__link" v-link="{name: 'customer.index'}">
-				Customers
-			</a>
-		</li>
-		<li class="Breadcrumb__item">
-			Customer Overview
-		</li>
-	</ul>
+	<v-breadcrumb
+		:items="breadcrumb"
+	></v-breadcrumb>
 	<div class="Page__content">
-		<table class="Table Table--primary">
-			<thead class="Table__head Table__head--primary">
-			<tr class="Table__row Table__row--head Table__row--primary">
-				<th class="Table__col Table__col--head Table__col--primary">
-					<span class="Table__head-title">Name</span>
-					<a class="Table__head-sort">
-						<i class="Table__head-sort-icon Icon Icon--menu-up"></i>
-					</a>
-				</th>
-				<th class="Table__col Table__col--head Table__col--primary">
-					<span class="Table__head-title">Customer number</span>
-					<a class="Table__head-sort">
-						<i class="Table__head-sort-icon Icon Icon--menu-up"></i>
-					</a>
-				</th>
-				<th class="Table__col Table__col--head Table__col--primary">
-					<span class="Table__head-title">Email address</span>
-					<a class="Table__head-sort">
-						<i class="Table__head-sort-icon Icon Icon--menu-up"></i>
-					</a>
-				</th>
-				<th class="Table__col Table__col--head Table__col--primary" colspan="2">
-					<span class="Table__head-title">Phone number</span>
-					<a class="Table__head-sort">
-						<i class="Table__head-sort-icon Icon Icon--menu-up"></i>
-					</a>
-				</th>
-			</tr>
-			</thead>
-			<tbody class="Table__body Table__body--primary">
-			<tr class="Table__row Table__row--body Table__row--primary" v-for="customer in customers">
-				<td class="Table__col Table__col--body Table__col--primary">
-					{{customer.name}}
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					{{customer.id}}
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					{{customer.email}}
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					{{customer.telephone}}
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary Table__col--right">
-					<a href="#" class="Action Action--primary">
-						<i class="Action__icon Icon Icon--dots-horizontal"></i>
-					</a>
-				</td>
-			</tr>
-			<tr class="Table__row Table__row--body Table__row--primary" v-if="customers.length === 0">
-				<td colspan="5" class="Table__col Table__col--body Table__col--primary">
-					No customers yet...
-				</td>
-			</tr>
-			</tbody>
-		</table>
+		<v-table
+			:columns="table.columns"
+			:items="customers"
+			:not-found="table.notFound"
+			:action="table.action"
+		></v-table>
 	</div>
 </div>

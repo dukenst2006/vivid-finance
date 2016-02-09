@@ -6,3 +6,9 @@ export const getAllCustomers = ({dispatch}) => {
         dispatch(types.RECEIVE_CUSTOMERS, res.data);
     });
 };
+
+export const getAllInvoices = ({dispatch}) => {
+    http.get('invoice', {}, res => {
+        dispatch(types.RECEIVE_INVOICES, res.data);
+    });
+};

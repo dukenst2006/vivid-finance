@@ -1,0 +1,12 @@
+<!-- Breadcrumb Begin -->
+<ul class="Breadcrumb">
+	<li class="Breadcrumb__item" v-for="item in items">
+		<a class="Breadcrumb__link" href="#" v-if="item.link" v-link="{name: item.link}">
+			{{item.title}}
+		</a>
+		<span v-else>
+			{{item.title}}
+		</span>
+	</li>
+</ul>
+<!-- Breadcrumb End -->
