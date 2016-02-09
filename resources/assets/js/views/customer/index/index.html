@@ -50,18 +50,18 @@
 			</tr>
 			</thead>
 			<tbody class="Table__body Table__body--primary">
-			<tr class="Table__row Table__row--body Table__row--primary">
+			<tr class="Table__row Table__row--body Table__row--primary" v-for="customer in customers">
 				<td class="Table__col Table__col--body Table__col--primary">
-					Vivid Websolutions
+					{{customer.name}}
 				</td>
 				<td class="Table__col Table__col--body Table__col--primary">
-					00124
+					{{customer.id}}
 				</td>
 				<td class="Table__col Table__col--body Table__col--primary">
-					info@vivid-websolutions.nl
+					{{customer.email}}
 				</td>
 				<td class="Table__col Table__col--body Table__col--primary">
-					06 - 534 821 83
+					{{customer.telephone}}
 				</td>
 				<td class="Table__col Table__col--body Table__col--primary Table__col--right">
 					<a href="#" class="Action Action--primary">
@@ -69,80 +69,9 @@
 					</a>
 				</td>
 			</tr>
-			<tr class="Table__row Table__row--body Table__row--primary">
-				<td class="Table__col Table__col--body Table__col--primary">
-					Vivid Websolutions
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					00124
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					info@vivid-websolutions.nl
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					06 - 534 821 83
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary Table__col--right">
-					<a href="#" class="Action Action--primary">
-						<i class="Action__icon Icon Icon--dots-horizontal"></i>
-					</a>
-				</td>
-			</tr>
-			<tr class="Table__row Table__row--body Table__row--primary">
-				<td class="Table__col Table__col--body Table__col--primary">
-					Vivid Websolutions
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					00124
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					info@vivid-websolutions.nl
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					06 - 534 821 83
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary Table__col--right">
-					<a href="#" class="Action Action--primary">
-						<i class="Action__icon Icon Icon--dots-horizontal"></i>
-					</a>
-				</td>
-			</tr>
-			<tr class="Table__row Table__row--body Table__row--primary">
-				<td class="Table__col Table__col--body Table__col--primary">
-					Vivid Websolutions
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					00124
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					info@vivid-websolutions.nl
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					06 - 534 821 83
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary Table__col--right">
-					<a href="#" class="Action Action--primary">
-						<i class="Action__icon Icon Icon--dots-horizontal"></i>
-					</a>
-				</td>
-			</tr>
-			<tr class="Table__row Table__row--body Table__row--primary">
-				<td class="Table__col Table__col--body Table__col--primary">
-					Vivid Websolutions
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					00124
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					info@vivid-websolutions.nl
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary">
-					06 - 534 821 83
-				</td>
-				<td class="Table__col Table__col--body Table__col--primary Table__col--right">
-					<a href="#" class="Action Action--primary">
-						<i class="Action__icon Icon Icon--dots-horizontal"></i>
-					</a>
+			<tr class="Table__row Table__row--body Table__row--primary" v-if="customers.length === 0">
+				<td colspan="5" class="Table__col Table__col--body Table__col--primary">
+					No customers yet...
 				</td>
 			</tr>
 			</tbody>

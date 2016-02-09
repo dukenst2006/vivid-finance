@@ -196,7 +196,7 @@ trait APITrait
     protected function respondWithPagination(LengthAwarePaginator $items, $data)
     {
         $data = array_merge($data, [
-            'paginator' => [
+            'pagination' => [
                 'total_count'  => $items->total(),
                 'total_pages'  => $items->lastPage(),
                 'current_page' => $items->currentPage(),
