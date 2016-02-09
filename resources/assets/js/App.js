@@ -1,10 +1,34 @@
+import Pusher from 'pusher-js'
+
+import config from './config'
+import store from './store'
+const { getAllCustomers, getAllInvoices } = store.actions;
+
 export default {
-    components : {
+    components: {
         'v-sidebar' (resolve) {
             require(['./components/Sidebar.vue'], resolve)
         },
         'v-header' (resolve) {
             require(['./components/Header.vue'], resolve)
         }
+    },
+    created () {
+        this.pusher = new Pusher(config.pusher_key, {
+            encrypted: true
+        });
+
+        this.pusherChannel = this.pusher.subscribe(config.pusher_channel);
+
+        this.pusherChannel.bind('VividFinance\\Events\\CustomerHasBeenCreated', data => {
+            getAllCustomers();
+        });
+
+        this.pusherChannel.bind('VividFinance\\Events\\InvoiceHasBeenCreated', data => {
+            getAllInvoices();
+        });
+
+        getAllCustomers();
+        getAllInvoices();
     }
 }

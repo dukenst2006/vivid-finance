@@ -2,6 +2,8 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
+import Vuex from 'vuex';
+
 import App from './App.vue';
 import routes from './routes/routes';
 
@@ -16,7 +18,6 @@ Vue.use(VueRouter);
 // Configure Vue
 Vue.config.debug = true;
 Vue.http.options.root = 'api/v1';
-
 app = Vue.extend(App);
 
 // Initialize the router

@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'VividFinance\Events\SomeEvent' => [
-            'VividFinance\Listeners\EventListener',
+        'VividFinance\Events\CustomerHasBeenCreated' => [
+            'VividFinance\Listeners\Email'
         ],
     ];
 

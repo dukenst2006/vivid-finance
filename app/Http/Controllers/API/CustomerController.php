@@ -4,6 +4,7 @@ namespace VividFinance\Http\Controllers\API;
 
 use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
+use VividFinance\Events\CustomerHasBeenCreated;
 use VividFinance\Http\Requests;
 use VividFinance\Http\Requests\API\CustomerStoreRequest;
 use VividFinance\Http\Requests\API\CustomerUpdateRequest;
@@ -61,6 +62,8 @@ class CustomerController extends Controller
     {
         $customer = new Customer($request->all());
         $customer->save();
+
+        event(new CustomerHasBeenCreated($customer));
 
         return $this->respondCreated('Customer created');
     }
