@@ -16,9 +16,9 @@ class CustomerHasBeenCreated extends Event implements ShouldBroadcast
     /**
      * Create a new event instance.
      *
-     * @param Customer $customer
+     * @param array $customer The transformed customer
      */
-    public function __construct(Customer $customer)
+    public function __construct(array $customer)
     {
         $this->customer = $customer;
     }

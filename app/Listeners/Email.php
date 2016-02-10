@@ -6,7 +6,7 @@ use VividFinance\Events\CustomerHasBeenCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EmailCustomer
+class Email
 {
     /**
      * Create the event listener.

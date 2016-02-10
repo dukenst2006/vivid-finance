@@ -1,10 +1,14 @@
 import http from './../services/http';
 import * as types from './mutation';
 
-export const getAllCustomers = ({dispatch}) => {
-    http.get('customer', {}, res => {
+export const getAllCustomers = ({dispatch}, page = 1) => {
+    http.get('customer?page=' + page, {}, res => {
         dispatch(types.RECEIVE_CUSTOMERS, res.data);
     });
+};
+
+export const addCustomer = ({dispatch}, customer) => {
+    dispatch(types.ADD_CUSTOMER, customer);
 };
 
 export const getAllInvoices = ({dispatch}) => {

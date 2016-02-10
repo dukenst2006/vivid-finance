@@ -1,0 +1,32 @@
+<!-- Begin Pagination -->
+<ul class="Pagination">
+	<li class="Pagination__item">
+		<a class="Pagination__link" @click.prevent="firstPage">
+			<i class="Icon Icon--chevron-double-left"></i>
+		</a>
+	</li><!--
+	--><li class="Pagination__item">
+		<a class="Pagination__link" @click.prevent="previousPage">
+			<i class="Icon Icon--chevron-left"></i>
+		</a>
+	</li><!--
+	--><li class="Pagination__item" v-for="page in pagination.total_pages">
+		<a @click.prevent="toPage(page+1)"
+		   class="Pagination__link Pagination__link--active"
+		   :class="{ 'Pagination__link--active' : (page + 1) === pagination.current_page }"
+		>
+			{{ page + 1 }}
+		</a>
+	</li><!--
+	--><li class="Pagination__item">
+		<a class="Pagination__link" @click.prevent="nextPage">
+			<i class="Icon Icon--chevron-right"></i>
+		</a>
+	</li><!--
+	--><li class="Pagination__item">
+		<a class="Pagination__link" @click.prevent="lastPage">
+			<i class="Icon Icon--chevron-double-right"></i>
+		</a>
+	</li>
+</ul>
+<!-- End Pagination -->

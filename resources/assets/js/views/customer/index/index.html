@@ -3,16 +3,20 @@
 		<h1 class="Page__title">
 			Customer Overview
 		</h1>
+		<v-breadcrumb
+				:items="breadcrumb"
+		></v-breadcrumb>
 	</div>
-	<v-breadcrumb
-		:items="breadcrumb"
-	></v-breadcrumb>
 	<div class="Page__content">
 		<v-table
-			:columns="table.columns"
-			:items="customers"
-			:not-found="table.notFound"
-			:action="table.action"
+				:columns="table.columns"
+				:items="customers"
+				:not-found="table.notFound"
+				:action="table.action"
 		></v-table>
+		<v-pagination
+			:pagination="pagination"
+			:fn="vPagination.fn"
+		></v-pagination>
 	</div>
 </div>
