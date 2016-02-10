@@ -63,7 +63,7 @@ class CustomerController extends Controller
         $customer = new Customer($request->all());
         $customer->save();
 
-        event(new CustomerHasBeenCreated($customer));
+        event(new CustomerHasBeenCreated($this->customerTransformer->transform($customer)));
 
         return $this->respondCreated('Customer created');
     }

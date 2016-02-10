@@ -1,4 +1,5 @@
 import store from '../../../store'
+const { getAllCustomers } = store.actions;
 
 export default {
     data () {
@@ -19,26 +20,29 @@ export default {
             table: {
                 columns: [
                     {
-                        'title' : 'Name',
-                        'slug' : 'name'
+                        'title': 'Name',
+                        'slug': 'name'
                     },
                     {
-                        'title' : 'Customer number',
-                        'slug' : 'id'
+                        'title': 'Customer number',
+                        'slug': 'id'
                     },
                     {
-                        'title' : 'Email address',
-                        'slug' : 'email'
+                        'title': 'Email address',
+                        'slug': 'email'
                     },
                     {
-                        'title' : 'Phone number',
-                        'slug' : 'telephone'
+                        'title': 'Phone number',
+                        'slug': 'telephone'
                     }
                 ],
-                notFound : 'No customers yet...',
+                notFound: 'No customers yet...',
                 action (customer) {
                     console.log(customer);
                 }
+            },
+            vPagination : {
+                fn : getAllCustomers
             }
         }
     },
@@ -56,6 +60,9 @@ export default {
         },
         'v-table' (resolve) {
             require(['./../../../components/Table.vue'], resolve)
+        },
+        'v-pagination' (resolve) {
+            require(['./../../../components/Pagination.vue'], resolve)
         }
     }
 };
