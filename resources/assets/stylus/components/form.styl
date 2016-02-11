@@ -1,0 +1,25 @@
+.Form
+  +has(group)
+    display: block
+    margin-bottom: 1rem
+    &:last-child
+      margin-bottom: 0
+  +has(control)
+    box-shadow: $box_shadow_normal
+    display: block
+    background-color: #fff
+    padding: .844rem
+    font-weight: 300
+    font-size: 1rem
+    line-height: 3rem
+    height: 3rem
+    border: none
+    width: 100%
+    &:focus
+      outline: none
+  +has(label)
+    display: block
+    color: #333
+    +variant(inline)
+      text-align: right
+      margin-right: 1rem
