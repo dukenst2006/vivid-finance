@@ -1,1 +1,81 @@
-Index Invoice View...
+<div class="Page">
+	<div class="Grid">
+		<div class="Page__header">
+			<div class="Row">
+				<div class="Col Col--md">
+					<h1 class="Page__title">
+						Invoice Overview
+					</h1>
+				</div>
+			</div>
+			<div class="Row">
+				<div class="Col Col--md">
+					<v-breadcrumb
+							:items="breadcrumb"
+					></v-breadcrumb>
+				</div>
+			</div>
+		</div>
+		<div class="Page__content">
+			<div class="Row Row--md-center">
+				<div class="Col Col--md-4">
+					<form class="Form">
+						<div class="Form__group">
+							<div class="InputGroup InputGroup--search">
+								<label class="InputGroup__addon" for="search">
+									<i class="Icon Icon--magnify"></i>
+								</label>
+								<input type="text" class="Form__control InputGroup__control" placeholder="Search..."
+									   id="search">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="Col Col--md-2 Col--md-offset-6">
+					<a v-link="{ name: 'invoice.add' }" class="Button Button--primary Button--block">
+						<div class="IconGroup">
+							<div class="IconGroup__description">
+								Create an invoice
+							</div>
+							<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--plus-circle"></i>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="Row">
+				<div class="Col Col--md">
+					<v-table
+							:columns="table.columns"
+							:items="invoices"
+							:not-found="table.notFound"
+							:action="table.action"
+					></v-table>
+				</div>
+			</div>
+			<div class="Row">
+				<div class="Col Col--md">
+					<v-pagination
+							:pagination="pagination"
+							:fn="vPagination.fn"
+					></v-pagination>
+				</div>
+				<div class="Col Col--md-2">
+					<form class="From">
+						<div class="Form__group">
+							<div class="InputGroup InputGroup--search">
+								<label class="InputGroup__addon" for="results_on_page_2">
+									<i class="Icon Icon--view-module"></i>
+								</label>
+								<select class="Form__control InputGroup__control" id="results_on_page_2">
+									<option>5</option>
+									<option>10</option>
+									<option>15</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
