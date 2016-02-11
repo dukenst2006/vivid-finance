@@ -1,4 +1,4 @@
-import {RECEIVE_INVOICES} from './../mutation';
+import {RECEIVE_INVOICES} from './../mutation-types';
 
 export const invoicesInitialState = {
     data: [],

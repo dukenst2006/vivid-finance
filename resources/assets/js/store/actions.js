@@ -1,5 +1,5 @@
 import http from './../services/http';
-import * as types from './mutation';
+import * as types from './mutation-types';
 
 export const getAllCustomers = ({dispatch}, page = 1) => {
     http.get('customer?page=' + page, {}, res => {

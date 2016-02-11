@@ -1,4 +1,4 @@
-import {RECEIVE_CUSTOMERS, ADD_CUSTOMER} from './../mutation';
+import {RECEIVE_CUSTOMERS, ADD_CUSTOMER} from './../mutation-types';
 
 export const customersInitialState = {
     data: [],
@@ -18,7 +18,6 @@ export const customersMutations = {
 
     [ADD_CUSTOMER] (state, data) {
         state.customers.pagination.total_count += 1;
-
 
         // Check to add another page if a new customer is added
         if (state.customers.pagination.total_count % state.customers.pagination.limit === 1) {
