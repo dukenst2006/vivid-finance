@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use VividFinance\Traits\APITrait;
 
 class Handler extends ExceptionHandler
@@ -54,7 +56,11 @@ class Handler extends ExceptionHandler
             return $this->respondNotFound();
         }
 
-        if ($e instanceof HttpException) {
+        if($e instanceof NotFoundHttpException) {
+            return $this->respondNotFound();
+        }
+
+        if ($e instanceof MethodNotAllowedHttpException) {
             return $this->respondNotAllowed();
         }
 

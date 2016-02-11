@@ -47,6 +47,6 @@ class Kernel extends HttpKernel
         'auth' => \VividFinance\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \VividFinance\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'throttle' => \VividFinance\Http\Middleware\ThrottleRequests::class,
     ];
 }
