@@ -41,8 +41,8 @@ export default {
                     console.log(customer);
                 }
             },
-            vPagination : {
-                fn : getAllCustomers
+            vPagination: {
+                fn: getAllCustomers
             }
         }
     },

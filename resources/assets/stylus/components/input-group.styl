@@ -1,19 +1,22 @@
 .InputGroup
   box-shadow: $box_shadow_normal
-  display: block
+  position: relative
+  display: table
+  border-collapse: separate
+  width: 100%
   +has(addon)
-    display: inline-block
+    width: 1%
+    white-space: nowrap
+    display: table-cell
     padding: 1rem
     vertical-align: middle
     background-color: #333
     color: #fff
     text-align: center
-    margin-right: -4px
     font-size: 1rem
     line-height: 1rem
     height: 3rem
   +has(control)
     box-shadow: none
-    display: inline-block
+    display: table-cell
     vertical-align: middle
-    width: calc(100% - 3rem)
