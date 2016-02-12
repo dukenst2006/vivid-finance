@@ -7,6 +7,10 @@ export const getAllCustomers = ({dispatch}, page = 1, limit = 5) => {
     });
 };
 
+export const setLimit = ({dispatch}, limit) => {
+    dispatch(types.SET_LIMIT, limit);
+};
+
 export const addCustomer = ({dispatch}, customer) => {
     dispatch(types.ADD_CUSTOMER, customer);
 };

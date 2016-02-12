@@ -14,7 +14,10 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'VividFinance\Events\CustomerHasBeenCreated' => [
-            'VividFinance\Listeners\Email'
+        ],
+        'VividFinance\Events\InvoiceHasBeenCreated' => [
+            'VividFinance\Listeners\Email@sendInvoiceToAdmin',
+            'VividFinance\Listeners\Email@sendInvoiceToCustomer'
         ],
     ];
 

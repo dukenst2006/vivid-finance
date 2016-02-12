@@ -6,7 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Invoice
+ *
  * @package VividFinance
+ * @property-read \VividFinance\Customer $customers
+ * @property-read \VividFinance\User $user
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice notPayed()
+ * @property integer $id
+ * @property integer $customer_id
+ * @property string $title
+ * @property string $state
+ * @property string $file
+ * @property string $file_path
+ * @property string $file_name
+ * @property string $file_extension
+ * @property \Carbon\Carbon $expiration_date
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class Invoice extends Model
 {

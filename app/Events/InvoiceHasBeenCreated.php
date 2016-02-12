@@ -5,20 +5,20 @@ namespace VividFinance\Events;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class CustomerHasBeenCreated extends Event implements ShouldBroadcast
+class InvoiceHasBeenCreated extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
-    public $customer;
+    public $invoice;
 
     /**
      * Create a new event instance.
      *
-     * @param array $customer The transformed customer
+     * @param array $invoice The transformed invoice
      */
-    public function __construct(array $customer)
+    public function __construct(array $invoice)
     {
-        $this->customer = $customer;
+        $this->invoice = $invoice;
     }
 
     /**

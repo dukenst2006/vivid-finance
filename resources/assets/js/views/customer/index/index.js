@@ -4,6 +4,7 @@ const { getAllCustomers } = store.actions;
 export default {
     data () {
         return {
+            numberOfItems: 5,
             breadcrumb: [
                 {
                     title: 'Home',
@@ -43,6 +44,16 @@ export default {
             },
             vPagination: {
                 fn: getAllCustomers
+            }
+        }
+    },
+    watch: {
+        numberOfItems (oldValue, newValue) {
+            oldValue = parseInt(oldValue);
+            newValue = parseInt(newValue);
+
+            if (oldValue !== newValue) {
+                console.log(oldValue, newValue);
             }
         }
     },
