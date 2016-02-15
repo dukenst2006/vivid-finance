@@ -2,11 +2,8 @@
 
 namespace VividFinance\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use View;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {

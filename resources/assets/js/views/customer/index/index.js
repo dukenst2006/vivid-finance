@@ -1,10 +1,9 @@
 import store from '../../../store'
-const { getAllCustomers } = store.actions;
+const { getAllCustomers, setCustomerLimit } = store.actions;
 
 export default {
     data () {
         return {
-            numberOfItems: 5,
             breadcrumb: [
                 {
                     title: 'Home',
@@ -48,13 +47,15 @@ export default {
         }
     },
     watch: {
-        numberOfItems (oldValue, newValue) {
-            oldValue = parseInt(oldValue);
-            newValue = parseInt(newValue);
-
-            if (oldValue !== newValue) {
-                console.log(oldValue, newValue);
-            }
+        pagination (newValue, oldValue) {
+            console.log(oldValue, newValue);
+            //oldValue = parseInt(oldValue);
+            //newValue = parseInt(newValue);
+            //
+            //if (oldValue !== newValue) {
+            //    setCustomerLimit(newValue);
+            //    getAllCustomers();
+            //}
         }
     },
     computed: {

@@ -26,6 +26,6 @@ elixir(function (mix) {
         .phpUnit()
         .phpSpec()
         .browserSync({
-            proxy: config.proxy
+            proxy: config.browserSync.proxy
         });
 });

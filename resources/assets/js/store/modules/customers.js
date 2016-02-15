@@ -1,4 +1,6 @@
-import {RECEIVE_CUSTOMERS, ADD_CUSTOMER} from './../mutation-types';
+import http from './../../services/http'
+
+import {RECEIVE_CUSTOMERS, ADD_CUSTOMER, SET_CUSTOMER_LIMIT} from './../mutation-types';
 
 export const customersInitialState = {
     data: [],
@@ -11,9 +13,11 @@ export const customersInitialState = {
 };
 
 export const customersMutations = {
-    [RECEIVE_CUSTOMERS] (state, data) {
-        state.customers.data = data.data;
-        state.customers.pagination = data.pagination;
+    [RECEIVE_CUSTOMERS] (state, page) {
+        http.get('customer?page=' + page + '&limit=' + state.customers.pagination.limit, {}, res => {
+            state.customers.data = res.data.data;
+            state.customers.pagination = res.data.pagination;
+        });
     },
 
     [ADD_CUSTOMER] (state, data) {
@@ -28,5 +32,9 @@ export const customersMutations = {
         if (state.customers.pagination.current_page === state.customers.pagination.total_pages) {
             state.customers.data.push(data.customer);
         }
+    },
+
+    [SET_CUSTOMER_LIMIT] (state, limit) {
+        state.customers.pagination.limit = limit;
     }
 };
