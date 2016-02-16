@@ -64,8 +64,16 @@ class InvoiceController extends Controller
     {
         $customer = Customer::findOrFail($request->customer_id);
 
+        // Retrieving the file
+        $file = $request->file('file');
+
+        // Creating the invoice
         $invoice = new Invoice($request->all());
+        $invoice->file = $request->title . '.' . $file->getClientOriginalExtension();
         $customer->addInvoice($invoice);
+
+        // Moving the invoice
+        $file->move($invoice->getFilePath(), $invoice->file);
 
         event(new InvoiceHasBeenCreated($this->invoiceTransformer->transform($invoice)));
 

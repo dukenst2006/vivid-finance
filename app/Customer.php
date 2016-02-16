@@ -5,10 +5,8 @@ namespace VividFinance;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Company
+ * VividFinance\Customer
  *
- * @package VividFinance
- * @property-read \Illuminate\Database\Eloquent\Collection|\VividFinance\Invoice[] $invoices
  * @property integer $id
  * @property string $name
  * @property string $telephone
@@ -19,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $building_number
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\VividFinance\Invoice[] $invoices
  */
 class Customer extends Model
 {
@@ -59,7 +58,7 @@ class Customer extends Model
      *
      * @param Invoice $invoice The given invoice
      *
-     * @return Model
+     * @return Model The invoice
      */
     public function addInvoice(Invoice $invoice)
     {

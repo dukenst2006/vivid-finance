@@ -5,23 +5,19 @@ namespace VividFinance;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Invoice
+ * VividFinance\Invoice
  *
- * @package VividFinance
- * @property-read \VividFinance\Customer $customers
- * @property-read \VividFinance\User $user
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice notPayed()
  * @property integer $id
  * @property integer $customer_id
  * @property string $title
  * @property string $state
  * @property string $file
- * @property string $file_path
- * @property string $file_name
- * @property string $file_extension
  * @property \Carbon\Carbon $expiration_date
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \VividFinance\Customer $customers
+ * @property-read \VividFinance\User $user
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice notPayed()
  */
 class Invoice extends Model
 {
@@ -40,10 +36,6 @@ class Invoice extends Model
     protected $fillable = [
         'title',
         'state',
-        'file',
-        'file_path',
-        'file_name',
-        'file_extension',
         'expiration_date'
     ];
 
@@ -88,5 +80,15 @@ class Invoice extends Model
         return $query
             ->where('state', 'open')
             ->where('expiration_date', '<=', date('Y-m-d', strtotime('+1 week')));
+    }
+
+    /**
+     * Method used to retrieve the path for the invoice
+     *
+     * @return string The file path
+     */
+    public function getFilePath()
+    {
+        return storage_path() . '/customers/' . $this->customer_id . '/invoices';
     }
 }

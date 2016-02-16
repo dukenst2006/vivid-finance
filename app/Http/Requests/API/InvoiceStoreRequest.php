@@ -24,7 +24,8 @@ class InvoiceStoreRequest extends Request
     {
         return [
             'title'           => [
-                'required'
+                'required',
+                'unique:invoices,title,NULL,customer_id'
             ],
             'state'           => [
                 'required',
@@ -34,9 +35,14 @@ class InvoiceStoreRequest extends Request
                 'required',
                 'date'
             ],
-            'customer_id' => [
+            'customer_id'     => [
                 'required',
                 'integer'
+            ],
+            'file'            => [
+                'required',
+                'max:5120',
+                'mimes:application/pdf,pdf'
             ]
         ];
     }

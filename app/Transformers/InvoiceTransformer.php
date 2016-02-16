@@ -23,9 +23,6 @@ class InvoiceTransformer extends Transformer
             'title'           => $invoice->title,
             'state'           => $invoice->state,
             'file'            => $invoice->file,
-            'file_path'       => $invoice->file_path,
-            'file_name'       => $invoice->file_name,
-            'file_extension'  => $invoice->file_extension,
             'expiration_date' => $invoice->expiration_date->toDateString(),
             'creation_date'   => $invoice->created_at->toDateString()
         ];

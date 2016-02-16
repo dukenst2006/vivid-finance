@@ -47,16 +47,7 @@ export default {
         }
     },
     watch: {
-        pagination (newValue, oldValue) {
-            console.log(oldValue, newValue);
-            //oldValue = parseInt(oldValue);
-            //newValue = parseInt(newValue);
-            //
-            //if (oldValue !== newValue) {
-            //    setCustomerLimit(newValue);
-            //    getAllCustomers();
-            //}
-        }
+
     },
     computed: {
         customers () {

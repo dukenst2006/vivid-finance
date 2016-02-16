@@ -52,23 +52,39 @@ class Controller extends BaseController
      */
     public function setPagination($pagination)
     {
-        $tempPagination = $this->pagination;
-        if ($pagination > $this->maxLimit) {
-            $tempPagination = $this->maxLimit;
-        }
+        $this->pagination = (int)$this->checkPagination($pagination);
+    }
 
-        if ($pagination < $this->minLimit) {
-            $tempPagination = $this->minLimit;
-        }
-
-        if ( ! ($pagination > $this->maxLimit) && ! ($pagination < $this->minLimit)) {
-            $tempPagination = $pagination;
-        }
-
+    /**
+     * Checks the pagination
+     *
+     * @param * $pagination The pagination
+     *
+     * @return int The corrected pagination
+     */
+    private function checkPagination($pagination)
+    {
+        // Pagination should be numeric
         if ( ! is_numeric($pagination)) {
-            $tempPagination = $this->pagination;
+            return $this->pagination;
         }
 
-        $this->pagination = (int)$tempPagination;
+        // Pagination should not be less than the minimum limitation
+        if ($pagination < $this->minLimit) {
+            return $this->minLimit;
+        }
+
+        // Pagination should not be greater than the maximum limitation
+        if ($pagination > $this->maxLimit) {
+            return $this->maxLimit;
+        }
+
+        // If the pagination is between the min limit and the max limit, return the pagination
+        if ( ! ($pagination > $this->maxLimit) && ! ($pagination < $this->minLimit)) {
+            return $pagination;
+        }
+
+        // If all fails, return the default pagination
+        return $this->pagination;
     }
 }
