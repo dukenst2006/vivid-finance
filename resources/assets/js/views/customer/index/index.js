@@ -1,5 +1,5 @@
 import store from '../../../store'
-const { getAllCustomers } = store.actions;
+const { getAllCustomers, setCustomerLimit } = store.actions;
 
 export default {
     data () {
@@ -45,6 +45,9 @@ export default {
                 fn: getAllCustomers
             }
         }
+    },
+    watch: {
+
     },
     computed: {
         customers () {

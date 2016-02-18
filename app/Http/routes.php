@@ -10,9 +10,6 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
-
-
 Route::group(
     [
         'middleware' => ['api'],
@@ -44,8 +41,12 @@ Route::group(
     }
 );
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-        return view('home');
-    });
-});
+Route::group(
+    [
+        'middleware' => ['web'],
+        'as'         => 'web::'
+    ],
+    function () {
+        Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
+    }
+);

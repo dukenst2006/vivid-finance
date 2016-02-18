@@ -2,8 +2,9 @@
 
 namespace VividFinance\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use VividFinance\Customer;
+use VividFinance\Events\InvoiceHasBeenCreated;
 use VividFinance\Http\Requests;
 use VividFinance\Http\Requests\API\InvoiceStoreRequest;
 use VividFinance\Http\Requests\API\InvoiceUpdateRequest;
@@ -61,9 +62,20 @@ class InvoiceController extends Controller
      */
     public function store(InvoiceStoreRequest $request)
     {
-        $invoice = new Invoice($request->all());
-        $invoice->company_id = $request->get('company_id');
-        $invoice->save();
+        $customer = Customer::findOrFail($request->customer_id);
+
+        // Retrieving the file
+        $file = $request->file('file');
+
+        // Creating the invoice
+        $invoice       = new Invoice($request->all());
+        $invoice->file = $request->title . '.' . $file->getClientOriginalExtension();
+        $customer->addInvoice($invoice);
+
+        // Moving the invoice
+        $file->move($invoice->getFilePath(), $invoice->file);
+
+        event(new InvoiceHasBeenCreated($this->invoiceTransformer->transform($invoice)));
 
         return $this->respondCreated('Invoice created');
     }

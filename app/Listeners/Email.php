@@ -2,9 +2,7 @@
 
 namespace VividFinance\Listeners;
 
-use VividFinance\Events\CustomerHasBeenCreated;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use VividFinance\Events\InvoiceHasBeenCreated;
 
 class Email
 {
@@ -19,12 +17,21 @@ class Email
     }
 
     /**
-     * Handle the event.
+     * Handle the event
      *
-     * @param  CustomerHasBeenCreated  $event
-     * @return void
+     * @param InvoiceHasBeenCreated $event
      */
-    public function handle(CustomerHasBeenCreated $event)
+    public function sendInvoiceToAdmin(InvoiceHasBeenCreated $event)
+    {
+        //
+    }
+
+    /**
+     * Handle the event
+     *
+     * @param InvoiceHasBeenCreated $event
+     */
+    public function sendInvoiceToCustomer(InvoiceHasBeenCreated $event)
     {
         //
     }

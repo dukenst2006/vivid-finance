@@ -5,8 +5,19 @@ namespace VividFinance;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Company
- * @package VividFinance
+ * VividFinance\Customer
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $telephone
+ * @property string $email
+ * @property string $country
+ * @property string $city
+ * @property string $postcode
+ * @property string $building_number
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\VividFinance\Invoice[] $invoices
  */
 class Customer extends Model
 {
@@ -31,6 +42,18 @@ class Customer extends Model
         'postcode',
         'building_number'
     ];
+
+    /**
+     * Method used to add an invoice to the company
+     *
+     * @param Invoice $invoice The given invoice
+     *
+     * @return Model The invoice
+     */
+    public function addInvoice(Invoice $invoice)
+    {
+        return $this->invoices()->save($invoice);
+    }
 
     /**
      * An company has one or many invoices

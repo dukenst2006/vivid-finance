@@ -44,9 +44,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \VividFinance\Http\Middleware\Authenticate::class,
+        'auth'       => \VividFinance\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \VividFinance\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \VividFinance\Http\Middleware\ThrottleRequests::class,
+        'guest'      => \VividFinance\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'   => \VividFinance\Http\Middleware\ThrottleRequests::class,
     ];
 }

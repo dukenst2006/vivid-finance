@@ -7,8 +7,20 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * Class User
- * @package VividFinance
+ * VividFinance\User
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property \Carbon\Carbon $birthday
+ * @property string $telephone
+ * @property string $mobile_phone
+ * @property string $sex
+ * @property string $bio
+ * @property string $remember_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class User extends Authenticatable
 {

@@ -66,8 +66,12 @@
 								<label class="InputGroup__addon" for="results_on_page_2">
 									Number of items displayed
 								</label>
-								<select class="Form__control InputGroup__control" id="results_on_page_2">
-									<option>5</option>
+								<select
+										class="Form__control InputGroup__control"
+										id="results_on_page_2"
+										v-model="pagination.limit"
+								>
+									<option selected>5</option>
 									<option>10</option>
 									<option>15</option>
 								</select>
