@@ -2,8 +2,8 @@
 
 namespace VividFinance\Http\Controllers\Auth;
 
-use VividFinance\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use VividFinance\Http\Controllers\Controller;
 
 class PasswordController extends Controller
 {

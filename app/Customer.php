@@ -44,16 +44,6 @@ class Customer extends Model
     ];
 
     /**
-     * An company has one or many invoices
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany The invoice collection
-     */
-    public function invoices()
-    {
-        return $this->hasMany(Invoice::class);
-    }
-
-    /**
      * Method used to add an invoice to the company
      *
      * @param Invoice $invoice The given invoice
@@ -63,5 +53,15 @@ class Customer extends Model
     public function addInvoice(Invoice $invoice)
     {
         return $this->invoices()->save($invoice);
+    }
+
+    /**
+     * An company has one or many invoices
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany The invoice collection
+     */
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
     }
 }

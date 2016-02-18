@@ -15,7 +15,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'VividFinance\Events\CustomerHasBeenCreated' => [
         ],
-        'VividFinance\Events\InvoiceHasBeenCreated' => [
+        'VividFinance\Events\InvoiceHasBeenCreated'  => [
             'VividFinance\Listeners\Email@sendInvoiceToAdmin',
             'VividFinance\Listeners\Email@sendInvoiceToCustomer'
         ],
@@ -24,7 +24,8 @@ class EventServiceProvider extends ServiceProvider
     /**
      * Register any other events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Illuminate\Contracts\Events\Dispatcher $events
+     *
      * @return void
      */
     public function boot(DispatcherContract $events)

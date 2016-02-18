@@ -68,7 +68,7 @@ class InvoiceController extends Controller
         $file = $request->file('file');
 
         // Creating the invoice
-        $invoice = new Invoice($request->all());
+        $invoice       = new Invoice($request->all());
         $invoice->file = $request->title . '.' . $file->getClientOriginalExtension();
         $customer->addInvoice($invoice);
 

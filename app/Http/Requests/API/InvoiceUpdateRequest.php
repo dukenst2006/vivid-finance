@@ -33,7 +33,7 @@ class InvoiceUpdateRequest extends Request
                 'required',
                 'date'
             ],
-            'customer_id' => [
+            'customer_id'     => [
                 'required',
                 'integer'
             ]

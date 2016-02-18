@@ -9,7 +9,8 @@ use VividFinance\Traits\APITrait;
  * Class Request
  * @package VividFinance\Http\Requests\API
  */
-class Request extends FormRequest {
+class Request extends FormRequest
+{
     use APITrait;
 
     /**
@@ -25,7 +26,7 @@ class Request extends FormRequest {
     /**
      * Get the proper failed validation response for the request.
      *
-     * @param  array  $errors
+     * @param  array $errors
      *
      * @return \Illuminate\Http\JsonResponse The JSON-response
      */

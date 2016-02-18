@@ -2,8 +2,8 @@
 
 namespace VividFinance\Events;
 
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Queue\SerializesModels;
 
 class InvoiceHasBeenCreated extends Event implements ShouldBroadcast
 {
