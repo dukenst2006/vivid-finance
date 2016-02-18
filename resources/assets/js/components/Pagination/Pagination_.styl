@@ -1,0 +1,37 @@
+// Imports
+@import "./../../../stylus/settings/variables.styl"
+@import "./../../../stylus/mixins/bem.styl"
+@import "./../../../stylus/mixins/transition.styl"
+@import "./../../../stylus/functions/opacity.styl"
+
+.Pagination
+  box-shadow: $box_shadow_normal
+  display: inline-block
+  padding: 0
+  margin: 0
+  list-style: none
+  +has(item)
+    display: inline-block
+    &:last-child
+      margin-right: 0
+  +has(link)
+    transition(100ms)
+    cursor: pointer
+    display: inline-block
+    vertical-align: middle
+    color: $black
+    background-color: $white
+    width: 3rem
+    height: 3rem
+    font-size: 1rem
+    line-height: 3rem
+    text-align: center
+    text-decoration: none
+    &:hover
+      transition(100ms)
+      color: $white
+      background-color: $primary
+
+    +variant(active)
+      background-color: $black
+      color: $white
