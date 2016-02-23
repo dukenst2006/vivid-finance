@@ -1,5 +1,6 @@
 // Customers
 export const RECEIVE_CUSTOMERS = 'RECEIVE_CUSTOMERS';
+export const STORE_CUSTOMER = 'STORE_CUSTOMER';
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';
 export const SET_CUSTOMER_LIMIT = 'SET_CUSTOMER_LIMIT';
 

@@ -1,6 +1,6 @@
 import http from './../../services/http'
 
-import {RECEIVE_CUSTOMERS, ADD_CUSTOMER, SET_CUSTOMER_LIMIT} from './../mutation-types';
+import {RECEIVE_CUSTOMERS, ADD_CUSTOMER, STORE_CUSTOMER, SET_CUSTOMER_LIMIT} from './../mutation-types';
 
 export const customersInitialState = {
     data: [],
@@ -32,6 +32,23 @@ export const customersMutations = {
         if (state.customers.pagination.current_page === state.customers.pagination.total_pages) {
             state.customers.data.push(data.customer);
         }
+    },
+
+    [STORE_CUSTOMER] (state, customer, callback) {
+        http.post('customer', {
+            name: customer.name,
+            address: customer.address,
+            building_number : customer.buildingNumber,
+            postcode: customer.postcode,
+            city: customer.city,
+            country: customer.country,
+            email: customer.email,
+            telephone: customer.telephone
+        }, () => {
+            callback();
+        }, () => {
+            console.log('ERROR');
+        });
     },
 
     [SET_CUSTOMER_LIMIT] (state, limit) {

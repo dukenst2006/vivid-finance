@@ -9,6 +9,10 @@ export const setCustomerLimit = ({dispatch}, limit) => {
     dispatch(types.SET_CUSTOMER_LIMIT, limit);
 };
 
+export const storeCustomer = ({dispatch}, customer, callback) => {
+    dispatch(types.STORE_CUSTOMER, customer, callback);
+};
+
 export const addCustomer = ({dispatch}, customer) => {
     dispatch(types.ADD_CUSTOMER, customer);
 };

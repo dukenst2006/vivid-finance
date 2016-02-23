@@ -4,6 +4,9 @@
     margin-bottom: 1rem
     &:last-child
       margin-bottom: 0
+    +variant(inline)
+      display: inline-block
+
   +has(control)
     box-shadow: $box_shadow_normal
     display: block
@@ -17,6 +20,11 @@
     width: 100%
     &:focus
       outline: none
+    +variant(minimal)
+      box-shadow: none
+      border-bottom: 2px solid $primary
+      padding: 0
+
   +has(label)
     display: block
     color: #333
