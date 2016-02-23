@@ -1,5 +1,12 @@
+// Imports
+@import "./../../../stylus/settings/variables.styl"
+@import "./../../../stylus/mixins/bem.styl"
+@import "./../../../stylus/mixins/transition.styl"
+@import "./../../../stylus/functions/opacity.styl"
+
 .Menu
   color: #fff
+
   +has(item)
     transition(100ms)
     color: #fff
@@ -13,6 +20,7 @@
       background-color: #222d33
     +variant(active)
       border-left-color: #2196f3
+
   +has(header)
     background-color: #222d33
     color: #fff

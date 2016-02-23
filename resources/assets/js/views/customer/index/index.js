@@ -46,9 +46,6 @@ export default {
             }
         }
     },
-    watch: {
-
-    },
     computed: {
         customers () {
             return store.state.customers.data

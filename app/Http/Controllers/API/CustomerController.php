@@ -95,7 +95,7 @@ class CustomerController extends Controller
         $customer->fill($request->all());
         $customer->save();
 
-        return $this->respondWithSucces('The customer has been updated');
+        return $this->respondWithSuccess('The customer has been updated');
     }
 
     /**
@@ -107,8 +107,8 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        $customer->delete();
+//        $customer->delete();
 
-        return $this->respondWithSucces('The customer has been deleted');
+        return $this->respondWithSuccess('The customer has been deleted');
     }
 }

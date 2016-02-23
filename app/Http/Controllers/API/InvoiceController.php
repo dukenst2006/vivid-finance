@@ -107,7 +107,7 @@ class InvoiceController extends Controller
         $invoice->fill($request->all());
         $invoice->save();
 
-        return $this->respondWithSucces('The invoice has been updated');
+        return $this->respondWithSuccess('The invoice has been updated');
     }
 
     /**
@@ -121,6 +121,6 @@ class InvoiceController extends Controller
     {
         $invoice->delete();
 
-        return $this->respondWithSucces('The invoice has been deleted');
+        return $this->respondWithSuccess('The invoice has been deleted');
     }
 }

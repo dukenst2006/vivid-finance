@@ -2,44 +2,29 @@
 
 namespace VividFinance\Http\Middleware;
 
-use Closure;
+use Illuminate\Routing\Middleware\ThrottleRequests as BaseThrottleRequests;
 use VividFinance\Traits\APITrait;
 
-class ThrottleRequests extends \Illuminate\Routing\Middleware\ThrottleRequests
+class ThrottleRequests extends BaseThrottleRequests
 {
     use APITrait;
 
     /**
-     * Handle an incoming request.
+     * Create a 'too many attempts' response.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param  string $key
      * @param  int $maxAttempts
-     * @param  int $decayMinutes
      *
-     * @return mixed
+     * @return \Illuminate\Http\Response
      */
-    public function handle($request, Closure $next, $maxAttempts = 60, $decayMinutes = 1)
+    protected function buildResponse($key, $maxAttempts)
     {
-        $key = $this->resolveRequestSignature($request);
+        $response = $this->respondTooManyRequests('Too many requests');
 
-        if ($this->limiter->tooManyAttempts($key, $maxAttempts, $decayMinutes)) {
-            return $this->respondTooManyRequests('Too many requests', [
-                'Retry-After'           => $this->limiter->availableIn($key),
-                'X-RateLimit-Limit'     => $maxAttempts,
-                'X-RateLimit-Remaining' => 0,
-            ]);
-        }
-
-        $this->limiter->hit($key, $decayMinutes);
-
-        $response = $next($request);
-
-        $response->headers->add([
-            'X-RateLimit-Limit'     => $maxAttempts,
-            'X-RateLimit-Remaining' => $maxAttempts - $this->limiter->attempts($key) + 1,
-        ]);
-
-        return $response;
+        return $this->addHeaders(
+            $response, $maxAttempts,
+            $this->calculateRemainingAttempts($key, $maxAttempts),
+            $this->limiter->availableIn($key)
+        );
     }
 }

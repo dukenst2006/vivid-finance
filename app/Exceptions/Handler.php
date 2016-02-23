@@ -2,6 +2,7 @@
 
 namespace VividFinance\Exceptions;
 
+use Doctrine\DBAL\Query\QueryException;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

@@ -1,0 +1,29 @@
+<!-- Begin Menu -->
+<div class="Menu Menu--main Menu--sidebar">
+	<div class="Menu__group">
+		<div class="Menu__header">
+			<span class="Menu__title">
+				Overview
+			</span>
+		</div>
+		<div class="Menu__body">
+			<a class="Menu__item" v-link="{ name: 'customer.index', activeClass: 'Menu__item--active' }">
+				<div class="IconGroup">
+					<span class="IconGroup__description">
+						Customers
+					</span>
+					<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--account-multiple"></i>
+				</div>
+			</a>
+			<a class="Menu__item" v-link="{ name: 'invoice.index', activeClass: 'Menu__item--active' }">
+				<div class="IconGroup">
+					<span class="IconGroup__description">
+						Invoices
+					</span>
+					<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--file"></i>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+<!-- End Menu -->

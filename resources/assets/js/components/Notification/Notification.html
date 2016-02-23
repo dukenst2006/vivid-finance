@@ -1,0 +1,13 @@
+<div :class="notificationClass">
+	<div class="Notification__header">
+		<div class="Notification__timer"></div>
+	</div>
+	<div class="Notification__body">
+		<div class="Notification__content">
+			{{ content }}
+		</div>
+		<div class="Notification__close" @click.prevent="removeFn(this.id)">
+			<i class="Icon Icon--close"></i>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+// Imports
+@import "./../../../stylus/settings/variables.styl"
+@import "./../../../stylus/mixins/bem.styl"
+@import "./../../../stylus/mixins/transition.styl"
+@import "./../../../stylus/functions/opacity.styl"
+
+.NavIcon
+  transition(100ms)
+  background-color: #192226
+  display: inline-block
+  &:hover
+    transition(100ms)
+    background-color: #222d33
+
+  +has(line)
+    margin-top: .25rem
+    height: .1875rem
+    width: 1.5rem
+    background-color: #fff
+    +variant(first)
+      margin-top: 0
+
+  +variant(header)
+    display: inline-block
+    vertical-align: middle
+    float: right
+    padding: 1.34375rem
