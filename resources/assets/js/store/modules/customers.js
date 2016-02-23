@@ -34,20 +34,20 @@ export const customersMutations = {
         }
     },
 
-    [STORE_CUSTOMER] (state, customer, callback) {
+    [STORE_CUSTOMER] (state, customer, fn, errorFn) {
         http.post('customer', {
             name: customer.name,
             address: customer.address,
-            building_number : customer.buildingNumber,
+            building_number: customer.buildingNumber,
             postcode: customer.postcode,
             city: customer.city,
             country: customer.country,
             email: customer.email,
             telephone: customer.telephone
         }, () => {
-            callback();
-        }, () => {
-            console.log('ERROR');
+            fn();
+        }, (res) => {
+            errorFn(res.data);
         });
     },
 

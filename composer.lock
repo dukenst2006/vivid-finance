@@ -773,16 +773,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.16",
+            "version": "v5.2.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "39e89553c124dce266da03ee3c0260bdd62f1848"
+                "reference": "d4ff9a1e3e9b2f99f8f3e957876e343d804d944f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/39e89553c124dce266da03ee3c0260bdd62f1848",
-                "reference": "39e89553c124dce266da03ee3c0260bdd62f1848",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d4ff9a1e3e9b2f99f8f3e957876e343d804d944f",
+                "reference": "d4ff9a1e3e9b2f99f8f3e957876e343d804d944f",
                 "shasum": ""
             },
             "require": {
@@ -897,20 +897,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-02-15 17:46:58"
+            "time": "2016-02-19 17:58:28"
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.16",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "183e1a610664baf6dcd6fceda415baf43cbdc031"
+                "reference": "02f5b6c9a8b9278c8381e3361e7bd9d641c740ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/183e1a610664baf6dcd6fceda415baf43cbdc031",
-                "reference": "183e1a610664baf6dcd6fceda415baf43cbdc031",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/02f5b6c9a8b9278c8381e3361e7bd9d641c740ca",
+                "reference": "02f5b6c9a8b9278c8381e3361e7bd9d641c740ca",
                 "shasum": ""
             },
             "require": {
@@ -923,8 +923,7 @@
                 "ext-fileinfo": "*",
                 "mockery/mockery": "~0.9",
                 "phpspec/phpspec": "^2.2",
-                "phpspec/prophecy-phpunit": "~1.0",
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "~4.8 || ~5.0"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -981,7 +980,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-12-19 20:16:43"
+            "time": "2016-02-19 15:35:38"
         },
         {
             "name": "monolog/monolog",
@@ -1411,16 +1410,16 @@
         },
         {
             "name": "pusher/pusher-php-server",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pusher/pusher-http-php.git",
-                "reference": "79d755cc5d5b02b67779e2a40782fd6e3726657d"
+                "reference": "c03f5702d774d2c68785d4b61cd4701ed10759c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/79d755cc5d5b02b67779e2a40782fd6e3726657d",
-                "reference": "79d755cc5d5b02b67779e2a40782fd6e3726657d",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/c03f5702d774d2c68785d4b61cd4701ed10759c5",
+                "reference": "c03f5702d774d2c68785d4b61cd4701ed10759c5",
                 "shasum": ""
             },
             "require": {
@@ -1451,7 +1450,7 @@
                 "rest",
                 "trigger"
             ],
-            "time": "2015-05-13 11:01:46"
+            "time": "2016-02-22 15:43:51"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2541,16 +2540,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "e3b4a1903a2de46e085217a20e61465d18da7b63"
+                "reference": "705449c3dbedbded4bd4f3ed725303c69253cad4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/e3b4a1903a2de46e085217a20e61465d18da7b63",
-                "reference": "e3b4a1903a2de46e085217a20e61465d18da7b63",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/705449c3dbedbded4bd4f3ed725303c69253cad4",
+                "reference": "705449c3dbedbded4bd4f3ed725303c69253cad4",
                 "shasum": ""
             },
             "require": {
@@ -2564,7 +2563,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-php-7": "3.0-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -2583,7 +2582,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2015-12-21 22:36:28"
+            "time": "2016-02-16 22:31:00"
         },
         {
             "name": "mockery/mockery",

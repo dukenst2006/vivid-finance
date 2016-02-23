@@ -6,3 +6,7 @@ export const SET_CUSTOMER_LIMIT = 'SET_CUSTOMER_LIMIT';
 
 // Invoices
 export const RECEIVE_INVOICES = 'RECEIVE_INVOICES';
+
+// Notifications
+export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
+export const DELETE_NOTIFICATION = 'DELETE_NOTIFICATION';

@@ -1,5 +1,5 @@
 import store from '../../../store'
-const { storeCustomer } = store.actions;
+const { storeCustomer, addNotification } = store.actions;
 
 export default {
     data () {
@@ -7,7 +7,7 @@ export default {
             customer: {
                 name: '',
                 address: '',
-                buildingNumber : '',
+                buildingNumber: '',
                 postcode: '',
                 city: '',
                 country: '',
@@ -32,8 +32,22 @@ export default {
 
     methods: {
         addCustomer () {
-            storeCustomer(this.customer, function() {
-                console.log("Customer has been created");
+            var vm = this;
+            storeCustomer(this.customer, () => {
+                addNotification({
+                    variants: ['success'],
+                    content: 'The customer has been created!',
+                    hasTimer: true
+                });
+                vm.$router.go({
+                    name: 'customer.index'
+                });
+            }, () => {
+                addNotification({
+                    variants: ['danger'],
+                    content: 'The customer could not be created...',
+                    hasTimer: true
+                });
             });
         }
     },
