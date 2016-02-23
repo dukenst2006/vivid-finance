@@ -1,3 +1,9 @@
+// Imports
+@import "./../../../stylus/settings/variables.styl"
+@import "./../../../stylus/mixins/bem.styl"
+@import "./../../../stylus/mixins/transition.styl"
+@import "./../../../stylus/functions/opacity.styl"
+
 .User
   +has(figure)
     +variant(sidebar)
@@ -45,3 +51,8 @@
       color: #fff
       font-weight: 500
       text-decoration: none
+
+  +variant(sidebar)
+    display: block
+    padding: 2rem 1rem
+    font-size: .9rem

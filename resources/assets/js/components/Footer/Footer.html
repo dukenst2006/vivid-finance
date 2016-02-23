@@ -1,0 +1,15 @@
+<!-- Begin Footer -->
+<div :class="footerClass">
+
+	<div :class="headerClass" v-if="hasHeader">
+		<h3 :class="titleClass">
+			{{ title.content }}
+		</h3>
+	</div>
+
+	<div :class="bodyClass" v-if="hasBody">
+		<slot name="body"></slot>
+	</div>
+
+</div>
+<!-- End Footer -->

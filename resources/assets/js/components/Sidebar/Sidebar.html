@@ -1,47 +1,6 @@
 <!-- Sidebar Begin -->
 <div class="Sidebar Sidebar--main">
-	<div class="Sidebar__user User User--sidebar">
-		<div class="User__figure User__figure--sidebar">
-			<img class="User__image User__image--sidebar"
-				 src="/img/avatars/5537701.jpg">
-			<div class="User__information User__information--sidebar">
-				<div class="User__header User__header--sidebar">
-					<h3 class="User__title User__title--sidebar">
-						Peter van Meijgaard
-					</h3>
-				</div>
-				<div class="User__body User__body--sidebar">
-					<div class="User__item User__item--sidebar">
-						petervmeijgaard
-					</div>
-					<div class="User__item User__item--sidebar">
-						Owner
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="User__actions User__actions--sidebar">
-			<div class="Row">
-				<div class="Col Col--md">
-					<a class="User__action User__action--sidebar IconGroup"
-					   v-link="{ name :'account.show' }">
-						<i class="IconGroup__icon Icon Icon--account-circle"></i>
-						<span class="IconGroup__description IconGroup__description--margin-left">
-							My account
-						</span>
-					</a>
-				</div>
-				<div class="Col Col--md">
-					<a class="User__action User__action--sidebar IconGroup" href="#">
-						<span class="IconGroup__description IconGroup__description--margin-right">
-							Logout
-						</span>
-						<i class="Icon Icon--sign-out IconGroup__icon Icon--logout"></i>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+	<v-user></v-user>
 	<a class="Sidebar__featured" v-link="{ name: 'invoice.add' }">
 		<div class="IconGroup">
 			<div class="IconGroup__description">
@@ -50,48 +9,20 @@
 			<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--plus-circle"></i>
 		</div>
 	</a>
-	<div class="Sidebar__menu Menu Menu-main">
-		<div class="Menu__group">
-			<div class="Menu__header">
-					<span class="Menu__title">
-						Overview
-					</span>
-			</div>
-			<div class="Menu__body">
-				<a class="Menu__item" v-link="{ name: 'customer.index', activeClass: 'Menu__item--active' }">
-					<div class="IconGroup">
-							<span class="IconGroup__description">
-								Customers
-							</span>
-						<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--account-multiple"></i>
-					</div>
-				</a>
-				<a class="Menu__item" v-link="{ name: 'invoice.index', activeClass: 'Menu__item--active' }">
-					<div class="IconGroup">
-							<span class="IconGroup__description">
-								Invoices
-							</span>
-						<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--file"></i>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
+	<v-menu></v-menu>
 	<div class="Sidebar__clearfix--footer"></div>
-	<div class="Sidebar__footer Footer--sidebar">
-		<div class="Footer__header Footer__header--sidebar">
-			<h3 class="Footer__title Footer__title--sidebar">
-				Happy with our service?
-			</h3>
-		</div>
-		<a class="Footer__body Footer__body--sidebar" href="#">
-			<div class="IconGroup">
-				<div class="IconGroup__description">
-					Go buy us a cup of coffee!
-				</div>
-				<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--coffee"> </i>
+	<v-footer
+			:variants="footer.variants"
+			:header="footer.header"
+			:title="footer.title"
+			:body="footer.body"
+	>
+		<div class="IconGroup" slot="body">
+			<div class="IconGroup__description">
+				Go buy us a cup of coffee!
 			</div>
-		</a>
-	</div>
+			<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--coffee"> </i>
+		</div>
+	</v-footer>
 </div>
 <!-- Sidebar End -->
