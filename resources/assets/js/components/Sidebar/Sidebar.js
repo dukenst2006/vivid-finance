@@ -1,12 +1,64 @@
 export default {
     data () {
         return {
+            menu: {
+                groups: [
+                    {
+                        items: [
+                            {
+                                to: 'customer.index',
+                                iconGroup: {
+                                    description: {
+                                        text: 'Customers'
+                                    },
+                                    icon: {
+                                        icon: {
+                                            variants: [
+                                                'account-multiple'
+                                            ]
+                                        },
+                                        variants: [
+                                            'align-right'
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                to: 'invoice.index',
+                                iconGroup: {
+                                    description: {
+                                        text: 'Invoices'
+                                    },
+                                    icon: {
+                                        icon: {
+                                            variants: [
+                                                'file'
+                                            ]
+                                        },
+                                        variants: [
+                                            'align-right'
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        header: {},
+                        title: {
+                            text: 'Overview'
+                        }
+                    }
+                ],
+                variants: [
+                    'main',
+                    'sidenbar'
+                ]
+            },
             footer: {
                 variants: [
                     'sidebar'
                 ],
                 header: {
-                    active : true,
+                    active: true,
                     variants: [
                         'sidebar'
                     ]
@@ -18,7 +70,7 @@ export default {
                     ]
                 },
                 body: {
-                    active : true,
+                    active: true,
                     variants: [
                         'sidebar'
                     ]

@@ -22,7 +22,7 @@ export default {
 
         /**
          * Computed property which will output the
-         * corrected class names for the footer
+         * corrected class names for the icon
          *
          * @returns {Array} The corrected class name
          */
