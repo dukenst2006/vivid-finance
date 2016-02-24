@@ -1,0 +1,17 @@
+<!-- Start Breadcrumb Item -->
+<div :class="itemClass">
+	<v-breadcrumb-link
+		v-if="hasLink"
+		:content="content"
+		:to="link.to"
+		:variants="link.variants"
+	>
+	</v-breadcrumb-link>
+
+	<v-breadcrumb-content
+		v-else
+		:text="content.text"
+		:variants="content.variants"
+	></v-breadcrumb-content>
+</div>
+<!-- End Breadcrumb Item -->

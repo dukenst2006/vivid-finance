@@ -10,21 +10,3 @@
   margin: 0
   margin-bottom: 1rem
   padding: 0
-  +has(item)
-    display: inline-block
-    vertical-align: middle
-    &:after
-      content: '\f238'
-      display: inline-block
-      font: normal normal normal 24px / 1 "Material Design Icons"
-      font-weight: 100
-      vertical-align: middle
-    &:last-child:after
-      display: none
-  +has(link)
-    transition(100ms)
-    color: #192226
-    text-decoration: none
-    &:hover
-      transition(100ms)
-      color: #1E88E5

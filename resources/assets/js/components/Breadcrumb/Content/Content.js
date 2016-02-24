@@ -1,18 +1,18 @@
-import CSSUtil from './../../utils/css';
+import CSSUtil from './../../../utils/css';
 
 export default {
     data () {
         return {
-            block: 'Breadcrumb'
-        }
+            element: 'content'
+        };
     },
 
     props: {
         /**
-         * The items to be displayed
+         * The text to be displayed
          */
-        items: {
-            type: Array,
+        text: {
+            type: String,
             required: true
         },
 
@@ -25,22 +25,25 @@ export default {
         }
     },
 
-    components: {
-        'v-breadcrumb-item' (resolve) {
-            require(['./Item/Item.vue'], resolve)
-        }
-    },
-
     computed: {
+        /**
+         * The block name from the parent
+         *
+         * @returns {string}
+         */
+        block () {
+            return this.$parent.block;
+        },
 
         /**
          * Computed property which will output the
          * corrected class names for the breadcrumb
+         * content
          *
          * @returns {Array} The corrected class names
          */
-        breadcrumbClass () {
-            return CSSUtil.blockClasses(this.block, this.variants);
+        contentClass () {
+            return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }
 };

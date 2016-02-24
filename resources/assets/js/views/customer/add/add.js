@@ -14,17 +14,28 @@ export default {
                 email: '',
                 telephone: ''
             },
+
             breadcrumb: [
                 {
-                    title: 'Home',
-                    link: 'customer.index'
+                    content: {
+                        text: 'Home'
+                    },
+                    link: {
+                        to: 'customer.index'
+                    }
                 },
                 {
-                    title: 'Customers',
-                    link: 'customer.index'
+                    content: {
+                        text: 'Customers'
+                    },
+                    link: {
+                        to: 'customer.index'
+                    }
                 },
                 {
-                    title: 'Add Customer'
+                    content: {
+                        text: 'Add Customer'
+                    }
                 }
             ]
         }
@@ -54,7 +65,7 @@ export default {
 
     components: {
         'v-breadcrumb' (resolve) {
-            require(['./../../../components/Breadcrumb.vue'], resolve)
+            require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
         }
     }
 };

@@ -29,13 +29,13 @@ export default {
 
     components: {
         'v-user' (resolve) {
-            require(['./../User.vue'], resolve)
+            require(['./../User/User.vue'], resolve)
         },
         'v-menu' (resolve) {
-            require(['./../Menu.vue'], resolve)
+            require(['./../Menu/Menu.vue'], resolve)
         },
         'v-footer' (resolve) {
-            require(['./../Footer.vue'], resolve)
+            require(['./../Footer/Footer.vue'], resolve)
         }
     }
 };

@@ -6,15 +6,25 @@ export default {
         return {
             breadcrumb: [
                 {
-                    title: 'Home',
-                    link: 'customer.index'
+                    content: {
+                        text: 'Home'
+                    },
+                    link: {
+                        to : 'customer.index'
+                    }
                 },
                 {
-                    title: 'Customers',
-                    link: 'customer.index'
+                    content: {
+                        text: 'Customers'
+                    },
+                    link: {
+                        to : 'customer.index'
+                    }
                 },
                 {
-                    title: 'Customer Overview'
+                    content: {
+                        text: 'Customer Overview'
+                    }
                 }
             ],
             table: {
@@ -56,13 +66,13 @@ export default {
     },
     components: {
         'v-breadcrumb' (resolve) {
-            require(['./../../../components/Breadcrumb.vue'], resolve)
+            require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
         },
         'v-table' (resolve) {
-            require(['./../../../components/Table.vue'], resolve)
+            require(['./../../../components/Table/Table.vue'], resolve)
         },
         'v-pagination' (resolve) {
-            require(['./../../../components/Pagination.vue'], resolve)
+            require(['./../../../components/Pagination/Pagination.vue'], resolve)
         }
     }
 };

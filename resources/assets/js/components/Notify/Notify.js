@@ -9,7 +9,7 @@ export default {
     },
     components: {
         'v-notification' (resolve) {
-            require(['./../Notification.vue'], resolve)
+            require(['./../Notification/Notification.vue'], resolve)
         }
     },
     methods: {

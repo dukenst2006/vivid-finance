@@ -7,13 +7,13 @@ const { getAllCustomers, getAllInvoices, addCustomer } = store.actions;
 export default {
     components: {
         'v-sidebar' (resolve) {
-            require(['./components/Sidebar.vue'], resolve)
+            require(['./components/Sidebar/Sidebar.vue'], resolve)
         },
         'v-header' (resolve) {
-            require(['./components/Header.vue'], resolve)
+            require(['./components/Header/Header.vue'], resolve)
         },
         'v-notify' (resolve) {
-            require(['./components/Notify.vue'], resolve)
+            require(['./components/Notify/Notify.vue'], resolve)
         }
     },
     created () {

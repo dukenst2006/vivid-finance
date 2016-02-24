@@ -6,15 +6,25 @@ export default {
         return {
             breadcrumb: [
                 {
-                    title: 'Home',
-                    link: 'invoice.index'
+                    content: {
+                        text: 'Home'
+                    },
+                    link: {
+                        to : 'invoice.index'
+                    }
                 },
                 {
-                    title: 'Invoices',
-                    link: 'invoice.index'
+                    content: {
+                        text: 'Invoices'
+                    },
+                    link: {
+                        to : 'invoice.index'
+                    }
                 },
                 {
-                    title: 'Invoice Overview'
+                    content: {
+                        text: 'Invoice Overview'
+                    }
                 }
             ],
             table: {
@@ -56,13 +66,13 @@ export default {
     },
     components: {
         'v-breadcrumb' (resolve) {
-            require(['./../../../components/Breadcrumb.vue'], resolve)
+            require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
         },
         'v-table' (resolve) {
-            require(['./../../../components/Table.vue'], resolve)
+            require(['./../../../components/Table/Table.vue'], resolve)
         },
         'v-pagination' (resolve) {
-            require(['./../../../components/Pagination.vue'], resolve)
+            require(['./../../../components/Pagination/Pagination.vue'], resolve)
         }
     }
 };

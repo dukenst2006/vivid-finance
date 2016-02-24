@@ -26,7 +26,7 @@
                             </h2>
                         </div>
                         <div class="Panel__body Panel__body--primary">
-                            <div class="Form">
+                            <form class="Form" @submit.prevent="addCustomer">
                                 <div class="Row">
                                     <div class="Col Col--md">
                                         <div class="Form__group">
@@ -102,7 +102,7 @@
                                         <div class="Form__group Form__group--inline">
                                             <button
                                                     class="Button Button--primary"
-                                                    @click.prevent="addCustomer"
+                                                    type="submit"
                                             >
                                                 Add
                                             </button>
@@ -116,7 +116,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
