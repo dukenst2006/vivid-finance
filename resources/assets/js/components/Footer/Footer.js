@@ -8,7 +8,6 @@ export default {
     },
 
     props: {
-
         /**
          * The header
          */
@@ -42,7 +41,7 @@ export default {
         }
     },
 
-    components : {
+    components: {
         'v-footer-header' (resolve) {
             require(['./Header/Header.vue'], resolve)
         },
@@ -52,7 +51,6 @@ export default {
     },
 
     computed: {
-
         /**
          * Computed property which will output
          * whether there is a header or not

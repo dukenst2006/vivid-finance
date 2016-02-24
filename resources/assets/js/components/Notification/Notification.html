@@ -1,13 +1,14 @@
 <div :class="notificationClass">
 
 	<v-notification-item
-		v-for="item in items"
-		:variants="item.variants"
-		:timer="item.timer"
-		:header="item.header"
-		:title="item.title"
-		:body="item.body"
-		:close="item.close"
+			v-for="item in items"
+			:variants="item.variants"
+			:timer="item.timer"
+			:header="item.header"
+			:title="item.title"
+			:body="item.body"
+			:close="item.close"
+			:id="item.id"
 	></v-notification-item>
 
 </div>

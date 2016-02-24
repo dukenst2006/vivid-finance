@@ -8,7 +8,6 @@ export default {
     },
 
     props: {
-
         /**
          * The variants used for BEM
          */
@@ -18,7 +17,7 @@ export default {
         },
 
         /**
-         * The actions
+         * The items
          */
         items: {
             type: Array,

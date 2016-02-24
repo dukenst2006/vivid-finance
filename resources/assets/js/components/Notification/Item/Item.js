@@ -8,31 +8,57 @@ export default {
         }
     },
     props: {
+        /**
+         * The id
+         */
+        id: {
+            type: String,
+            required: true
+        },
+
+        /**
+         * The timer
+         */
         timer: {
             type: Object,
             required: false
         },
 
+        /**
+         * The header
+         */
         header: {
             type: Object,
             required: false
         },
 
+        /**
+         * The title
+         */
         title: {
             type: Object,
             required: false
         },
 
+        /**
+         * The body
+         */
         body: {
             type: Object,
             required: false
         },
 
+        /**
+         * The close action
+         */
         close: {
             type: Object,
             required: true
         },
 
+        /**
+         * The variants used for BEM
+         */
         variants: {
             type: Array,
             required: false
@@ -52,14 +78,18 @@ export default {
     },
 
     computed: {
-
+        /**
+         * The block name from the parent
+         *
+         * @returns {string}
+         */
         block () {
             return this.$parent.block;
         },
 
         /**
          * Computed property which will output the
-         * corrected class names for the panel
+         * corrected class names for the item
          *
          * @returns {Array} The corrected class name
          */

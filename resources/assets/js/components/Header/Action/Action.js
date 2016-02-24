@@ -8,7 +8,6 @@ export default {
     },
 
     props: {
-
         /**
          * The variants used for BEM
          */
@@ -28,13 +27,13 @@ export default {
         /**
          * The icon
          */
-        icon : {
+        icon: {
             type: Object,
-            required : true
+            required: true
         }
     },
 
-    components : {
+    components: {
         'v-icon' (resolve) {
             require(['./../../Icon/Icon.vue'], resolve)
         }

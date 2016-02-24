@@ -33,7 +33,7 @@ export default {
         }
     },
 
-    components : {
+    components: {
         'v-breadcrumb-content' (resolve) {
             require(['./../Content/Content.vue'], resolve)
         },

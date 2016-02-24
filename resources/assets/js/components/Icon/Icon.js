@@ -8,7 +8,6 @@ export default {
     },
 
     props: {
-
         /**
          * The variants used for BEM
          */
@@ -19,7 +18,6 @@ export default {
     },
 
     computed: {
-
         /**
          * Computed property which will output the
          * corrected class names for the icon

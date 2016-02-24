@@ -8,7 +8,6 @@ export default {
     },
 
     props: {
-
         /**
          * The variants used for BEM
          */

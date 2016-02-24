@@ -8,7 +8,6 @@ export default {
     },
 
     props: {
-
         /**
          * The icon
          */
@@ -44,7 +43,6 @@ export default {
     },
 
     computed: {
-
         /**
          * Computed property which will output the
          * corrected class names for the icon group

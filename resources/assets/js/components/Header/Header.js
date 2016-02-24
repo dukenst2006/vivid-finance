@@ -8,19 +8,28 @@ export default {
     },
 
     props: {
-        variants: {
-            type: Array,
+        /**
+         * The sidebar
+         */
+        sidebar: {
+            type: Object,
             required: false
         },
 
-        sidebar : {
-            type : Object,
-            required : false
+        /**
+         * The actions
+         */
+        actions: {
+            type: Object,
+            required: false
         },
 
-        actions : {
-            type : Object,
-            required : false
+        /**
+         * The variants used for BEM
+         */
+        variants: {
+            type: Array,
+            required: false
         }
     },
 
@@ -34,6 +43,12 @@ export default {
     },
 
     computed: {
+        /**
+         * Computed property which will output the
+         * corrected class names for the header
+         *
+         * @returns {Array} The corrected class names
+         */
         headerClass () {
             return CSSUtil.blockClasses(this.block, this.variants);
         }

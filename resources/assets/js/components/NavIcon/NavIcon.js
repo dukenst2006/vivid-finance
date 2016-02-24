@@ -24,7 +24,6 @@ export default {
     },
 
     computed: {
-
         /**
          * Computed property which will output the
          * corrected class names for the nav icon

@@ -25,7 +25,7 @@ export default {
         }
     },
 
-    components : {
+    components: {
         'v-footer-title' (resolve) {
             require(['./../Title/Title.vue'], resolve)
         }

@@ -6,9 +6,7 @@ export const notificationsInitialState = [];
 
 export const notificationsMutations = {
     [ADD_NOTIFICATION] (state, notification) {
-        var newestNotification = state.notifications[state.notifications.length - 1];
-
-        notification.id = newestNotification ? newestNotification.id + 1 : 1;
+        notification.id = Math.random().toString(36).substring(7);
 
         state.notifications.push(notification);
     },

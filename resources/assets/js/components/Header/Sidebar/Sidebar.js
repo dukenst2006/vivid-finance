@@ -15,7 +15,6 @@ export default {
     },
 
     props: {
-
         /**
          * The variants used for BEM
          */
@@ -43,8 +42,7 @@ export default {
 
         /**
          * Computed property which will output the
-         * corrected class names for the breadcrumb
-         * content
+         * corrected class names for the sidebar
          *
          * @returns {Array} The corrected class names
          */
