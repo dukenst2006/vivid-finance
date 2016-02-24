@@ -5,31 +5,8 @@
 @import "./../../../stylus/functions/opacity.styl"
 
 .Footer
-  +has(header)
-    display: block
-    +variant(sidebar)
-      background-color: #222d33
-      padding: 1.125rem 1rem
-
-  +has(title)
-    +variant(sidebar)
-      padding: 0
-      margin: 0
-      font-weight: 300
-      color: #fff
-
-  +has(body)
-    display: block
-
-    +variant(sidebar)
-      background-color: #4CAF50
-      color: #fff
-      font-size: .875rem
-      padding: .5rem 1rem
-      text-decoration: none
-
   +variant(sidebar)
-    position: absolute
     bottom: 0
     display: block
+    position: absolute
     width: 100%

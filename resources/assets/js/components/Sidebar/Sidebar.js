@@ -12,7 +12,7 @@ export default {
                     ]
                 },
                 title: {
-                    content: 'Happy with our service?',
+                    text: 'Happy with our service?',
                     variants: [
                         'sidebar'
                     ]

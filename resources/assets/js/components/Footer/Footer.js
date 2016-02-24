@@ -8,21 +8,46 @@ export default {
     },
 
     props: {
-        variants: {
-            type: Array,
-            required: false
-        },
+
+        /**
+         * The header
+         */
         header: {
             type: Object,
             required: false
         },
+
+        /**
+         * The title
+         */
         title: {
             type: Object,
             required: false
         },
+
+        /**
+         * The body
+         */
         body: {
             type: Object,
             required: false
+        },
+
+        /**
+         * The variants used for BEM
+         */
+        variants: {
+            type: Array,
+            required: false
+        }
+    },
+
+    components : {
+        'v-footer-header' (resolve) {
+            require(['./Header/Header.vue'], resolve)
+        },
+        'v-footer-body' (resolve) {
+            require(['./Body/Body.vue'], resolve)
         }
     },
 
@@ -39,16 +64,6 @@ export default {
         },
 
         /**
-         * Computed property which will output
-         * whether there is a body or not
-         *
-         * @returns {boolean} If there is a body
-         */
-        hasBody () {
-            return !!this.body;
-        },
-
-        /**
          * Computed property which will output the
          * corrected class names for the panel
          *
@@ -56,36 +71,6 @@ export default {
          */
         footerClass () {
             return CSSUtil.blockClasses(this.block, this.variants);
-        },
-
-        /**
-         * Computed property which will output the
-         * corrected class names for the header
-         *
-         * @returns {Array} The corrected class name
-         */
-        headerClass () {
-            return CSSUtil.elementClasses(this.block, 'header', this.body.variants);
-        },
-
-        /**
-         * Computed property which will output the
-         * corrected class names for the title
-         *
-         * @returns {Array} The corrected class name
-         */
-        titleClass () {
-            return CSSUtil.elementClasses(this.block, 'title', this.body.variants);
-        },
-
-        /**
-         * Computed property which will output the
-         * corrected class names for the body
-         *
-         * @returns {Array} The corrected class name
-         */
-        bodyClass () {
-            return CSSUtil.elementClasses(this.block, 'body', this.body.variants);
         }
     }
 };

@@ -6,6 +6,7 @@ import Vuex from 'vuex';
 
 import App from './App.vue';
 import routes from './routes/routes';
+import config from './config/env'
 
 var app,
     router;
@@ -16,7 +17,7 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 // Configure Vue
-Vue.config.debug = true;
+Vue.config.debug = config.debug;
 Vue.http.options.root = 'api/v1';
 app = Vue.extend(App);
 

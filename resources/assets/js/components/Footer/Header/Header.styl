@@ -4,13 +4,9 @@
 @import "./../../../../stylus/mixins/transition.styl"
 @import "./../../../../stylus/functions/opacity.styl"
 
-.Breadcrumb
-  +has(link)
-    transition(100ms)
-    color: #192226
-    display: inline-block
-    text-decoration: none
-    vertical-align: middle
-    &:hover
-      transition(100ms)
-      color: #1E88E5
+.Footer
+  +has(header)
+    display: block
+    +variant(sidebar)
+      background-color: #222d33
+      padding: 1.125rem 1rem

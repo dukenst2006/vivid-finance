@@ -1,15 +1,17 @@
 <!-- Begin Footer -->
 <div :class="footerClass">
 
-	<div :class="headerClass" v-if="hasHeader">
-		<h3 :class="titleClass">
-			{{ title.content }}
-		</h3>
-	</div>
+	<v-footer-header
+			v-if="hasHeader"
+			:variants="header.variants"
+			:title="title"
+	></v-footer-header>
 
-	<div :class="bodyClass" v-if="hasBody">
-		<slot name="body"></slot>
-	</div>
+	<v-footer-body
+			:variants="body.variants"
+	>
+		<slot name="body" slot="body"></slot>
+	</v-footer-body>
 
 </div>
 <!-- End Footer -->
