@@ -1,33 +1,19 @@
-// TODO: Refactor
 import CSSUtil from './../../../utils/css';
 
 export default {
     data () {
         return {
-            element: 'sidebar',
-
-            navIcon: {
-                variants: [
-                    'header'
-                ]
-            }
-        };
+            element: 'line'
+        }
     },
 
     props: {
-
         /**
          * The variants used for BEM
          */
         variants: {
             type: Array,
             required: false
-        }
-    },
-
-    components: {
-        'v-nav-icon' (resolve) {
-            require(['./../../NavIcon/NavIcon.vue'], resolve)
         }
     },
 
@@ -43,12 +29,11 @@ export default {
 
         /**
          * Computed property which will output the
-         * corrected class names for the breadcrumb
-         * content
+         * corrected class names for the line
          *
          * @returns {Array} The corrected class names
          */
-        sidebarClass () {
+        lineClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }
