@@ -16,7 +16,7 @@ export default {
                         {
                             link: 'account.show',
                             icon: {
-                                variants : [
+                                variants: [
                                     'account-circle'
                                 ]
                             }
@@ -24,7 +24,7 @@ export default {
                         {
                             link: 'customer.index',
                             icon: {
-                                variants : [
+                                variants: [
                                     'logout'
                                 ]
                             }
@@ -35,11 +35,22 @@ export default {
                 variants: [
                     'main'
                 ]
+            },
+            content: {
+                variants: [
+                    'main'
+                ]
             }
         }
     },
 
     components: {
+        'v-wrapper' (resolve) {
+            require(['./components/Wrapper/Wrapper.vue'], resolve)
+        },
+        'v-content' (resolve) {
+            require(['./components/Content/Content.vue'], resolve)
+        },
         'v-sidebar' (resolve) {
             require(['./components/Sidebar/Sidebar.vue'], resolve)
         },

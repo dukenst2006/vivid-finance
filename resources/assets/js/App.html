@@ -1,4 +1,4 @@
-<div class="Wrapper">
+<v-wrapper>
 	<v-header
 			:sidebar="header.sidebar"
 			:actions="header.actions"
@@ -7,13 +7,11 @@
 
 	<v-sidebar></v-sidebar>
 
-	<!-- Begin Content -->
-	<div class="Content Content--main">
+	<v-content
+		:variants="content.variants"
+	>
 		<router-view></router-view>
-	</div>
-	<!-- End Content -->
+	</v-content>
 
-	<!-- Begin Notifications -->
 	<v-notification></v-notification>
-	<!-- End Notifications -->
-</div>
+</v-wrapper>

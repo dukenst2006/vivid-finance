@@ -10,7 +10,7 @@ export default {
                         text: 'Home'
                     },
                     link: {
-                        to : 'customer.index'
+                        to: 'customer.index'
                     }
                 },
                 {
@@ -18,7 +18,7 @@ export default {
                         text: 'Customers'
                     },
                     link: {
-                        to : 'customer.index'
+                        to: 'customer.index'
                     }
                 },
                 {
@@ -65,6 +65,12 @@ export default {
         }
     },
     components: {
+        'v-icon'(resolve) {
+            require(['./../../../components/Icon/Icon.vue'], resolve)
+        },
+        'v-icon-group'(resolve) {
+            require(['./../../../components/IconGroup/IconGroup.vue'], resolve)
+        },
         'v-breadcrumb' (resolve) {
             require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
         },

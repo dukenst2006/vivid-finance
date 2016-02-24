@@ -3,6 +3,13 @@ export default {
         'pagination',
         'fn'
     ],
+
+    components: {
+        'v-icon' (resolve) {
+            require(['./../Icon/Icon.vue'], resolve)
+        }
+    },
+
     methods: {
         /**
          * Method used to go to the first page

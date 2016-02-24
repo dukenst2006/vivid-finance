@@ -65,6 +65,12 @@ export default {
         }
     },
     components: {
+        'v-icon'(resolve) {
+            require(['./../../../components/Icon/Icon.vue'], resolve)
+        },
+        'v-icon-group'(resolve) {
+            require(['./../../../components/IconGroup/IconGroup.vue'], resolve)
+        },
         'v-breadcrumb' (resolve) {
             require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
         },
