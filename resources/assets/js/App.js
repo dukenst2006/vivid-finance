@@ -5,6 +5,40 @@ import store from './store'
 const { getAllCustomers, getAllInvoices, addCustomer } = store.actions;
 
 export default {
+    data () {
+        return {
+            header: {
+                sidebar: {
+                    variants: []
+                },
+                actions: {
+                    items: [
+                        {
+                            link: 'account.show',
+                            icon: {
+                                variants : [
+                                    'account-circle'
+                                ]
+                            }
+                        },
+                        {
+                            link: 'customer.index',
+                            icon: {
+                                variants : [
+                                    'logout'
+                                ]
+                            }
+                        }
+                    ],
+                    variants: []
+                },
+                variants: [
+                    'main'
+                ]
+            }
+        }
+    },
+
     components: {
         'v-sidebar' (resolve) {
             require(['./components/Sidebar/Sidebar.vue'], resolve)

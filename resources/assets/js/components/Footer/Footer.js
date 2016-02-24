@@ -65,7 +65,7 @@ export default {
 
         /**
          * Computed property which will output the
-         * corrected class names for the panel
+         * corrected class names for the footer
          *
          * @returns {Array} The corrected class name
          */

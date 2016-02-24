@@ -3,18 +3,11 @@ import CSSUtil from './../../../utils/css';
 export default {
     data () {
         return {
-            element: 'title'
+            element: 'action'
         };
     },
 
     props: {
-        /**
-         * The title text
-         */
-        text: {
-            type: String,
-            required: true
-        },
 
         /**
          * The variants used for BEM
@@ -22,6 +15,28 @@ export default {
         variants: {
             type: Array,
             required: false
+        },
+
+        /**
+         * The link used by v-router
+         */
+        link: {
+            type: String,
+            required: true
+        },
+
+        /**
+         * The icon
+         */
+        icon : {
+            type: Object,
+            required : true
+        }
+    },
+
+    components : {
+        'v-icon' (resolve) {
+            require(['./../../Icon/Icon.vue'], resolve)
         }
     },
 
@@ -37,12 +52,12 @@ export default {
 
         /**
          * Computed property which will output the
-         * corrected class names for the title
+         * corrected class names for the action
          *
-         * @returns {Array} The corrected class name
+         * @returns {Array} The corrected class names
          */
-        titleClass () {
+        actionClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }
-}
+};

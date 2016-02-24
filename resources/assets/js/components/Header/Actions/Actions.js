@@ -3,18 +3,11 @@ import CSSUtil from './../../../utils/css';
 export default {
     data () {
         return {
-            element: 'title'
+            element: 'actions'
         };
     },
 
     props: {
-        /**
-         * The title text
-         */
-        text: {
-            type: String,
-            required: true
-        },
 
         /**
          * The variants used for BEM
@@ -22,6 +15,20 @@ export default {
         variants: {
             type: Array,
             required: false
+        },
+
+        /**
+         * The actions
+         */
+        items: {
+            type: Array,
+            required: true
+        }
+    },
+
+    components: {
+        'v-header-action' (resolve) {
+            require(['./../Action/Action.vue'], resolve)
         }
     },
 
@@ -37,12 +44,12 @@ export default {
 
         /**
          * Computed property which will output the
-         * corrected class names for the title
+         * corrected class names for the actions
          *
-         * @returns {Array} The corrected class name
+         * @returns {Array} The corrected class names
          */
-        titleClass () {
+        actionsClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }
-}
+};
