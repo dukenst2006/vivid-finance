@@ -1,0 +1,26 @@
+// Imports
+@import "./../../../../stylus/settings/variables.styl"
+@import "./../../../../stylus/mixins/bem.styl"
+@import "./../../../../stylus/mixins/transition.styl"
+@import "./../../../../stylus/functions/opacity.styl"
+
+.Notification
+  +has(item)
+    background-color: $white
+    box-shadow: $box_shadow_normal
+    display: block
+    font-weight: 300
+    margin-top: 1rem
+    padding: 1rem
+    &:first-child
+      margin-top: 0
+    +variant(primary)
+      background-color: $primary_light
+    +variant(success)
+      background-color: $success_light
+    +variant(warning)
+      background-color: $warning_light
+    +variant(danger)
+      background-color: $danger_light
+    +variant(dark)
+      background-color: #333

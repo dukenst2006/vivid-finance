@@ -1,0 +1,18 @@
+<div :class="itemClass">
+
+	<v-notification-timer
+			:variants="timer.variants"
+	></v-notification-timer>
+
+	<v-notification-header
+			:variants="header.variants"
+			:title="title"
+	></v-notification-header>
+
+	<v-notification-body
+			:variants="body.variants"
+			:text="body.text"
+			:close="close"
+	></v-notification-body>
+
+</div>

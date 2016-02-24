@@ -47,8 +47,23 @@ export default {
             storeCustomer(this.customer, () => {
                 addNotification({
                     variants: ['success'],
-                    content: 'The customer has been created!',
-                    hasTimer: true
+                    timer: {
+                        variants: ['success']
+                    },
+                    header: {
+                        variants: ['success']
+                    },
+                    title: {
+                        variants: ['success'],
+                        text: 'Success!'
+                    },
+                    body: {
+                        variants: ['success'],
+                        text: 'The customer has been created...'
+                    },
+                    close: {
+                        variants: ['success']
+                    }
                 });
                 vm.$router.go({
                     name: 'customer.index'
@@ -56,8 +71,23 @@ export default {
             }, () => {
                 addNotification({
                     variants: ['danger'],
-                    content: 'The customer could not be created...',
-                    hasTimer: true
+                    timer: {
+                        variants: ['danger']
+                    },
+                    header: {
+                        variants: ['danger']
+                    },
+                    title: {
+                        variants: ['danger'],
+                        text: 'Error'
+                    },
+                    body: {
+                        variants: ['danger'],
+                        text: 'The customer could not be created...'
+                    },
+                    close: {
+                        variants: ['danger']
+                    }
                 });
             });
         }

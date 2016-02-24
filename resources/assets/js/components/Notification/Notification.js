@@ -1,5 +1,5 @@
+import store from './../../store';
 import CSSUtil from './../../utils/css';
-
 
 export default {
     data () {
@@ -8,28 +8,22 @@ export default {
         }
     },
     props: {
-        content: {
-            type: String,
-            required: true
-        },
-        variants: {
-            type: Array,
-            required: false
-        },
-        id: {
-            type: Number,
-            required: true
-        },
-        removeFn: {
-            type: Function,
-            required: true
-        },
-        hasTimer: {
-            type: Boolean,
-            required: false
+        variants : {
+            type : Array,
+            required : false
         }
     },
+
+    components : {
+        'v-notification-item' (resolve) {
+            require(['./Item/Item.vue'], resolve)
+        }
+    },
+
     computed: {
+        items () {
+            return store.state.notifications;
+        },
 
         /**
          * Computed property which will output the
@@ -43,18 +37,8 @@ export default {
     },
 
     methods: {
-        startTimer() {
-            setTimeout(this.dismissAlert, 5000);
-        },
-
-        dismissAlert() {
-            this.removeFn(this.id)
-        }
-    },
-
-    ready () {
-        if (this.hasTimer) {
-            this.startTimer();
+        deleteNotification(notification) {
+            deleteNotification(notification);
         }
     }
 }

@@ -46,8 +46,8 @@ export default {
         'v-header' (resolve) {
             require(['./components/Header/Header.vue'], resolve)
         },
-        'v-notify' (resolve) {
-            require(['./components/Notify/Notify.vue'], resolve)
+        'v-notification' (resolve) {
+            require(['./components/Notification/Notification.vue'], resolve)
         }
     },
     created () {
