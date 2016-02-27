@@ -14,7 +14,7 @@ export const customersInitialState = {
 
 export const customersMutations = {
     [RECEIVE_CUSTOMERS] (state, page) {
-        http.get('customer?page=' + page + '&limit=' + state.customers.pagination.limit, {}, res => {
+        http.get('customers?page=' + page + '&limit=' + state.customers.pagination.limit, {}, res => {
             state.customers.data = res.data.data;
             state.customers.pagination = res.data.pagination;
         });
@@ -35,7 +35,7 @@ export const customersMutations = {
     },
 
     [STORE_CUSTOMER] (state, customer, fn, errorFn) {
-        http.post('customer', {
+        http.post('customers', {
             name: customer.name,
             address: customer.address,
             building_number: customer.buildingNumber,

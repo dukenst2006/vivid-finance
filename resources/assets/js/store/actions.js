@@ -20,7 +20,7 @@ export const addCustomer = ({dispatch}, customer) => {
 
 // Invoices
 export const getAllInvoices = ({dispatch}, page = 1, limit = 5) => {
-    http.get('invoice?page=' + page + '&limit=' + limit, {}, res => {
+    http.get('invoices?page=' + page + '&limit=' + limit, {}, res => {
         dispatch(types.RECEIVE_INVOICES, res.data);
     });
 };
