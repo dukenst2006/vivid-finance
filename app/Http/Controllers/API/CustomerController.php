@@ -107,7 +107,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-//        $customer->delete();
+        $customer->delete();
 
         return $this->respondWithSuccess('The customer has been deleted');
     }

@@ -3,6 +3,7 @@
 namespace VividFinance;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * VividFinance\Invoice
@@ -17,7 +18,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property-read \VividFinance\Customer $customers
  * @property-read \VividFinance\User $user
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice notPayed()
+ * @method static Builder|\VividFinance\Invoice notPayed()
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereCustomerId($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereState($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereFile($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereExpirationDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Invoice extends Model
 {
@@ -71,11 +81,11 @@ class Invoice extends Model
     /**
      * The scope which will filter the invoices that are not payed
      *
-     * @param $query string The old query
+     * @param $query Builder The old query
      *
      * @return mixed The new query
      */
-    public function scopeNotPayed($query)
+    public function scopeNotPayed(Builder $query)
     {
         return $query
             ->where('state', 'open')
