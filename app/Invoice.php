@@ -28,6 +28,7 @@ use Illuminate\Database\Query\Builder;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @mixin \Eloquent
  */
 class Invoice extends Model
 {

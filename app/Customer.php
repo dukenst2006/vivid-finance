@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @mixin \Eloquent
  */
 class Customer extends Model
 {

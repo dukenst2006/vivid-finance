@@ -34,6 +34,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $api_token
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereApiToken($value)
+ * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
