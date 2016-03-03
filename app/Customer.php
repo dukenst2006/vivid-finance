@@ -18,6 +18,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\VividFinance\Invoice[] $invoices
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereTelephone($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCity($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer wherePostcode($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereBuildingNumber($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Customer extends Model
 {

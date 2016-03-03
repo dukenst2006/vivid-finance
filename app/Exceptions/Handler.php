@@ -2,7 +2,6 @@
 
 namespace VividFinance\Exceptions;
 
-use Doctrine\DBAL\Query\QueryException;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -11,6 +10,8 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use VividFinance\Traits\APITrait;
 
 class Handler extends ExceptionHandler
@@ -63,6 +64,14 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof MethodNotAllowedHttpException) {
             return $this->respondNotAllowed();
+        }
+
+        if($e instanceof TokenExpiredException) {
+            return 'lol';
+        }
+
+        if($e instanceof TokenInvalidException) {
+            return 'lol';
         }
 
         return parent::render($request, $e);

@@ -12,7 +12,10 @@
 */
 Route::group(
     [
-        'middleware' => ['api'],
+        'middleware' => [
+            'api',
+            'jwt.auth'
+        ],
         'as'         => 'api::',
         'namespace'  => 'API',
         'prefix'     => 'api/v1'

@@ -17,7 +17,6 @@ use VividFinance\Transformers\InvoiceTransformer;
  */
 class InvoiceController extends Controller
 {
-
     /**
      * The transformer used to transform the data
      *

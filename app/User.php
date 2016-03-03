@@ -21,6 +21,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereBirthday($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereTelephone($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereMobilePhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereSex($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereBio($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class User extends Authenticatable
 {

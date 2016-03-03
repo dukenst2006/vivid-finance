@@ -3,7 +3,7 @@
 namespace VividFinance\Traits;
 
 use Illuminate\Http\Response as IlluminateResponse;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Response;
 
 /**
