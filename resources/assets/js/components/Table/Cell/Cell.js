@@ -3,11 +3,16 @@ import CSSUtil from './../../../utils/css';
 export default {
     data () {
         return {
-            element: 'body'
+            element: 'cell'
         }
     },
 
     props: {
+
+        content : {
+            type: String,
+            required: true
+        },
 
         /**
          * The variants used for BEM
@@ -34,7 +39,7 @@ export default {
          *
          * @returns {Array} The corrected class name
          */
-        bodyClass () {
+        cellClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }

@@ -10,6 +10,12 @@ export default {
     },
 
     props: {
+
+        head : {
+            type: Object,
+            required: false
+        },
+
         columns: {
             type: Array,
             required: true
@@ -20,13 +26,13 @@ export default {
             required: true
         },
 
-        notFound : {
+        notFound: {
             type: String,
             required: true
         },
 
-        action: {
-            type: Function,
+        actions: {
+            type: Array,
             required: false
         },
 
@@ -50,6 +56,10 @@ export default {
          */
         tableClass () {
             return CSSUtil.blockClasses(this.block, this.variants);
+        },
+
+        hasActions () {
+            return !!this.actions;
         }
     }
 };

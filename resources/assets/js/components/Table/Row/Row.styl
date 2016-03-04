@@ -5,5 +5,9 @@
 @import "./../../../../stylus/functions/opacity.styl"
 
 .Table
-  +has(body)
-    background-color: #fff
+  +has(row)
+    text-align: left
+    +variant(body)
+      border-bottom: 1px solid #E0E0E0
+      &:last-child
+        border-bottom: none

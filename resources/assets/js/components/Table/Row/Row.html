@@ -1,8 +1,6 @@
 <tr :class="rowClass">
-    <v-table-cell
-        :type="type"
-        :content="column.title"
-        :has-actions="hasActions"
+    <td is="v-table-cell"
         v-for="column in columns"
-    ></v-table-cell>
+        :content="column.title"
+    ></td>
 </tr>

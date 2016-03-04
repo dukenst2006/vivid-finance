@@ -46,10 +46,22 @@ export default {
                         'slug': 'telephone'
                     }
                 ],
+                head: {
+                    variants: [
+                        'primary'
+                    ],
+                    row: {
+                        variants: [
+                            'primary',
+                            'head'
+                        ]
+                    }
+                },
                 notFound: 'No customers yet...',
-                action (customer) {
-                    console.log(customer);
-                }
+                actions: [],
+                variants: [
+                    'primary'
+                ]
             },
             vPagination: {
                 fn: getAllCustomers

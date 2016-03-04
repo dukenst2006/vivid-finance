@@ -1,17 +1,3 @@
-<tbody :class="cellClass">
-<tr class="Table__row Table__row--body Table__row--primary" v-for="item in items">
-    <td class="Table__col Table__col--body Table__col--primary" v-for="column in columns">
-        {{item[column.slug]}}
-    </td>
-    <td class="Table__col Table__col--body Table__col--primary Table__col--right" v-if="action">
-        <a @click="action(item)" class="Action Action--primary">
-            <i class="Action__icon Icon Icon--dots-horizontal"></i>
-        </a>
-    </td>
-</tr>
-<tr class="Table__row Table__row--body Table__row--primary" v-if="items.length === 0">
-    <td colspan="5" class="Table__col Table__col--body Table__col--primary">
-        {{notFound}}
-    </td>
-</tr>
-</tbody>
+<td :class="cellClass">
+    {{content}}
+</td>

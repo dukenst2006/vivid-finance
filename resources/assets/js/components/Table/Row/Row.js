@@ -1,13 +1,19 @@
 import CSSUtil from './../../../utils/css';
+import * as TableCell from './../Cell/Cell.vue';
 
 export default {
     data () {
         return {
-            element: 'body'
+            element: 'row'
         }
     },
 
     props: {
+
+        columns: {
+            type: Array,
+            required: true
+        },
 
         /**
          * The variants used for BEM
@@ -16,6 +22,10 @@ export default {
             type: Array,
             required: false
         }
+    },
+
+    components: {
+        'v-table-cell': TableCell
     },
 
     computed: {
@@ -34,7 +44,7 @@ export default {
          *
          * @returns {Array} The corrected class name
          */
-        bodyClass () {
+        rowClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }

@@ -1,15 +1,20 @@
 <table :class="tableClass">
 
-    <v-table-head
-            :columns="columns"
-            :action="action"
-    ></v-table-head>
+    <thead is="v-table-head"
+           :columns="columns"
+           :has-actions="hasActions"
+           :variants="head.variants"
+           :row="head.row"
+    ></thead>
 
-    <v-table-body
-            :columns="columns"
-            :items="items"
-            :not-found="notFound"
-            :action="action"
-    ></v-table-body>
+    <tbody is="v-table-body"></tbody>
+
+    <!--<v-table-head-->
+            <!--:columns="columns"-->
+            <!--:has-actions="hasActions"-->
+            <!--:variants="head.variants"-->
+    <!--&gt;</v-table-head>-->
+
+    <!--<v-table-body></v-table-body>-->
 
 </table>
