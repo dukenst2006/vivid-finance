@@ -5,6 +5,11 @@ namespace VividFinance\Http\Controllers\API;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use VividFinance\Http\Requests;
+use VividFinance\Http\Requests\API\User\DestroyRequest;
+use VividFinance\Http\Requests\API\User\IndexRequest;
+use VividFinance\Http\Requests\API\User\ShowRequest;
+use VividFinance\Http\Requests\API\User\StoreRequest;
+use VividFinance\Http\Requests\API\User\UpdateRequest;
 use VividFinance\Transformers\UserTransformer;
 use VividFinance\User;
 
@@ -37,9 +42,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param IndexRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(IndexRequest $request)
     {
         if (Input::get('limit')) {
             $this->setPagination(Input::get('limit'));
@@ -56,11 +63,11 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param Request|StoreRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
@@ -69,11 +76,12 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param ShowRequest         $request
      * @param  \VividFinance\User $user
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(ShowRequest $request, User $user)
     {
         return $this->respond($this->userTransformer->transform($user));
     }
@@ -82,12 +90,12 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \VividFinance\User       $user
+     * @param Request|UpdateRequest $request
+     * @param  \VividFinance\User   $user
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateRequest $request, User $user)
     {
         //
     }
@@ -96,11 +104,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param DestroyRequest      $request
      * @param  \VividFinance\User $user
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(DestroyRequest $request, User $user)
     {
         //
     }

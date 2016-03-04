@@ -4,7 +4,7 @@ namespace VividFinance\Http\Requests\API\Invoice;
 
 use VividFinance\Http\Requests\API\Request;
 
-class InvoiceUpdateRequest extends Request
+class UpdateRequest extends Request
 {
 
     /**

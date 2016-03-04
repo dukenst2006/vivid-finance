@@ -4,20 +4,8 @@ namespace VividFinance\Http\Requests\API\Customer;
 
 use VividFinance\Http\Requests\API\Request;
 
-/**
- * Class CustomerUpdateRequest
- * @package VividFinance\Http\Requests\API
- */
-class CustomerUpdateRequest extends Request
+class StoreRequest extends Request
 {
-
-    /**
-     * The given customer
-     *
-     * @var int The given customer
-     */
-    protected $customer;
-
 
     /**
      * Determine if the user is authorized to make this request.
@@ -37,21 +25,18 @@ class CustomerUpdateRequest extends Request
      */
     public function rules()
     {
-        $this->customer = $this->route()->getParameter('customer');
-
         return [
             'name'            => [
                 'required',
-                'unique:customers,name,' . $this->customer->id
+                'unique:customers,name'
             ],
             'telephone'       => [
                 'required',
-                'unique:customers,telephone,' . $this->customer->id
+                'unique:customers,telephone'
             ],
             'email'           => [
                 'required',
-                'email',
-                'unique:customers,email,' . $this->customer->id
+                'unique:customers,email'
             ],
             'country'         => [
                 'required'

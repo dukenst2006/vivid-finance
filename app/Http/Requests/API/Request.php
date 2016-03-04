@@ -22,7 +22,7 @@ class Request extends FormRequest
      */
     public function forbiddenResponse()
     {
-        return $this->respondForbidden('You have no power here');
+        return $this->respondForbidden();
     }
 
 

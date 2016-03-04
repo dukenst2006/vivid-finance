@@ -4,20 +4,8 @@ namespace VividFinance\Http\Requests\API\User;
 
 use VividFinance\Http\Requests\API\Request;
 
-/**
- * Class UserUpdateRequest
- * @package VividFinance\Http\Requests\API
- */
-class UserUpdateRequest extends Request
+class StoreRequest extends Request
 {
-
-    /**
-     * The given user
-     *
-     * @var
-     */
-    protected $user;
-
 
     /**
      * Determine if the user is authorized to make this request.
@@ -37,14 +25,14 @@ class UserUpdateRequest extends Request
      */
     public function rules()
     {
-        $this->user = $this->route()->getParameter('user');
-
         return [
             'email'        => [
+                'required',
                 'email',
-                'unique:users,email,' . $this->user->id
+                'unique:users,email'
             ],
             'password'     => [
+                'required',
                 'min:6',
                 'max:20',
                 'regex:/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\s]).)/'
