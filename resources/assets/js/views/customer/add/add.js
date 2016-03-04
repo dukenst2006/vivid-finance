@@ -6,7 +6,6 @@ export default {
         return {
             customer: {
                 name: '',
-                address: '',
                 buildingNumber: '',
                 postcode: '',
                 city: '',

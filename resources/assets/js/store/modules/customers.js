@@ -1,4 +1,5 @@
 import http from './../../services/http'
+import transformer from './../../transformers/CustomerTransformer';
 
 import {RECEIVE_CUSTOMERS, ADD_CUSTOMER, STORE_CUSTOMER, SET_CUSTOMER_LIMIT} from './../mutation-types';
 
@@ -35,16 +36,7 @@ export const customersMutations = {
     },
 
     [STORE_CUSTOMER] (state, customer, fn, errorFn) {
-        http.post('customers', {
-            name: customer.name,
-            address: customer.address,
-            building_number: customer.buildingNumber,
-            postcode: customer.postcode,
-            city: customer.city,
-            country: customer.country,
-            email: customer.email,
-            telephone: customer.telephone
-        }, () => {
+        http.post('customers', transformer.send(customer), () => {
             fn();
         }, (res) => {
             errorFn(res.data);

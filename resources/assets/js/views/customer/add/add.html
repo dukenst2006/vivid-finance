@@ -39,30 +39,44 @@
                                         </div>
                                         <div class="Form__group">
                                             <input
-                                                    type="text"
+                                                    type="email"
                                                     class="Form__control Form__control--minimal"
-                                                    placeholder="Address"
-                                                    v-model="customer.address"
+                                                    placeholder="Email"
+                                                    v-model="customer.email"
                                             />
                                         </div>
                                         <div class="Form__group">
                                             <input
                                                     type="text"
                                                     class="Form__control Form__control--minimal"
-                                                    placeholder="Building number"
-                                                    v-model="customer.buildingNumber"
-                                            />
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="text"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Postcode"
-                                                    v-model="customer.postcode"
+                                                    placeholder="Telephone"
+                                                    v-model="customer.telephone"
                                             />
                                         </div>
                                     </div>
                                     <div class="Col Col--md">
+                                        <div class="Row">
+                                            <div class="Col Col--md">
+                                                <div class="Form__group">
+                                                    <input
+                                                            type="text"
+                                                            class="Form__control Form__control--minimal"
+                                                            placeholder="Postcode"
+                                                            v-model="customer.postcode"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="Col Col--md">
+                                                <div class="Form__group">
+                                                    <input
+                                                            type="text"
+                                                            class="Form__control Form__control--minimal"
+                                                            placeholder="Building number"
+                                                            v-model="customer.buildingNumber"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="Form__group">
                                             <input
                                                     type="text"
@@ -77,22 +91,6 @@
                                                     class="Form__control Form__control--minimal"
                                                     placeholder="Country"
                                                     v-model="customer.country"
-                                            />
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="email"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Email"
-                                                    v-model="customer.email"
-                                            />
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="text"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Telephone"
-                                                    v-model="customer.telephone"
                                             />
                                         </div>
                                     </div>
