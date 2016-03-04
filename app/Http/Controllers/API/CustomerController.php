@@ -16,12 +16,14 @@ use VividFinance\Transformers\CustomerTransformer;
  */
 class CustomerController extends Controller
 {
+
     /**
      * The transformer used to transform the data
      *
      * @var CustomerTransformer The transformer
      */
     protected $customerTransformer;
+
 
     /**
      * CustomerController constructor.
@@ -32,6 +34,7 @@ class CustomerController extends Controller
     {
         $this->customerTransformer = $customerTransformer;
     }
+
 
     /**
      * Display a listing of the resource.
@@ -51,6 +54,7 @@ class CustomerController extends Controller
         ]);
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -68,6 +72,7 @@ class CustomerController extends Controller
         return $this->respondCreated('Customer created');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -77,16 +82,15 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        return $this->respond(
-            $this->customerTransformer->transform($customer)
-        );
+        return $this->respond($this->customerTransformer->transform($customer));
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \VividFinance\Http\Requests\API\CustomerUpdateRequest $request
-     * @param  \VividFinance\Customer $customer
+     * @param  \VividFinance\Customer                                $customer
      *
      * @return \Illuminate\Http\Response
      */
@@ -97,6 +101,7 @@ class CustomerController extends Controller
 
         return $this->respondWithSuccess('The customer has been updated');
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -11,7 +11,9 @@ use VividFinance\Traits\APITrait;
  */
 class Request extends FormRequest
 {
+
     use APITrait;
+
 
     /**
      * Response to a forbidden request
@@ -22,6 +24,7 @@ class Request extends FormRequest
     {
         return $this->respondForbidden('You have no power here');
     }
+
 
     /**
      * Get the proper failed validation response for the request.

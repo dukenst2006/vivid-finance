@@ -18,9 +18,10 @@ $factory->define(VividFinance\User::class, function (Faker\Generator $faker) {
         'password'       => bcrypt(str_random(10)),
         'birthday'       => $faker->date('Y-m-d', '-18years'),
         'telephone'      => $faker->phoneNumber,
-        'sex'            => $faker->randomElement(['male', 'female']),
+        'sex'            => $faker->randomElement([ 'male', 'female' ]),
         'bio'            => $faker->paragraph(),
-        'remember_token' => str_random(10)
+        'remember_token' => str_random(10),
+        'api_tolen'      => str_random(60)
     ];
 });
 
@@ -39,7 +40,7 @@ $factory->define(VividFinance\Customer::class, function (Faker\Generator $faker)
 $factory->define(VividFinance\Invoice::class, function (Faker\Generator $faker) {
     return [
         'title'           => $faker->title,
-        'state'           => $faker->randomElement(['open', 'closed']),
+        'state'           => $faker->randomElement([ 'open', 'closed' ]),
         'file'            => '/public/invoices/' . $faker->slug . '.' . $faker->fileExtension,
         'file_path'       => '/public/invoices',
         'file_name'       => $faker->slug,

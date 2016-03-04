@@ -2,9 +2,9 @@
 
 namespace VividFinance\Http\Requests\API;
 
-
 class InvoiceStoreRequest extends Request
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -14,6 +14,7 @@ class InvoiceStoreRequest extends Request
     {
         return true;
     }
+
 
     /**
      * Get the validation rules that apply to the request.

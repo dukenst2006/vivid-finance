@@ -14,12 +14,14 @@ use VividFinance\User;
  */
 class UserController extends Controller
 {
+
     /**
      * The user transformer
      *
      * @var UserTransformer
      */
     protected $userTransformer;
+
 
     /**
      * UserController constructor.
@@ -30,6 +32,7 @@ class UserController extends Controller
     {
         $this->userTransformer = $userTransformer;
     }
+
 
     /**
      * Display a listing of the resource.
@@ -49,6 +52,7 @@ class UserController extends Controller
         ]);
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -61,6 +65,7 @@ class UserController extends Controller
         //
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -70,9 +75,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return $this->respond(
-            $this->userTransformer->transform($user)
-        );
+        return $this->respond($this->userTransformer->transform($user));
     }
 
 
@@ -80,7 +83,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \VividFinance\User $user
+     * @param  \VividFinance\User       $user
      *
      * @return \Illuminate\Http\Response
      */
@@ -88,6 +91,7 @@ class UserController extends Controller
     {
         //
     }
+
 
     /**
      * Remove the specified resource from storage.

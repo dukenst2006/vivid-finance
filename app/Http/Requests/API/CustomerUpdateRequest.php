@@ -16,6 +16,7 @@ class CustomerUpdateRequest extends Request
      */
     protected $customer;
 
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,6 +26,7 @@ class CustomerUpdateRequest extends Request
     {
         return true;
     }
+
 
     /**
      * Get the validation rules that apply to the request.

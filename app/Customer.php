@@ -7,32 +7,33 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * VividFinance\Customer
  *
- * @property integer $id
- * @property string $name
- * @property string $telephone
- * @property string $email
- * @property string $country
- * @property string $city
- * @property string $postcode
- * @property string $building_number
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property integer                                                               $id
+ * @property string                                                                $name
+ * @property string                                                                $telephone
+ * @property string                                                                $email
+ * @property string                                                                $country
+ * @property string                                                                $city
+ * @property string                                                                $postcode
+ * @property string                                                                $building_number
+ * @property \Carbon\Carbon                                                        $created_at
+ * @property \Carbon\Carbon                                                        $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\VividFinance\Invoice[] $invoices
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereTelephone($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCountry($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCity($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer wherePostcode($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereBuildingNumber($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereId( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereName( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereTelephone( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereEmail( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCountry( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCity( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer wherePostcode( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereBuildingNumber( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt( $value )
  * @mixin \Eloquent
  * @mixin \Eloquent
  */
 class Customer extends Model
 {
+
     /**
      * The name of the database table
      *
@@ -55,6 +56,7 @@ class Customer extends Model
         'building_number'
     ];
 
+
     /**
      * Method used to add an invoice to the company
      *
@@ -66,6 +68,7 @@ class Customer extends Model
     {
         return $this->invoices()->save($invoice);
     }
+
 
     /**
      * An company has one or many invoices

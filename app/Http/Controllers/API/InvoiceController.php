@@ -17,12 +17,14 @@ use VividFinance\Transformers\InvoiceTransformer;
  */
 class InvoiceController extends Controller
 {
+
     /**
      * The transformer used to transform the data
      *
      * @var InvoiceTransformer The transformer
      */
     protected $invoiceTransformer;
+
 
     /**
      * InvoiceController constructor.
@@ -33,6 +35,7 @@ class InvoiceController extends Controller
     {
         $this->invoiceTransformer = $invoiceTransformer;
     }
+
 
     /**
      * Display a listing of the resource.
@@ -51,6 +54,7 @@ class InvoiceController extends Controller
             'data' => $this->invoiceTransformer->transformCollection($invoices->all())
         ]);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -79,6 +83,7 @@ class InvoiceController extends Controller
         return $this->respondCreated('Invoice created');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -88,16 +93,15 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
-        return $this->respond(
-            $this->invoiceTransformer->transform($invoice)
-        );
+        return $this->respond($this->invoiceTransformer->transform($invoice));
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \VividFinance\Http\Requests\API\InvoiceUpdateRequest $request
-     * @param  \VividFinance\Invoice $invoice
+     * @param  \VividFinance\Invoice                                $invoice
      *
      * @return \Illuminate\Http\Response
      */
@@ -108,6 +112,7 @@ class InvoiceController extends Controller
 
         return $this->respondWithSuccess('The invoice has been updated');
     }
+
 
     /**
      * Remove the specified resource from storage.

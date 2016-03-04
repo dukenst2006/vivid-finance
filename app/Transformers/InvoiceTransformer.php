@@ -8,6 +8,7 @@ namespace VividFinance\Transformers;
  */
 class InvoiceTransformer extends Transformer
 {
+
     /**
      * Transformer for the invoice
      *
@@ -18,8 +19,8 @@ class InvoiceTransformer extends Transformer
     public function transform($invoice)
     {
         return [
-            'id'              => (int)$invoice->id,
-            'customer_id'     => (int)$invoice->customer_id,
+            'id'              => (int) $invoice->id,
+            'customer_id'     => (int) $invoice->customer_id,
             'title'           => $invoice->title,
             'state'           => $invoice->state,
             'file'            => $invoice->file,

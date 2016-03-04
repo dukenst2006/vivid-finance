@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddsApiTokenToUsers extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,11 +14,10 @@ class AddsApiTokenToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table
-                ->string('api_token' , 60)
-                ->unique();
+            $table->string('api_token', 60)->unique();
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -27,8 +27,7 @@ class AddsApiTokenToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table
-                ->dropColumn('api_token');
+            $table->dropColumn('api_token');
         });
     }
 }

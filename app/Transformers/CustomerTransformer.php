@@ -8,6 +8,7 @@ namespace VividFinance\Transformers;
  */
 class CustomerTransformer extends Transformer
 {
+
     /**
      * Transformer for the customer
      *
@@ -18,7 +19,7 @@ class CustomerTransformer extends Transformer
     public function transform($customer)
     {
         return [
-            'id'              => (int)$customer->id,
+            'id'              => (int) $customer->id,
             'name'            => $customer->name,
             'telephone'       => $customer->telephone,
             'email'           => $customer->email,

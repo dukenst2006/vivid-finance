@@ -4,6 +4,7 @@ namespace VividFinance\Http\Requests\API;
 
 class InvoiceUpdateRequest extends Request
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,6 +14,7 @@ class InvoiceUpdateRequest extends Request
     {
         return true;
     }
+
 
     /**
      * Get the validation rules that apply to the request.

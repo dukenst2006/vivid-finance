@@ -8,12 +8,14 @@ namespace VividFinance\Http\Requests\API;
  */
 class UserUpdateRequest extends Request
 {
+
     /**
      * The given user
      *
      * @var
      */
     protected $user;
+
 
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +26,7 @@ class UserUpdateRequest extends Request
     {
         return true;
     }
+
 
     /**
      * Get the validation rules that apply to the request.
