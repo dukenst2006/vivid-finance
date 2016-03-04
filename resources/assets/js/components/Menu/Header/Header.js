@@ -1,4 +1,5 @@
 import CSSUtil from './../../../utils/css';
+import * as MenuTitle from './../Title/Title.vue';
 
 export default {
     data () {
@@ -26,9 +27,7 @@ export default {
     },
 
     components: {
-        'v-menu-title' (resolve) {
-            require(['./../Title/Title.vue'], resolve)
-        }
+        'v-menu-title': MenuTitle
     },
 
     computed: {

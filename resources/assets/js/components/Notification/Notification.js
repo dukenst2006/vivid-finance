@@ -1,6 +1,6 @@
 import CSSUtil from './../../utils/css';
-
 import store from './../../store';
+import * as NotificationItem from './Item/Item.vue';
 
 export default {
     data () {
@@ -19,9 +19,7 @@ export default {
     },
 
     components: {
-        'v-notification-item' (resolve) {
-            require(['./Item/Item.vue'], resolve)
-        }
+        'v-notification-item': NotificationItem
     },
 
     computed: {

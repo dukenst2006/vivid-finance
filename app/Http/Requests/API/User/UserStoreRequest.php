@@ -1,6 +1,8 @@
 <?php
 
-namespace VividFinance\Http\Requests\API;
+namespace VividFinance\Http\Requests\API\User;
+
+use VividFinance\Http\Requests\API\Request;
 
 class UserStoreRequest extends Request
 {

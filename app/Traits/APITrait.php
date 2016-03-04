@@ -150,6 +150,21 @@ trait APITrait
         return $this->respondWithError($message, $headers);
     }
 
+    /**
+     * Will result in a 401 error code
+     *
+     * @param string $message The given message
+     * @param array  $headers The headers that should be send with the JSON-response
+     *
+     * @return \Illuminate\Http\JsonResponse The JSON-response with the error code
+     */
+    protected function respondUnauthorized($message = 'Unauthorized', $headers = [ ])
+    {
+        $this->setStatusCode(IlluminateResponse::HTTP_UNAUTHORIZED);
+
+        return $this->respondWithError($message, $headers);
+    }
+
 
     /**
      * Will result in a 403 error code

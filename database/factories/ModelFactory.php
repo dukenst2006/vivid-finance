@@ -21,7 +21,7 @@ $factory->define(VividFinance\User::class, function (Faker\Generator $faker) {
         'sex'            => $faker->randomElement([ 'male', 'female' ]),
         'bio'            => $faker->paragraph(),
         'remember_token' => str_random(10),
-        'api_tolen'      => str_random(60)
+        'api_token'      => str_random(60)
     ];
 });
 

@@ -1,4 +1,5 @@
 import CSSUtil from './../../utils/css';
+import NavIconLine from './Line/Line.vue';
 
 export default {
     data () {
@@ -18,9 +19,7 @@ export default {
     },
 
     components: {
-        'v-nav-icon-line' (resolve) {
-            require(['./Line/Line.vue'], resolve)
-        }
+        'v-nav-icon-line': NavIconLine
     },
 
     computed: {

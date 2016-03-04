@@ -1,6 +1,5 @@
 import CSSUtil from './../../../utils/css';
 
-
 export default {
     data () {
         return {

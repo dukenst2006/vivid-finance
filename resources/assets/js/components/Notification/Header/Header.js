@@ -1,5 +1,5 @@
 import CSSUtil from './../../../utils/css';
-
+import * as NotificationTitle from './../Title/Title.vue';
 
 export default {
     data () {
@@ -26,9 +26,7 @@ export default {
     },
 
     components: {
-        'v-notification-title' (resolve) {
-            require(['./../Title/Title.vue'], resolve)
-        }
+        'v-notification-title': NotificationTitle
     },
 
     computed: {

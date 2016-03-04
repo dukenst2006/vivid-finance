@@ -1,4 +1,6 @@
 import CSSUtil from './../../../utils/css';
+import * as MenuBody from './../Body/Body.vue';
+import * as MenuHeader from './../Header/Header.vue';
 
 export default {
     data () {
@@ -42,12 +44,8 @@ export default {
     },
 
     components: {
-        'v-menu-header' (resolve) {
-            require(['./../Header/Header.vue'], resolve)
-        },
-        'v-menu-body' (resolve) {
-            require(['./../Body/Body.vue'], resolve)
-        }
+        'v-menu-body': MenuBody,
+        'v-menu-header': MenuHeader
     },
 
     computed: {

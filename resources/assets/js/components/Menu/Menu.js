@@ -1,4 +1,5 @@
 import CSSUtil from './../../utils/css';
+import * as MenuGroup from './Group/Group.vue';
 
 export default {
     data () {
@@ -26,9 +27,7 @@ export default {
     },
 
     components: {
-        'v-menu-group' (resolve) {
-            require(['./Group/Group.vue'], resolve)
-        }
+        'v-menu-group': MenuGroup
     },
 
     computed: {

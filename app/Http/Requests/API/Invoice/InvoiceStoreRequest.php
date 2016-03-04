@@ -1,8 +1,10 @@
 <?php
 
-namespace VividFinance\Http\Requests\API;
+namespace VividFinance\Http\Requests\API\Invoice;
 
-class InvoiceUpdateRequest extends Request
+use VividFinance\Http\Requests\API\Request;
+
+class InvoiceStoreRequest extends Request
 {
 
     /**
@@ -25,7 +27,8 @@ class InvoiceUpdateRequest extends Request
     {
         return [
             'title'           => [
-                'required'
+                'required',
+                'unique:invoices,title,NULL,customer_id'
             ],
             'state'           => [
                 'required',
@@ -38,6 +41,11 @@ class InvoiceUpdateRequest extends Request
             'customer_id'     => [
                 'required',
                 'integer'
+            ],
+            'file'            => [
+                'required',
+                'max:5120',
+                'mimes:application/pdf,pdf'
             ]
         ];
     }

@@ -13,7 +13,7 @@
 Route::group([
     'middleware' => [
         'api',
-        'auth'
+        //'auth'
     ],
     'as'         => 'api::',
     'namespace'  => 'API',
@@ -54,10 +54,14 @@ Route::group([
         Route::put('{invoice}', [ 'as' => 'update', 'uses' => 'InvoiceController@update' ]);
         Route::delete('{invoice}', [ 'as' => 'destroy', 'uses' => 'InvoiceController@destroy' ]);
     });
+
+    Route::get('/auth', function() {
+        return Auth::user();
+    });
 });
 
 Route::group([
-    'middleware' => [ 'web' ],
+    'middleware' => [  ],
     'as'         => 'web::'
 ], function () {
     Route::get('', [ 'as' => 'home.index', 'uses' => 'HomeController@index' ]);

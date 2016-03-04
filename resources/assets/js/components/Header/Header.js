@@ -1,4 +1,6 @@
 import CSSUtil from './../../utils/css';
+import * as HeaderActions from './Actions/Actions.vue';
+import * as HeaderSidebar from './Sidebar/Sidebar.vue';
 
 export default {
     data () {
@@ -34,12 +36,8 @@ export default {
     },
 
     components: {
-        'v-header-sidebar' (resolve) {
-            require(['./Sidebar/Sidebar.vue'], resolve)
-        },
-        'v-header-actions' (resolve) {
-            require(['./Actions/Actions.vue'], resolve)
-        }
+        'v-header-actions': HeaderActions,
+        'v-header-sidebar': HeaderSidebar
     },
 
     computed: {

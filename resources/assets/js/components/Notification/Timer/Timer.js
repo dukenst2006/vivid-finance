@@ -1,5 +1,4 @@
 import CSSUtil from './../../../utils/css';
-
 import store from './../../../store';
 const { deleteNotification } = store.actions;
 

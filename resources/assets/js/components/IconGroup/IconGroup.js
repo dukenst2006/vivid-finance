@@ -1,4 +1,6 @@
 import CSSUtil from './../../utils/css';
+import * as IconGroupDescription from './Description/Description.vue';
+import * as IconGroupIcon from './Icon/Icon.vue';
 
 export default {
     data () {
@@ -34,12 +36,8 @@ export default {
     },
 
     components: {
-        'v-icon-group-description' (resolve) {
-            require(['./Description/Description.vue'], resolve)
-        },
-        'v-icon-group-icon' (resolve) {
-            require(['./Icon/Icon.vue'], resolve)
-        }
+        'v-icon-group-description': IconGroupDescription,
+        'v-icon-group-icon': IconGroupIcon
     },
 
     computed: {

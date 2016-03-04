@@ -1,5 +1,6 @@
 import CSSUtil from './../../../utils/css';
-
+import * as NotificationClose from './../Close/Close.vue';
+import * as NotificationContent from './../Content/Content.vue';
 
 export default {
     data () {
@@ -42,12 +43,8 @@ export default {
     },
 
     components: {
-        'v-notification-content' (resolve) {
-            require(['./../Content/Content.vue'], resolve)
-        },
-        'v-notification-close' (resolve) {
-            require(['./../Close/Close.vue'], resolve)
-        }
+        'v-notification-close': NotificationClose,
+        'v-notification-content': NotificationContent
     },
 
     computed: {

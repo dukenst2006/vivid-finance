@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\CustomerHasBeenCreated;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\CustomerStoreRequest;
-use VividFinance\Http\Requests\API\CustomerUpdateRequest;
+use VividFinance\Http\Requests\API\Customer\CustomerStoreRequest;
+use VividFinance\Http\Requests\API\Customer\CustomerUpdateRequest;
 use VividFinance\Transformers\CustomerTransformer;
 
 /**

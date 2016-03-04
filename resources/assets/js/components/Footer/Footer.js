@@ -1,4 +1,6 @@
 import CSSUtil from './../../utils/css';
+import * as FooterBody from './Body/Body.vue';
+import * as FooterHeader from './Header/Header.vue';
 
 export default {
     data () {
@@ -42,12 +44,8 @@ export default {
     },
 
     components: {
-        'v-footer-header' (resolve) {
-            require(['./Header/Header.vue'], resolve)
-        },
-        'v-footer-body' (resolve) {
-            require(['./Body/Body.vue'], resolve)
-        }
+        'v-footer-body': FooterBody,
+        'v-footer-header': FooterHeader
     },
 
     computed: {

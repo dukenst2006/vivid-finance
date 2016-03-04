@@ -18,6 +18,7 @@ Vue.use(VueRouter);
 
 // Configure Vue
 Vue.config.debug = config.debug;
+Vue.http.headers.Accept = 'application/json';
 Vue.http.options.root = 'api/v1';
 app = Vue.extend(App);
 

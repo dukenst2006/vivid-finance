@@ -1,4 +1,5 @@
 import CSSUtil from './../../../utils/css';
+import * as HeaderAction from './../Action/Action.vue';
 
 export default {
     data () {
@@ -26,9 +27,7 @@ export default {
     },
 
     components: {
-        'v-header-action' (resolve) {
-            require(['./../Action/Action.vue'], resolve)
-        }
+        'v-header-action': HeaderAction
     },
 
     computed: {

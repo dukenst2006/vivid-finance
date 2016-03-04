@@ -1,4 +1,5 @@
 import CSSUtil from './../../../utils/css';
+import * as BreadcrumbContent from './../Content/Content.vue';
 
 export default {
     data () {
@@ -34,9 +35,7 @@ export default {
     },
 
     components: {
-        'v-breadcrumb-content' (resolve) {
-            require(['./../Content/Content.vue'], resolve)
-        }
+        'v-breadcrumb-content' : BreadcrumbContent
     },
 
     computed: {

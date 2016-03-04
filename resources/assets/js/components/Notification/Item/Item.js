@@ -1,5 +1,7 @@
 import CSSUtil from './../../../utils/css';
-
+import * as NotificationBody from './../Body/Body.vue';
+import * as NotificationHeader from './../Header/Header.vue';
+import * as NotificationTimer from './../Timer/Timer.vue';
 
 export default {
     data () {
@@ -66,15 +68,9 @@ export default {
     },
 
     components: {
-        'v-notification-timer' (resolve) {
-            require(['./../Timer/Timer.vue'], resolve)
-        },
-        'v-notification-header' (resolve) {
-            require(['./../Header/Header.vue'], resolve)
-        },
-        'v-notification-body' (resolve) {
-            require(['./../Body/Body.vue'], resolve)
-        }
+        'v-notification-body': NotificationBody,
+        'v-notification-header': NotificationHeader,
+        'v-notification-timer': NotificationTimer
     },
 
     computed: {

@@ -1,4 +1,5 @@
 import CSSUtil from './../../utils/css';
+import * as BreadcrumbItem from './Item/Item.vue';
 
 export default {
     data () {
@@ -26,9 +27,7 @@ export default {
     },
 
     components: {
-        'v-breadcrumb-item' (resolve) {
-            require(['./Item/Item.vue'], resolve)
-        }
+        'v-breadcrumb-item' : BreadcrumbItem
     },
 
     computed: {

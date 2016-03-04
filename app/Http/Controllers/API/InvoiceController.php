@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\InvoiceHasBeenCreated;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\InvoiceStoreRequest;
-use VividFinance\Http\Requests\API\InvoiceUpdateRequest;
+use VividFinance\Http\Requests\API\Invoice\InvoiceStoreRequest;
+use VividFinance\Http\Requests\API\Invoice\InvoiceUpdateRequest;
 use VividFinance\Invoice;
 use VividFinance\Transformers\InvoiceTransformer;
 

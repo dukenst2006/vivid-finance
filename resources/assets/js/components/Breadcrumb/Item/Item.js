@@ -1,4 +1,6 @@
 import CSSUtil from './../../../utils/css';
+import * as BreadcrumbContent from './../Content/Content.vue';
+import * as BreadcrumbLink from './../Link/Link.vue';
 
 export default {
     data () {
@@ -37,9 +39,7 @@ export default {
         'v-breadcrumb-content' (resolve) {
             require(['./../Content/Content.vue'], resolve)
         },
-        'v-breadcrumb-link' (resolve) {
-            require(['./../Link/Link.vue'], resolve)
-        }
+        'v-breadcrumb-link' : BreadcrumbLink
     },
 
     computed: {
