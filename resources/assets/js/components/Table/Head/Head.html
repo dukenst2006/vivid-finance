@@ -1,0 +1,25 @@
+<thead :class="headClass">
+<v-table-row
+        :type="row.type"
+        :variants="row.variants"
+        :columns="columns"
+>
+</v-table-row>
+<tr
+
+>
+
+</tr>
+
+<tr class="Table__row Table__row--head Table__row--primary">
+    <th class="Table__col Table__col--head Table__col--primary" v-for="column in columns">
+        <span class="Table__head-title">{{column.title}}</span>
+        <a class="Table__head-sort">
+            <i class="Table__head-sort-icon Icon Icon--menu-up"></i>
+        </a>
+    </th>
+    <th class="Table__col Table__col--head Table__col--primary" v-if="action">
+        &nbsp;
+    </th>
+</tr>
+</thead>
