@@ -6,6 +6,15 @@ use VividFinance\Http\Requests\API\Request;
 
 /**
  * Class CustomerUpdateRequest
+ *
+ * @property string $name
+ * @property string $telephone
+ * @property string $email
+ * @property string $country
+ * @property string $city
+ * @property string $postcode
+ * @property string $building_number
+ *
  * @package VividFinance\Http\Requests\API
  */
 class UpdateRequest extends Request

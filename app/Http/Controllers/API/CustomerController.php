@@ -11,7 +11,6 @@ use VividFinance\Http\Requests\API\Customer\IndexRequest;
 use VividFinance\Http\Requests\API\Customer\ShowRequest;
 use VividFinance\Http\Requests\API\Customer\StoreRequest;
 use VividFinance\Http\Requests\API\Customer\UpdateRequest;
-use VividFinance\Http\Requests\API\CustomerRequest;
 use VividFinance\Transformers\CustomerTransformer;
 
 /**

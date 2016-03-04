@@ -2,8 +2,19 @@
 
 namespace VividFinance\Http\Requests\API\Invoice;
 
+use Carbon\Carbon;
 use VividFinance\Http\Requests\API\Request;
 
+/**
+ * Class UpdateRequest
+ *
+ * @property string $title
+ * @property string $state
+ * @property Carbon $expiration_date
+ * @property int    $customer_id
+ *
+ * @package VividFinance\Http\Requests\API\Invoice
+ */
 class UpdateRequest extends Request
 {
 

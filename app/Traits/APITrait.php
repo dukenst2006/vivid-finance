@@ -119,6 +119,12 @@ trait APITrait
     }
 
 
+    public function respondWithFile($filePath, $fileName, $headers = [ ])
+    {
+        return Response::download($filePath, $fileName, $headers);
+    }
+
+
     /**
      * Will result in a 201 code
      *

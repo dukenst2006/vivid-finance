@@ -2,11 +2,10 @@
 
 namespace VividFinance\Http\Requests\API\Invoice;
 
-use VividFinance\Http\Requests\API\Request;
+use VividFinance\Http\Requests\Request;
 
-class IndexRequest extends Request
+class DownloadRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -16,7 +15,6 @@ class IndexRequest extends Request
     {
         return true;
     }
-
 
     /**
      * Get the validation rules that apply to the request.

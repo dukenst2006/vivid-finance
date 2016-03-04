@@ -53,15 +53,18 @@ Route::group([
         Route::get('{invoice}', [ 'as' => 'show', 'uses' => 'InvoiceController@show' ]);
         Route::put('{invoice}', [ 'as' => 'update', 'uses' => 'InvoiceController@update' ]);
         Route::delete('{invoice}', [ 'as' => 'destroy', 'uses' => 'InvoiceController@destroy' ]);
+
+        // Download route
+        Route::get('{invoice}/download', [ 'as' => 'download', 'uses' => 'InvoiceController@download' ]);
     });
 
-    Route::get('/auth', function() {
+    Route::get('/auth', function () {
         return Auth::user();
     });
 });
 
 Route::group([
-    'middleware' => [  ],
+    'middleware' => [ ],
     'as'         => 'web::'
 ], function () {
     Route::get('', [ 'as' => 'home.index', 'uses' => 'HomeController@index' ]);

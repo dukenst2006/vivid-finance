@@ -105,4 +105,8 @@ class Invoice extends Model
     {
         return storage_path() . '/customers/' . $this->customer_id . '/invoices';
     }
+
+    public function getFullFile() {
+        return $this->getFilePath() . '/' . $this->file;
+    }
 }
