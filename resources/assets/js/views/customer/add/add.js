@@ -1,4 +1,3 @@
-import store from '../../../vuex/store'
 import { storeCustomer, addNotification } from './../../../vuex/actions'
 
 export default {
@@ -60,11 +59,18 @@ export default {
         }
     },
 
+    vuex: {
+        actions: {
+            addNotification,
+            storeCustomer
+        }
+    },
+
     methods: {
         addCustomer () {
             var vm = this;
-            storeCustomer(this.customer, () => {
-                addNotification({
+            this.storeCustomer(this.customer, () => {
+                this.addNotification({
                     variants: ['success'],
                     timer: {
                         variants: ['success']
@@ -88,7 +94,7 @@ export default {
                     name: 'customer.index'
                 });
             }, () => {
-                addNotification({
+                this.addNotification({
                     variants: ['danger'],
                     timer: {
                         variants: ['danger']

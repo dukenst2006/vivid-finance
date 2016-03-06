@@ -1,5 +1,4 @@
 import CSSUtil from './../../utils/css';
-import store from './../../vuex/store';
 import * as NotificationItem from './Item/Item.vue';
 
 export default {
@@ -22,14 +21,13 @@ export default {
         'v-notification-item': NotificationItem
     },
 
+    vuex: {
+        state: {
+            items: ({notification}) => notification.data
+        }
+    },
+
     computed: {
-        /**
-         * The items from the shared store
-         * @returns {*}
-         */
-        items () {
-            return store.state.notifications;
-        },
 
         /**
          * Computed property which will output the

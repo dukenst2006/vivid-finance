@@ -1,5 +1,4 @@
 import CSSUtil from './../../../utils/css';
-import store from './../../../vuex/store';
 import { deleteNotification } from './../../../vuex/actions'
 
 export default {
@@ -8,6 +7,7 @@ export default {
             element: 'timer'
         }
     },
+
     props: {
         /**
          * The identifier
@@ -25,6 +25,13 @@ export default {
             required: false
         }
     },
+
+    vuex: {
+        actions: {
+            deleteNotification
+        }
+    },
+
     computed: {
         /**
          * The block name from the parent
@@ -51,7 +58,7 @@ export default {
          * Method used to dismiss the alert
          */
         dismissNotification() {
-            deleteNotification(this.identifier);
+            this.deleteNotification(this.identifier);
         },
 
         /**

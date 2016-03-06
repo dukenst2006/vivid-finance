@@ -26,6 +26,12 @@ export default {
         }
     },
 
+    vuex: {
+        actions: {
+            deleteNotification
+        }
+    },
+
     components: {
         'v-icon' (resolve) {
             require(['./../../Icon/Icon.vue'], resolve)
@@ -58,7 +64,7 @@ export default {
          * Method used to close the notification
          */
         dismissNotification () {
-            deleteNotification(this.identifier);
+            this.deleteNotification(this.identifier);
         }
     }
 }
