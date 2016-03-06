@@ -51,6 +51,7 @@
 							:actions="table.actions"
 							:variants="table.variants"
 							:head="table.head"
+							:body="table.body"
 					></v-table>
 				</div>
 			</div>
@@ -71,7 +72,6 @@
 								<select
 										class="Form__control InputGroup__control"
 										id="results_on_page_2"
-										v-model="pagination.limit"
 								>
 									<option selected>5</option>
 									<option>10</option>

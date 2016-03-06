@@ -20,104 +20,102 @@
         <div class="Page__body">
             <div class="Row">
                 <div class="Col Col--md">
-                    <div class="Panel Panel--primary">
-                        <div class="Panel__header Panel__header--primary">
-                            <h2 class="Panel__title Panel__title--primary">
-                                Edit {{customer.name}}
-                            </h2>
-                        </div>
-                        <div class="Panel__body Panel__body--primary">
-                            <form class="Form" @submit.prevent="addCustomer">
-                                <div class="Row">
-                                    <div class="Col Col--md">
-                                        <div class="Form__group">
-                                            <input
-                                                    type="text"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Name"
-                                                    v-model="customer.name"
-                                            />
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="email"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Email"
-                                                    v-model="customer.email"
-                                            />
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="text"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Telephone"
-                                                    v-model="customer.telephone"
-                                            />
-                                        </div>
+                    <v-panel
+                            :title="panel.title"
+                            :header="panel.header"
+                            :body="panel.body"
+                            :variants="panel.variants"
+                    >
+                        <form class="Form" @submit.prevent="addCustomer">
+                            <div class="Row">
+                                <div class="Col Col--md">
+                                    <div class="Form__group">
+                                        <input
+                                                type="text"
+                                                class="Form__control Form__control--minimal"
+                                                placeholder="Name"
+                                                v-model="customer.name"
+                                        />
                                     </div>
-                                    <div class="Col Col--md">
-                                        <div class="Row">
-                                            <div class="Col Col--md">
-                                                <div class="Form__group">
-                                                    <input
-                                                            type="text"
-                                                            class="Form__control Form__control--minimal"
-                                                            placeholder="Postcode"
-                                                            v-model="customer.postcode"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div class="Col Col--md">
-                                                <div class="Form__group">
-                                                    <input
-                                                            type="text"
-                                                            class="Form__control Form__control--minimal"
-                                                            placeholder="Building number"
-                                                            v-model="customer.buildingNumber"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="text"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="City"
-                                                    v-model="customer.city"
-                                            />
-                                        </div>
-                                        <div class="Form__group">
-                                            <input
-                                                    type="text"
-                                                    class="Form__control Form__control--minimal"
-                                                    placeholder="Country"
-                                                    v-model="customer.country"
-                                            />
-                                        </div>
+                                    <div class="Form__group">
+                                        <input
+                                                type="email"
+                                                class="Form__control Form__control--minimal"
+                                                placeholder="Email"
+                                                v-model="customer.email"
+                                        />
+                                    </div>
+                                    <div class="Form__group">
+                                        <input
+                                                type="text"
+                                                class="Form__control Form__control--minimal"
+                                                placeholder="Telephone"
+                                                v-model="customer.telephone"
+                                        />
                                     </div>
                                 </div>
-                                <div class="Row">
-                                    <div class="Col Col--md Text--md-right">
-                                        <div class="Form__group Form__group--inline">
-                                            <button
-                                                    class="Button Button--primary"
-                                                    type="submit"
-                                            >
-                                                Edit
-                                            </button>
+                                <div class="Col Col--md">
+                                    <div class="Row">
+                                        <div class="Col Col--md">
+                                            <div class="Form__group">
+                                                <input
+                                                        type="text"
+                                                        class="Form__control Form__control--minimal"
+                                                        placeholder="Postcode"
+                                                        v-model="customer.postcode"
+                                                />
+                                            </div>
                                         </div>
-                                        <div class="Form__group Form__group--inline">
-                                            <a class="Button Button--danger"
-                                               v-link="{name : 'customer.index'}"
-                                            >
-                                                Cancel
-                                            </a>
+                                        <div class="Col Col--md">
+                                            <div class="Form__group">
+                                                <input
+                                                        type="text"
+                                                        class="Form__control Form__control--minimal"
+                                                        placeholder="Building number"
+                                                        v-model="customer.buildingNumber"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="Form__group">
+                                        <input
+                                                type="text"
+                                                class="Form__control Form__control--minimal"
+                                                placeholder="City"
+                                                v-model="customer.city"
+                                        />
+                                    </div>
+                                    <div class="Form__group">
+                                        <input
+                                                type="text"
+                                                class="Form__control Form__control--minimal"
+                                                placeholder="Country"
+                                                v-model="customer.country"
+                                        />
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
+                            </div>
+                            <div class="Row">
+                                <div class="Col Col--md Text--md-right">
+                                    <div class="Form__group Form__group--inline">
+                                        <button
+                                                class="Button Button--primary"
+                                                type="submit"
+                                        >
+                                            Add
+                                        </button>
+                                    </div>
+                                    <div class="Form__group Form__group--inline">
+                                        <a class="Button Button--danger"
+                                           v-link="{name : 'customer.index'}"
+                                        >
+                                            Cancel
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </v-panel>
                 </div>
             </div>
         </div>

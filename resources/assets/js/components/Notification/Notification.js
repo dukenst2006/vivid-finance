@@ -1,5 +1,5 @@
 import CSSUtil from './../../utils/css';
-import store from './../../store';
+import store from './../../vuex/store';
 import * as NotificationItem from './Item/Item.vue';
 
 export default {

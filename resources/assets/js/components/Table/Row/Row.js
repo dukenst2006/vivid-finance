@@ -1,5 +1,7 @@
 import CSSUtil from './../../../utils/css';
 import * as TableCell from './../Cell/Cell.vue';
+import * as TableSort from './../Sort/Sort.vue';
+import * as TableTitle from './../Title/Title.vue';
 
 export default {
     data () {
@@ -15,17 +17,44 @@ export default {
             required: true
         },
 
+        cell: {
+            type: Object,
+            required: true
+        },
+
+        isHead: {
+            type: Boolean,
+            required: false
+        },
+
+        isBody: {
+            type: Boolean,
+            required: false
+        },
+
+        hasActions: {
+            type: Boolean,
+            required: false
+        },
+
         /**
          * The variants used for BEM
          */
         variants: {
             type: Array,
             required: false
+        },
+
+        item: {
+            type: Object,
+            required: false
         }
     },
 
     components: {
-        'v-table-cell': TableCell
+        'v-table-cell': TableCell,
+        'v-table-sort': TableSort,
+        'v-table-title': TableTitle
     },
 
     computed: {

@@ -1,5 +1,4 @@
-import store from '../../../store'
-const { getAllCustomers, setCustomerLimit } = store.actions;
+import { getAllCustomers } from './../../../vuex/actions'
 
 export default {
     data () {
@@ -54,7 +53,35 @@ export default {
                         variants: [
                             'primary',
                             'head'
-                        ]
+                        ],
+                        cell: {
+                            variants: [
+                                'primary',
+                                'head'
+                            ],
+                            title: {
+                                variants: []
+                            },
+                            sort: {
+                                variants: []
+                            }
+                        }
+                    }
+                }, body: {
+                    variants: [
+                        'primary'
+                    ],
+                    row: {
+                        variants: [
+                            'primary',
+                            'body'
+                        ],
+                        cell: {
+                            variants: [
+                                'primary',
+                                'body'
+                            ]
+                        }
                     }
                 },
                 notFound: 'No customers yet...',
@@ -64,16 +91,18 @@ export default {
                 ]
             },
             vPagination: {
-                fn: getAllCustomers
+                fn: this.getAllCustomers
             }
         }
     },
-    computed: {
-        customers () {
-            return store.state.customers.data
+
+    vuex: {
+        state: {
+            customers: ({customer}) => customer.data,
+            pagination: ({customer}) => customer.pagination
         },
-        pagination () {
-            return store.state.customers.pagination
+        actions: {
+            getAllCustomers
         }
     },
     components: {

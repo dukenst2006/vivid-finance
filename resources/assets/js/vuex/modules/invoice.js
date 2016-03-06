@@ -1,6 +1,6 @@
 import {RECEIVE_INVOICES} from './../mutation-types';
 
-export const invoicesInitialState = {
+const state = {
     data: [],
     pagination: {
         total_count: 0,
@@ -10,9 +10,14 @@ export const invoicesInitialState = {
     }
 };
 
-export const invoicesMutations = {
+const mutations = {
     [RECEIVE_INVOICES] (state, data) {
-        state.invoices.data = data.data;
-        state.invoices.pagination = data.pagination;
+        state.data = data.data;
+        state.pagination = data.pagination;
     }
+};
+
+export default {
+    state,
+    mutations
 };

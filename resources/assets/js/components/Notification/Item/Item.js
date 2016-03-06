@@ -11,9 +11,9 @@ export default {
     },
     props: {
         /**
-         * The id
+         * The identifier
          */
-        id: {
+        identifier: {
             type: String,
             required: true
         },

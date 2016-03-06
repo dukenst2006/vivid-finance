@@ -7,14 +7,12 @@
            :row="head.row"
     ></thead>
 
-    <tbody is="v-table-body"></tbody>
-
-    <!--<v-table-head-->
-            <!--:columns="columns"-->
-            <!--:has-actions="hasActions"-->
-            <!--:variants="head.variants"-->
-    <!--&gt;</v-table-head>-->
-
-    <!--<v-table-body></v-table-body>-->
+    <tbody is="v-table-body"
+           :columns="columns"
+           :has-actions="hasActions"
+           :variants="body.variants"
+           :row="body.row"
+           :items="items"
+    ></tbody>
 
 </table>

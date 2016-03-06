@@ -1,5 +1,5 @@
-import store from '../../../store'
-const { getAllInvoices } = store.actions;
+import store from '../../../vuex/store'
+import { getAllInvoices } from './../../../vuex/actions'
 
 export default {
     data () {

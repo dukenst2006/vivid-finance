@@ -1,5 +1,5 @@
-import store from '../../../store'
-const { storeCustomer, addNotification } = store.actions;
+import store from '../../../vuex/store'
+import { storeCustomer, addNotification } from './../../../vuex/actions'
 
 export default {
     data () {
@@ -36,7 +36,27 @@ export default {
                         text: 'Add Customer'
                     }
                 }
-            ]
+            ],
+
+            panel: {
+                variants: [
+                    'primary'
+                ],
+                body: {
+                    variants: [
+                        'primary'
+                    ]
+                },
+                header: {
+                    variants: [
+                        'primary'
+                    ]
+                },
+                title: {
+                    variants: ['primary'],
+                    content: 'Add a new customer'
+                }
+            }
         }
     },
 
@@ -95,6 +115,9 @@ export default {
     components: {
         'v-breadcrumb' (resolve) {
             require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
+        },
+        'v-panel' (resolve) {
+            require(['./../../../components/Panel/Panel.vue'], resolve)
         }
     }
 };

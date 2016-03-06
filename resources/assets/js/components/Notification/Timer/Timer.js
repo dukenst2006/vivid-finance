@@ -1,6 +1,6 @@
 import CSSUtil from './../../../utils/css';
-import store from './../../../store';
-const { deleteNotification } = store.actions;
+import store from './../../../vuex/store';
+import { deleteNotification } from './../../../vuex/actions'
 
 export default {
     data () {
@@ -10,9 +10,9 @@ export default {
     },
     props: {
         /**
-         * The id
+         * The identifier
          */
-        id: {
+        identifier: {
             type: String,
             required: true
         },
@@ -51,7 +51,7 @@ export default {
          * Method used to dismiss the alert
          */
         dismissNotification() {
-            deleteNotification(this.id);
+            deleteNotification(this.identifier);
         },
 
         /**

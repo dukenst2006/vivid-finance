@@ -1,5 +1,13 @@
-<tbody>
-<tr>
+<tbody :class="bodyClass">
 
-</tr>
+    <tr is="v-table-row"
+        :columns="columns"
+        :variants="row.variants"
+        :cell="row.cell"
+        :is-body="true"
+        :has-actions="hasActions"
+        :item="item"
+        v-for="item in items"
+    ></tr>
+
 </tbody>

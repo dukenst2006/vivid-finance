@@ -2,8 +2,10 @@ import http from './../services/http';
 import * as types from './mutation-types';
 
 // Customer
-export const getAllCustomers = ({dispatch}, page = 1) => {
-    dispatch(types.RECEIVE_CUSTOMERS, page);
+export const getAllCustomers = ({dispatch}, page = 1, limit = 5) => {
+    http.get('customers?page=' + page + '&limit=' + limit, {}, res => {
+        dispatch(types.RECEIVE_CUSTOMERS, res.data);
+    });
 };
 
 export const setCustomerLimit = ({dispatch}, limit) => {

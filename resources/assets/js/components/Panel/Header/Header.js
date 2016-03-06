@@ -1,17 +1,19 @@
 import CSSUtil from './../../../utils/css';
+import * as PanelTitle from './../Title/Title.vue';
 
 export default {
-    data () {
+    data() {
         return {
-            element: 'title'
+            element: 'header'
         }
     },
 
     props: {
-        content: {
-            type: String,
+        title: {
+            type: Object,
             required: true
         },
+
         variants: {
             type: Array,
             required: false
@@ -28,14 +30,11 @@ export default {
             return this.$parent.block;
         },
 
-        /**
-         * Computed property which will output the
-         * corrected class names for the header
-         *
-         * @returns {Array} The corrected class name
-         */
-        titleClass () {
+        headerClass() {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
+    },
+    components: {
+        'v-panel-title': PanelTitle
     }
 };

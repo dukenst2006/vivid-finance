@@ -10,9 +10,9 @@ export default {
     },
     props: {
         /**
-         * The id of the notification
+         * The identifier of the notification
          */
-        id: {
+        identifier: {
             type: String,
             required: true
         },

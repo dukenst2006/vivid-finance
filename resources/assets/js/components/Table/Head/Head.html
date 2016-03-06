@@ -1,8 +1,11 @@
 <thead :class="headClass">
 
-<tr is="v-table-row"
-    :columns="columns"
-    :variants="row.variants"
-></tr>
+    <tr is="v-table-row"
+        :columns="columns"
+        :variants="row.variants"
+        :cell="row.cell"
+        :is-head="true"
+        :has-actions="hasActions"
+    ></tr>
 
 </thead>

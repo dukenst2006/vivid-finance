@@ -1,17 +1,19 @@
-<v-wrapper>
-	<v-header
-			:sidebar="header.sidebar"
-			:actions="header.actions"
-			:variants="header.variants"
-	></v-header>
+<div>
+    <v-wrapper>
+        <v-header
+                :sidebar="header.sidebar"
+                :actions="header.actions"
+                :variants="header.variants"
+        ></v-header>
 
-	<v-sidebar></v-sidebar>
+        <v-sidebar></v-sidebar>
 
-	<v-content
-		:variants="content.variants"
-	>
-		<router-view></router-view>
-	</v-content>
+        <v-content
+                :variants="content.variants"
+        >
+            <router-view></router-view>
+        </v-content>
 
-	<v-notification></v-notification>
-</v-wrapper>
+        <v-notification></v-notification>
+    </v-wrapper>
+</div>

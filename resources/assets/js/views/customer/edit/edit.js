@@ -1,7 +1,7 @@
-import store from './../../../store'
+import store from './../../../vuex/store'
 import http from './../../../services/http';
 import transformer from './../../../transformers/CustomerTransformer';
-const { storeCustomer, addNotification } = store.actions;
+import { storeCustomer, addNotification } from './../../../vuex/actions'
 
 export default {
     data () {
@@ -38,7 +38,27 @@ export default {
                         text: 'Edit customer'
                     }
                 }
-            ]
+            ],
+
+            panel: {
+                variants: [
+                    'primary'
+                ],
+                body: {
+                    variants: [
+                        'primary'
+                    ]
+                },
+                header: {
+                    variants: [
+                        'primary'
+                    ]
+                },
+                title: {
+                    variants: ['primary'],
+                    content: 'Edit customer'
+                }
+            }
         }
     },
 
@@ -97,6 +117,9 @@ export default {
     components: {
         'v-breadcrumb' (resolve) {
             require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
+        },
+        'v-panel' (resolve) {
+            require(['./../../../components/Panel/Panel.vue'], resolve)
         }
     },
 

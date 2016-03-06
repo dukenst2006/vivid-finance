@@ -1,32 +1,18 @@
 import CSSUtil from './../../../utils/css';
 
 export default {
-    data () {
+    data() {
         return {
-            element: 'cell'
+            element: 'title'
         }
     },
 
     props: {
-
         content: {
             type: String,
-            required: false
+            required: true
         },
 
-        isHead: {
-            type: Boolean,
-            required: false
-        },
-
-        isBody: {
-            type: Boolean,
-            required: false
-        },
-
-        /**
-         * The variants used for BEM
-         */
         variants: {
             type: Array,
             required: false
@@ -42,14 +28,7 @@ export default {
         block () {
             return this.$parent.block;
         },
-
-        /**
-         * Computed property which will output the
-         * corrected class names for the header
-         *
-         * @returns {Array} The corrected class name
-         */
-        cellClass () {
+        titleClass() {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
     }

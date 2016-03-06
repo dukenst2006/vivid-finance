@@ -1,5 +1,7 @@
 import CSSUtil from './../../../utils/css';
 
+import * as TableRow from './../Row/Row.vue';
+
 export default {
     data () {
         return {
@@ -15,6 +17,26 @@ export default {
         variants: {
             type: Array,
             required: false
+        },
+
+        columns: {
+            type: Array,
+            required: true
+        },
+
+        hasActions: {
+            type: Boolean,
+            required: true
+        },
+
+        items: {
+            type: Array,
+            required: true
+        },
+
+        row: {
+            type: Object,
+            required: true
         }
     },
 
@@ -37,5 +59,9 @@ export default {
         bodyClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
         }
+    },
+
+    components: {
+        'v-table-row': TableRow
     }
 };

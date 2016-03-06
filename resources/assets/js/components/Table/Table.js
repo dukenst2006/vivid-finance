@@ -11,9 +11,14 @@ export default {
 
     props: {
 
-        head : {
+        head: {
             type: Object,
             required: false
+        },
+
+        body: {
+            type: Object,
+            required: true
         },
 
         columns: {

@@ -1,3 +1,7 @@
-<td :class="cellClass">
-    {{content}}
+<th :class="cellClass" v-if="isHead">
+    <slot></slot>
+</th>
+
+<td :class="cellClass" v-if="isBody">
+    <slot></slot>
 </td>

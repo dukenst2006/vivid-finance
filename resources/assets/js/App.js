@@ -1,10 +1,11 @@
 import Pusher from 'pusher-js'
 
 import config from './config/env'
-import store from './store'
-const { getAllCustomers, getAllInvoices, addCustomer } = store.actions;
+import store from './vuex/store'
+import {getAllCustomers, getAllInvoices, addCustomer} from './vuex/actions'
 
 export default {
+    store,
     data () {
         return {
             header: {
@@ -44,6 +45,14 @@ export default {
         }
     },
 
+    vuex: {
+        actions: {
+            getAllCustomers,
+            getAllInvoices,
+            addCustomer
+        }
+    },
+
     components: {
         'v-wrapper' (resolve) {
             require(['./components/Wrapper/Wrapper.vue'], resolve)
@@ -69,14 +78,14 @@ export default {
         this.pusherChannel = this.pusher.subscribe(config.pusher_channel);
 
         this.pusherChannel.bind('VividFinance\\Events\\CustomerHasBeenCreated', data => {
-            addCustomer(data);
+            this.addCustomer(data);
         });
 
         this.pusherChannel.bind('VividFinance\\Events\\InvoiceHasBeenCreated', data => {
-            getAllInvoices();
+            this.getAllInvoices();
         });
 
-        getAllCustomers();
-        getAllInvoices();
+        this.getAllCustomers();
+        this.getAllInvoices();
     }
 }

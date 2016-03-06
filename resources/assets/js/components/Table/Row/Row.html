@@ -1,6 +1,42 @@
 <tr :class="rowClass">
+
+    <th is="v-table-cell"
+        v-if="isHead"
+        v-for="column in columns"
+        :variants="cell.variants"
+        :is-head="isHead"
+    >
+
+        <v-table-title
+                :content="column.title"
+                :variants="cell.title.variants"
+        ></v-table-title>
+
+        <v-table-sort
+        ></v-table-sort>
+
+    </th>
+
+    <!-- An extra cell when there are actions -->
+    <th is="v-table-cell"
+        v-if="hasActions && isHead"
+        :is-head="isHead"
+    ></th>
+
     <td is="v-table-cell"
+        v-if="isBody"
         v-for="column in columns"
         :content="column.title"
+        :variants="cell.variants"
+        :is-body="isBody"
+    >
+        {{item[column.slug]}}
+    </td>
+
+    <!-- An extra cell when there are actions -->
+    <td is="v-table-cell"
+        v-if="hasActions && isBody"
+        :is-body="isBody"
     ></td>
+
 </tr>
