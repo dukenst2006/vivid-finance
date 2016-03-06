@@ -29,6 +29,11 @@ export default {
             required: true
         },
 
+        notFound: {
+            type: String,
+            required: true
+        },
+
         items: {
             type: Array,
             required: true
@@ -58,6 +63,10 @@ export default {
          */
         bodyClass () {
             return CSSUtil.elementClasses(this.block, this.element, this.variants);
+        },
+
+        notFoundColSpan() {
+            return this.columns.length + (!!this.hasActions ? 1 : 0 );
         }
     },
 

@@ -1,4 +1,3 @@
-import store from '../../../vuex/store'
 import { getAllInvoices } from './../../../vuex/actions'
 
 export default {
@@ -46,22 +45,63 @@ export default {
                         'slug': 'telephone'
                     }
                 ],
+                head: {
+                    variants: [
+                        'primary'
+                    ],
+                    row: {
+                        variants: [
+                            'primary',
+                            'head'
+                        ],
+                        cell: {
+                            variants: [
+                                'primary',
+                                'head'
+                            ],
+                            title: {
+                                variants: []
+                            },
+                            sort: {
+                                variants: []
+                            }
+                        }
+                    }
+                }, body: {
+                    variants: [
+                        'primary'
+                    ],
+                    row: {
+                        variants: [
+                            'primary',
+                            'body'
+                        ],
+                        cell: {
+                            variants: [
+                                'primary',
+                                'body'
+                            ]
+                        }
+                    }
+                },
                 notFound: 'No invoices yet...',
-                action (customer) {
-                    console.log(customer);
-                }
+                actions: [],
+                variants: [
+                    'primary'
+                ]
             },
             vPagination : {
-                fn : getAllInvoices
+                fn : this.getAllInvoices
             }
         }
     },
-    computed: {
-        invoices () {
-            return store.state.invoices.data
+    vuex: {
+        state: {
+            invoices: ({invoice}) => invoice.data,
+            pagination: ({invoice}) => invoice.pagination
         },
-        pagination () {
-            return store.state.invoices.pagination
+        actions: {
+            getAllInvoices
         }
     },
     components: {

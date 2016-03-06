@@ -22,6 +22,16 @@ export default {
             required: true
         },
 
+        notFound: {
+            type: String,
+            required: false
+        },
+
+        notFoundColSpan: {
+            type: Number,
+            required: false
+        },
+
         isHead: {
             type: Boolean,
             required: false

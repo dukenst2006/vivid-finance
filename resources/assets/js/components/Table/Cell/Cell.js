@@ -9,11 +9,6 @@ export default {
 
     props: {
 
-        content: {
-            type: String,
-            required: false
-        },
-
         isHead: {
             type: Boolean,
             required: false
@@ -29,6 +24,11 @@ export default {
          */
         variants: {
             type: Array,
+            required: false
+        },
+
+        colspan : {
+            type: Number,
             required: false
         }
     },

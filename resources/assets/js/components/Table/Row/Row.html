@@ -24,9 +24,8 @@
     ></th>
 
     <td is="v-table-cell"
-        v-if="isBody"
+        v-if="isBody && item"
         v-for="column in columns"
-        :content="column.title"
         :variants="cell.variants"
         :is-body="isBody"
     >
@@ -35,8 +34,19 @@
 
     <!-- An extra cell when there are actions -->
     <td is="v-table-cell"
-        v-if="hasActions && isBody"
+        v-if="hasActions && isBody && item"
         :is-body="isBody"
-    ></td>
+    >
+        <a class="Action Action--primary">
+            <i class="Action__icon Icon Icon--dots-horizontal"></i>
+        </a>
+    </td>
 
+    <td is="v-table-cell"
+        v-if="!item"
+        :colspan="notFoundColSpan"
+        :is-body="isBody"
+    >
+        {{notFound}}
+    </td>
 </tr>
