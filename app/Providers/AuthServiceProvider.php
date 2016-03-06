@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 
 class AuthServiceProvider extends ServiceProvider
 {
+
     /**
      * The policy mappings for the application.
      *
@@ -15,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         'VividFinance\Model' => 'VividFinance\Policies\ModelPolicy',
     ];
+
 
     /**
      * Register any application authentication / authorization services.

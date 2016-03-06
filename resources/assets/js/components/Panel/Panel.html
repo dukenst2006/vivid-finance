@@ -1,0 +1,15 @@
+<div :class="panelClass">
+
+    <v-panel-header
+            v-if="hasHeader"
+            :variants="header.variants"
+            :title="title"
+    ></v-panel-header>
+
+    <v-panel-body
+            :variants="body.variants"
+    >
+        <slot></slot>
+    </v-panel-body>
+
+</div>

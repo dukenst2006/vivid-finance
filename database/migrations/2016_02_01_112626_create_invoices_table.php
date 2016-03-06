@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateInvoicesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,44 +14,30 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table
-                ->increments('id')
-                ->unsigned();
+            $table->increments('id')->unsigned();
 
-            $table
-                ->integer('customer_id')
-                ->unsigned();
+            $table->integer('customer_id')->unsigned();
 
-            $table
-                ->foreign('customer_id')
-                ->references('id')
-                ->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers');
 
-            $table
-                ->string('title');
+            $table->string('title');
 
-            $table
-                ->enum('state', ['open', 'closed']);
+            $table->enum('state', [ 'open', 'closed' ]);
 
-            $table
-                ->string('file');
+            $table->string('file');
 
-            $table
-                ->string('file_path');
+            $table->string('file_path');
 
-            $table
-                ->string('file_name');
+            $table->string('file_name');
 
-            $table
-                ->string('file_extension');
+            $table->string('file_extension');
 
-            $table
-                ->date('expiration_date');
+            $table->date('expiration_date');
 
-            $table
-                ->timestamps();
+            $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

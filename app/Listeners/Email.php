@@ -6,6 +6,7 @@ use VividFinance\Events\InvoiceHasBeenCreated;
 
 class Email
 {
+
     /**
      * Create the event listener.
      *
@@ -16,6 +17,7 @@ class Email
         //
     }
 
+
     /**
      * Handle the event
      *
@@ -25,6 +27,7 @@ class Email
     {
         //
     }
+
 
     /**
      * Handle the event

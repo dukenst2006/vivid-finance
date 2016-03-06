@@ -1,12 +1,10 @@
-import store from '../../../store'
-const { storeCustomer, addNotification } = store.actions;
+import { storeCustomer, addNotification } from './../../../vuex/actions'
 
 export default {
     data () {
         return {
             customer: {
                 name: '',
-                address: '',
                 buildingNumber: '',
                 postcode: '',
                 city: '',
@@ -14,39 +12,107 @@ export default {
                 email: '',
                 telephone: ''
             },
+
             breadcrumb: [
                 {
-                    title: 'Home',
-                    link: 'customer.index'
+                    content: {
+                        text: 'Home'
+                    },
+                    link: {
+                        to: 'customer.index'
+                    }
                 },
                 {
-                    title: 'Customers',
-                    link: 'customer.index'
+                    content: {
+                        text: 'Customers'
+                    },
+                    link: {
+                        to: 'customer.index'
+                    }
                 },
                 {
-                    title: 'Add Customer'
+                    content: {
+                        text: 'Add Customer'
+                    }
                 }
-            ]
+            ],
+
+            panel: {
+                variants: [
+                    'primary'
+                ],
+                body: {
+                    variants: [
+                        'primary'
+                    ]
+                },
+                header: {
+                    variants: [
+                        'primary'
+                    ]
+                },
+                title: {
+                    variants: ['primary'],
+                    content: 'Add a new customer'
+                }
+            }
+        }
+    },
+
+    vuex: {
+        actions: {
+            addNotification,
+            storeCustomer
         }
     },
 
     methods: {
         addCustomer () {
             var vm = this;
-            storeCustomer(this.customer, () => {
-                addNotification({
+            this.storeCustomer(this.customer, () => {
+                this.addNotification({
                     variants: ['success'],
-                    content: 'The customer has been created!',
-                    hasTimer: true
+                    timer: {
+                        variants: ['success']
+                    },
+                    header: {
+                        variants: ['success']
+                    },
+                    title: {
+                        variants: ['success'],
+                        text: 'Success!'
+                    },
+                    body: {
+                        variants: ['success'],
+                        text: 'The customer has been created...'
+                    },
+                    close: {
+                        variants: ['success']
+                    }
                 });
                 vm.$router.go({
                     name: 'customer.index'
                 });
             }, () => {
-                addNotification({
+                this.addNotification({
                     variants: ['danger'],
-                    content: 'The customer could not be created...',
-                    hasTimer: true
+                    timer: {
+                        variants: ['danger']
+                    },
+                    header: {
+                        variants: ['danger']
+                    },
+                    title: {
+                        variants: ['danger'],
+                        text: 'Error'
+                    },
+                    body: {
+                        variants: ['danger'],
+                        text: 'The customer could not be created...'
+                    },
+                    close: {
+                        variants: ['danger']
+                    }
                 });
             });
         }
@@ -54,7 +120,10 @@ export default {
 
     components: {
         'v-breadcrumb' (resolve) {
-            require(['./../../../components/Breadcrumb.vue'], resolve)
+            require(['./../../../components/Breadcrumb/Breadcrumb.vue'], resolve)
+        },
+        'v-panel' (resolve) {
+            require(['./../../../components/Panel/Panel.vue'], resolve)
         }
     }
 };

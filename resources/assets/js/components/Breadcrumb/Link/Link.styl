@@ -1,0 +1,16 @@
+// Imports
+@import "./../../../../stylus/settings/variables.styl"
+@import "./../../../../stylus/mixins/bem.styl"
+@import "./../../../../stylus/mixins/transition.styl"
+@import "./../../../../stylus/functions/opacity.styl"
+
+.Breadcrumb
+  +has(link)
+    transition(100ms)
+    color: #192226
+    display: inline-block
+    text-decoration: none
+    vertical-align: middle
+    &:hover
+      transition(100ms)
+      color: #1E88E5

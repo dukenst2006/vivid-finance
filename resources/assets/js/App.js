@@ -1,19 +1,73 @@
 import Pusher from 'pusher-js'
 
 import config from './config/env'
-import store from './store'
-const { getAllCustomers, getAllInvoices, addCustomer } = store.actions;
+import store from './vuex/store'
+import {getAllCustomers, getAllInvoices, addCustomer} from './vuex/actions'
 
 export default {
+    store,
+    data () {
+        return {
+            header: {
+                sidebar: {
+                    variants: []
+                },
+                actions: {
+                    items: [
+                        {
+                            link: 'account.show',
+                            icon: {
+                                variants: [
+                                    'account-circle'
+                                ]
+                            }
+                        },
+                        {
+                            link: 'customer.index',
+                            icon: {
+                                variants: [
+                                    'logout'
+                                ]
+                            }
+                        }
+                    ],
+                    variants: []
+                },
+                variants: [
+                    'main'
+                ]
+            },
+            content: {
+                variants: [
+                    'main'
+                ]
+            }
+        }
+    },
+
+    vuex: {
+        actions: {
+            getAllCustomers,
+            getAllInvoices,
+            addCustomer
+        }
+    },
+
     components: {
+        'v-wrapper' (resolve) {
+            require(['./components/Wrapper/Wrapper.vue'], resolve)
+        },
+        'v-content' (resolve) {
+            require(['./components/Content/Content.vue'], resolve)
+        },
         'v-sidebar' (resolve) {
-            require(['./components/Sidebar.vue'], resolve)
+            require(['./components/Sidebar/Sidebar.vue'], resolve)
         },
         'v-header' (resolve) {
-            require(['./components/Header.vue'], resolve)
+            require(['./components/Header/Header.vue'], resolve)
         },
-        'v-notify' (resolve) {
-            require(['./components/Notify.vue'], resolve)
+        'v-notification' (resolve) {
+            require(['./components/Notification/Notification.vue'], resolve)
         }
     },
     created () {
@@ -24,14 +78,14 @@ export default {
         this.pusherChannel = this.pusher.subscribe(config.pusher_channel);
 
         this.pusherChannel.bind('VividFinance\\Events\\CustomerHasBeenCreated', data => {
-            addCustomer(data);
+            this.addCustomer(data);
         });
 
         this.pusherChannel.bind('VividFinance\\Events\\InvoiceHasBeenCreated', data => {
-            getAllInvoices();
+            this.getAllInvoices();
         });
 
-        getAllCustomers();
-        getAllInvoices();
+        this.getAllCustomers();
+        this.getAllInvoices();
     }
 }

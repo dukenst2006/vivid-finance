@@ -1,0 +1,13 @@
+// Imports
+@import "./../../../../stylus/settings/variables.styl"
+@import "./../../../../stylus/mixins/bem.styl"
+@import "./../../../../stylus/mixins/transition.styl"
+@import "./../../../../stylus/functions/opacity.styl"
+
+.Table
+  +has(row)
+    text-align: left
+    +variant(body)
+      border-bottom: 1px solid #E0E0E0
+      &:last-child
+        border-bottom: none

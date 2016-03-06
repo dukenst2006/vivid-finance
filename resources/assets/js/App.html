@@ -1,15 +1,19 @@
-<div class="Wrapper">
-	<v-header></v-header>
+<div>
+    <v-wrapper>
+        <v-header
+                :sidebar="header.sidebar"
+                :actions="header.actions"
+                :variants="header.variants"
+        ></v-header>
 
-	<v-sidebar></v-sidebar>
+        <v-sidebar></v-sidebar>
 
-	<!-- Begin Content -->
-	<div class="Content Content--main">
-		<router-view></router-view>
-	</div>
-	<!-- End Content -->
+        <v-content
+                :variants="content.variants"
+        >
+            <router-view></router-view>
+        </v-content>
 
-	<!-- Begin Notifications -->
-	<v-notify></v-notify>
-	<!-- End Notifications -->
+        <v-notification></v-notification>
+    </v-wrapper>
 </div>

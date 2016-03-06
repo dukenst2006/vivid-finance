@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 
 class UpdateInvoicesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,16 +14,14 @@ class UpdateInvoicesTable extends Migration
     public function up()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table
-                ->dropColumn('file_path');
+            $table->dropColumn('file_path');
 
-            $table
-                ->dropColumn('file_name');
+            $table->dropColumn('file_name');
 
-            $table
-                ->dropColumn('file_extension');
+            $table->dropColumn('file_extension');
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -32,14 +31,11 @@ class UpdateInvoicesTable extends Migration
     public function down()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table
-                ->string('file_path');
+            $table->string('file_path');
 
-            $table
-                ->string('file_name');
+            $table->string('file_name');
 
-            $table
-                ->string('file_extension');
+            $table->string('file_extension');
         });
     }
 }

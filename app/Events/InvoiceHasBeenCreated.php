@@ -7,9 +7,11 @@ use Illuminate\Queue\SerializesModels;
 
 class InvoiceHasBeenCreated extends Event implements ShouldBroadcast
 {
+
     use SerializesModels;
 
     public $invoice;
+
 
     /**
      * Create a new event instance.
@@ -21,6 +23,7 @@ class InvoiceHasBeenCreated extends Event implements ShouldBroadcast
         $this->invoice = $invoice;
     }
 
+
     /**
      * Get the channels the event should be broadcast on.
      *
@@ -28,6 +31,6 @@ class InvoiceHasBeenCreated extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['Test'];
+        return [ 'Test' ];
     }
 }

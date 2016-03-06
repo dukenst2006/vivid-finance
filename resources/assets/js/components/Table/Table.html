@@ -1,34 +1,19 @@
-<!-- Table Begin -->
-<table class="Table Table--primary">
-	<thead class="Table__head Table__head--primary">
-	<tr class="Table__row Table__row--head Table__row--primary">
-		<th class="Table__col Table__col--head Table__col--primary" v-for="column in columns">
-			<span class="Table__head-title">{{column.title}}</span>
-			<a class="Table__head-sort">
-				<i class="Table__head-sort-icon Icon Icon--menu-up"></i>
-			</a>
-		</th>
-		<th class="Table__col Table__col--head Table__col--primary" v-if="action">
-			&nbsp;
-		</th>
-	</tr>
-	</thead>
-	<tbody class="Table__body Table__body--primary">
-	<tr class="Table__row Table__row--body Table__row--primary" v-for="item in items">
-		<td class="Table__col Table__col--body Table__col--primary" v-for="column in columns">
-			{{item[column.slug]}}
-		</td>
-		<td class="Table__col Table__col--body Table__col--primary Table__col--right" v-if="action">
-			<a @click="action(item)" class="Action Action--primary">
-				<i class="Action__icon Icon Icon--dots-horizontal"></i>
-			</a>
-		</td>
-	</tr>
-	<tr class="Table__row Table__row--body Table__row--primary" v-if="items.length === 0">
-		<td colspan="5" class="Table__col Table__col--body Table__col--primary">
-			{{notFound}}
-		</td>
-	</tr>
-	</tbody>
+<table :class="tableClass">
+
+    <thead is="v-table-head"
+           :columns="columns"
+           :has-actions="hasActions"
+           :variants="head.variants"
+           :row="head.row"
+    ></thead>
+
+    <tbody is="v-table-body"
+           :columns="columns"
+           :has-actions="hasActions"
+           :variants="body.variants"
+           :row="body.row"
+           :items="items"
+           :not-found="notFound"
+    ></tbody>
+
 </table>
-<!-- Table End -->

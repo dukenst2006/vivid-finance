@@ -1,7 +1,11 @@
-<!-- Begin NavIcon -->
-<a class="NavIcon NavIcon--header" href="#">
-	<div class="NavIcon__line NavIcon__line--first"></div>
-	<div class="NavIcon__line"></div>
-	<div class="NavIcon__line"></div>
+<a :class="navIconClass" href="#">
+
+	<v-nav-icon-line
+			:variants="['first']"
+	></v-nav-icon-line>
+
+	<v-nav-icon-line></v-nav-icon-line>
+
+	<v-nav-icon-line></v-nav-icon-line>
+
 </a>
-<!-- End NavIcon -->

@@ -7,9 +7,11 @@ use Illuminate\Queue\SerializesModels;
 
 class CustomerHasBeenCreated extends Event implements ShouldBroadcast
 {
+
     use SerializesModels;
 
     public $customer;
+
 
     /**
      * Create a new event instance.
@@ -21,6 +23,7 @@ class CustomerHasBeenCreated extends Event implements ShouldBroadcast
         $this->customer = $customer;
     }
 
+
     /**
      * Get the channels the event should be broadcast on.
      *
@@ -28,6 +31,6 @@ class CustomerHasBeenCreated extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['Test'];
+        return [ 'Test' ];
     }
 }

@@ -1,0 +1,21 @@
+// Imports
+@import "./../../../../stylus/settings/variables.styl"
+@import "./../../../../stylus/mixins/bem.styl"
+@import "./../../../../stylus/mixins/transition.styl"
+@import "./../../../../stylus/functions/opacity.styl"
+
+.Notification
+  +has(header)
+    padding: 0
+    margin: 0
+    margin-bottom: 1rem
+    +variant(primary)
+      color: $primary_dark
+    +variant(success)
+      color: $success_dark
+    +variant(warning)
+      color: $warning_dark
+    +variant(danger)
+      color: $danger_dark
+    +variant(dark)
+      color: #fff

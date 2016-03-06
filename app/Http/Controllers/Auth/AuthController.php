@@ -10,6 +10,7 @@ use VividFinance\User;
 
 class AuthController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -30,6 +31,7 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+
     /**
      * Create a new authentication controller instance.
      *
@@ -37,8 +39,9 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', [ 'except' => 'logout' ]);
     }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -55,6 +58,7 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
     }
+
 
     /**
      * Create a new user instance after a valid registration.

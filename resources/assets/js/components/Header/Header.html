@@ -1,22 +1,14 @@
-<!-- Header Begin -->
-<div class="Header Header--main">
-	<div class="Header__sidebar">
-		<a class="Header__logo Figure Figure--logo" href="#">
-			<img class="Figure__image Figure__image--logo"
-				 src="/img/logo/logo.svg">
-			<span class="Figure__description Figure__description--logo">
-				Finance
-			</span>
-		</a>
-		<v-nav-icon></v-nav-icon>
-	</div>
-	<div class="Header__actions">
-		<a v-link="{name : 'account.show'}" class="Header__action">
-			<i class="Icon Icon--account-circle"></i>
-		</a>
-		<a href="#" class="Header__action">
-			<i class="Icon Icon--logout"></i>
-		</a>
-	</div>
+<div
+		:class="headerClass"
+>
+
+	<v-header-sidebar
+			:variants="sidebar.variants"
+	></v-header-sidebar>
+
+	<v-header-actions
+			:variants="actions.variants"
+			:items="actions.items"
+	></v-header-actions>
+
 </div>
-<!-- Header End -->

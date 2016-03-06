@@ -1,5 +1,5 @@
 import CSSUtil from './../../utils/css';
-
+import * as NotificationItem from './Item/Item.vue';
 
 export default {
     data () {
@@ -8,53 +8,35 @@ export default {
         }
     },
     props: {
-        content: {
-            type: String,
-            required: true
-        },
+        /**
+         * The variants used for BEM
+         */
         variants: {
             type: Array,
             required: false
-        },
-        id: {
-            type: Number,
-            required: true
-        },
-        removeFn: {
-            type: Function,
-            required: true
-        },
-        hasTimer: {
-            type: Boolean,
-            required: false
         }
     },
+
+    components: {
+        'v-notification-item': NotificationItem
+    },
+
+    vuex: {
+        state: {
+            items: ({notification}) => notification.data
+        }
+    },
+
     computed: {
 
         /**
          * Computed property which will output the
-         * corrected class names for the panel
+         * corrected class names for the notification
          *
          * @returns {Array} The corrected class name
          */
         notificationClass () {
             return CSSUtil.blockClasses(this.block, this.variants);
-        }
-    },
-
-    methods: {
-        startTimer() {
-            setTimeout(this.dismissAlert, 5000);
-        },
-
-        dismissAlert() {
-            this.removeFn(this.id)
-        }
-    },
-
-    ready () {
-        if (this.hasTimer) {
-            this.startTimer();
         }
     }
 }

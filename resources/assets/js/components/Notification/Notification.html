@@ -1,13 +1,14 @@
 <div :class="notificationClass">
-	<div class="Notification__header">
-		<div class="Notification__timer"></div>
-	</div>
-	<div class="Notification__body">
-		<div class="Notification__content">
-			{{ content }}
-		</div>
-		<div class="Notification__close" @click.prevent="removeFn(this.id)">
-			<i class="Icon Icon--close"></i>
-		</div>
-	</div>
+
+	<v-notification-item
+			v-for="item in items"
+			:variants="item.variants"
+			:timer="item.timer"
+			:header="item.header"
+			:title="item.title"
+			:body="item.body"
+			:close="item.close"
+			:identifier="item.identifier"
+	></v-notification-item>
+
 </div>

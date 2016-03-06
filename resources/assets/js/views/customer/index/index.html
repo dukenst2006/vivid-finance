@@ -23,7 +23,9 @@
 						<div class="Form__group">
 							<div class="InputGroup InputGroup--search">
 								<label class="InputGroup__addon" for="search">
-									<i class="Icon Icon--magnify"></i>
+									<v-icon
+										:variants="['magnify']"
+									></v-icon>
 								</label>
 								<input type="text" class="Form__control InputGroup__control" placeholder="Search..."
 									   id="search">
@@ -33,12 +35,10 @@
 				</div>
 				<div class="Col Col--md-2 Col--md-offset-6">
 					<a v-link="{ name: 'customer.add' }" class="Button Button--primary Button--block">
-						<div class="IconGroup">
-							<div class="IconGroup__description">
-								Add a customer
-							</div>
-							<i class="IconGroup__icon IconGroup__icon--align-right Icon Icon--plus-circle"></i>
-						</div>
+						<v-icon-group
+							:description="{text:'Add a customer'}"
+							:icon="{icon:{variants:['plus-circle']}, variants:['align-right']}"
+						></v-icon-group>
 					</a>
 				</div>
 			</div>
@@ -48,7 +48,10 @@
 							:columns="table.columns"
 							:items="customers"
 							:not-found="table.notFound"
-							:action="table.action"
+							:actions="table.actions"
+							:variants="table.variants"
+							:head="table.head"
+							:body="table.body"
 					></v-table>
 				</div>
 			</div>
@@ -69,7 +72,6 @@
 								<select
 										class="Form__control InputGroup__control"
 										id="results_on_page_2"
-										v-model="pagination.limit"
 								>
 									<option selected>5</option>
 									<option>10</option>

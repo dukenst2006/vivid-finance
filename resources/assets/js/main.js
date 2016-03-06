@@ -2,10 +2,11 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
-import Vuex from 'vuex';
+import store from './vuex/store';
 
 import App from './App.vue';
 import routes from './routes/routes';
+import config from './config/env'
 
 var app,
     router;
@@ -16,7 +17,8 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 // Configure Vue
-Vue.config.debug = true;
+Vue.config.debug = config.debug;
+Vue.http.headers.Accept = 'application/json';
 Vue.http.options.root = 'api/v1';
 app = Vue.extend(App);
 

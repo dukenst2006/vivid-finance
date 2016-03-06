@@ -1,6 +1,5 @@
 <?php namespace VividFinance\Transformers;
 
-
 abstract class Transformer
 {
 
@@ -13,6 +12,7 @@ abstract class Transformer
      */
     public abstract function transform($item);
 
+
     /**
      * Transformer for a collection of models
      *
@@ -22,6 +22,6 @@ abstract class Transformer
      */
     public function transformCollection(array $items)
     {
-        return array_map([$this, 'transform'], $items);
+        return array_map([ $this, 'transform' ], $items);
     }
 }

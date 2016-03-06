@@ -1,0 +1,7 @@
+<th :class="cellClass" v-if="isHead" :colspan="colspan">
+    <slot></slot>
+</th>
+
+<td :class="cellClass" v-if="isBody" :colspan="colspan">
+    <slot></slot>
+</td>

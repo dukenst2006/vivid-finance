@@ -19,7 +19,7 @@ class UserTransformer extends Transformer
     public function transform($user)
     {
         return [
-            'id'        => (int)$user->id,
+            'id'        => (int) $user->id,
             'email'     => $user->email,
             'mobile'    => $user->mobile_phone,
             'telephone' => $user->telephone,

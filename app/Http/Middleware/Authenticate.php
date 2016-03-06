@@ -4,15 +4,17 @@ namespace VividFinance\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use VividFinance\Traits\APITrait;
 
 class Authenticate
 {
+    use APITrait;
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
-     * @param  string|null $guard
+     * @param  \Closure                 $next
+     * @param  string|null              $guard
      *
      * @return mixed
      */
@@ -20,7 +22,7 @@ class Authenticate
     {
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
+                return $this->respondUnauthorized();
             } else {
                 return redirect()->guest('login');
             }

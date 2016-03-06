@@ -2,7 +2,6 @@
 
 namespace VividFinance\Exceptions;
 
-use Doctrine\DBAL\Query\QueryException;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -15,6 +14,7 @@ use VividFinance\Traits\APITrait;
 
 class Handler extends ExceptionHandler
 {
+
     use APITrait;
 
     /**
@@ -28,6 +28,7 @@ class Handler extends ExceptionHandler
         ModelNotFoundException::class,
         ValidationException::class,
     ];
+
 
     /**
      * Report or log an exception.
@@ -43,11 +44,12 @@ class Handler extends ExceptionHandler
         parent::report($e);
     }
 
+
     /**
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Exception $e
+     * @param  \Exception               $e
      *
      * @return \Illuminate\Http\Response
      */

@@ -1,0 +1,12 @@
+// Imports
+@import "./../../../../stylus/settings/variables.styl"
+@import "./../../../../stylus/mixins/bem.styl"
+@import "./../../../../stylus/mixins/transition.styl"
+@import "./../../../../stylus/functions/opacity.styl"
+
+.Footer
+  +has(header)
+    display: block
+    +variant(sidebar)
+      background-color: #222d33
+      padding: 1.125rem 1rem

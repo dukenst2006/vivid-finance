@@ -1,13 +1,16 @@
-<!-- Begin Pagination -->
 <ul class="Pagination">
 	<li class="Pagination__item">
 		<a class="Pagination__link" @click.prevent="firstPage">
-			<i class="Icon Icon--chevron-double-left"></i>
+			<v-icon
+					:variants="['chevron-double-left']"
+			></v-icon>
 		</a>
 	</li>
 	<li class="Pagination__item">
 		<a class="Pagination__link" @click.prevent="previousPage">
-			<i class="Icon Icon--chevron-left"></i>
+			<v-icon
+					:variants="['chevron-left']"
+			></v-icon>
 		</a>
 	</li>
 	<li class="Pagination__item" v-for="page in pagination.total_pages">
@@ -20,13 +23,16 @@
 	</li>
 	<li class="Pagination__item">
 		<a class="Pagination__link" @click.prevent="nextPage">
-			<i class="Icon Icon--chevron-right"></i>
+			<v-icon
+				:variants="['chevron-right']"
+			></v-icon>
 		</a>
 	</li>
 	<li class="Pagination__item">
 		<a class="Pagination__link" @click.prevent="lastPage">
-			<i class="Icon Icon--chevron-double-right"></i>
+			<v-icon
+					:variants="['chevron-double-right']"
+			></v-icon>
 		</a>
 	</li>
 </ul>
-<!-- End Pagination -->

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 class EventServiceProvider extends ServiceProvider
 {
+
     /**
      * The event listener mappings for the application.
      *
@@ -20,6 +21,7 @@ class EventServiceProvider extends ServiceProvider
             'VividFinance\Listeners\Email@sendInvoiceToCustomer'
         ],
     ];
+
 
     /**
      * Register any other events for your application.

@@ -12,6 +12,7 @@ use VividFinance\Traits\APITrait;
  */
 class Controller extends BaseController
 {
+
     use AuthorizesRequests, APITrait;
 
     /**
@@ -35,6 +36,7 @@ class Controller extends BaseController
      */
     protected $minLimit = 1;
 
+
     /**
      * Getter for the pagination
      *
@@ -45,6 +47,7 @@ class Controller extends BaseController
         return $this->pagination;
     }
 
+
     /**
      * Sets and checks the pagination
      *
@@ -52,8 +55,9 @@ class Controller extends BaseController
      */
     public function setPagination($pagination)
     {
-        $this->pagination = (int)$this->checkPagination($pagination);
+        $this->pagination = (int) $this->checkPagination($pagination);
     }
+
 
     /**
      * Checks the pagination
@@ -80,7 +84,7 @@ class Controller extends BaseController
         }
 
         // If the pagination is between the min limit and the max limit, return the pagination
-        if ( ! ($pagination > $this->maxLimit) && ! ($pagination < $this->minLimit)) {
+        if ( ! ( $pagination > $this->maxLimit ) && ! ( $pagination < $this->minLimit )) {
             return $pagination;
         }
 

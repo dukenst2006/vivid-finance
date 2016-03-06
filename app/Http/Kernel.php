@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -47,6 +48,6 @@ class Kernel extends HttpKernel
         'auth'       => \VividFinance\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest'      => \VividFinance\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class
     ];
 }
