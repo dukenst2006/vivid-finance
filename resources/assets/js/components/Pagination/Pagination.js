@@ -39,7 +39,7 @@ export default {
          * @param {int} page The page
          */
         toPage(page) {
-            this.fn(page);
+            this.fn(page, this.pagination.limit);
         },
 
         /**

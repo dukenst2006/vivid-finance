@@ -3,6 +3,7 @@ import { getAllCustomers } from './../../../vuex/actions'
 export default {
     data () {
         return {
+            limit: 5,
             breadcrumb: [
                 {
                     content: {
@@ -105,6 +106,15 @@ export default {
             getAllCustomers
         }
     },
+
+    watch: {
+        limit (newValue, oldValue) {
+            if (newValue !== oldValue && newValue != this.pagination.limit) {
+                this.getAllCustomers(this.pagination.current_page, newValue)
+            }
+        }
+    },
+
     components: {
         'v-icon'(resolve) {
             require(['./../../../components/Icon/Icon.vue'], resolve)
@@ -121,5 +131,9 @@ export default {
         'v-pagination' (resolve) {
             require(['./../../../components/Pagination/Pagination.vue'], resolve)
         }
+    },
+
+    ready () {
+        this.limit = this.pagination.limit;
     }
 };
