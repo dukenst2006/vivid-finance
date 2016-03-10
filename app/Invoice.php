@@ -18,15 +18,15 @@ use Illuminate\Database\Query\Builder;
  * @property \Carbon\Carbon              $updated_at
  * @property-read \VividFinance\Customer $customers
  * @property-read \VividFinance\User     $user
- * @method static Builder|\VividFinance\Invoice notPayed()
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereId( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereCustomerId( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereTitle( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereState( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereFile( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereExpirationDate( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereCreatedAt( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereUpdatedAt( $value )
+ * @method static Builder|Invoice notPayed()
+ * @method static Builder|Invoice whereId( $value )
+ * @method static Builder|Invoice whereCustomerId( $value )
+ * @method static Builder|Invoice whereTitle( $value )
+ * @method static Builder|Invoice whereState( $value )
+ * @method static Builder|Invoice whereFile( $value )
+ * @method static Builder|Invoice whereExpirationDate( $value )
+ * @method static Builder|Invoice whereCreatedAt( $value )
+ * @method static Builder|Invoice whereUpdatedAt( $value )
  * @mixin \Eloquent
  * @mixin \Eloquent
  */

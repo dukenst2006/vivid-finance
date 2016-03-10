@@ -23,7 +23,7 @@ elixir(function (mix) {
         .copy(config.directories.images.input, config.directories.images.output)
         .copy(config.directories.fonts.input, config.directories.fonts.output)
         .version(config.version)
-        //.phpUnit()
+        .phpUnit(config.phpUnit.src, config.phpUnit.command)
         //.phpSpec()
         .browserSync({
             proxy: config.browserSync.proxy
