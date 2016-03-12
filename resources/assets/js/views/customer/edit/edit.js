@@ -123,11 +123,12 @@ export default {
         }
     },
 
-    ready () {
-        var vm = this;
-
-        http.get('customers/' + this.$route.params.customer, {}, (data) => {
-            vm.customer = transformer.receive(data.data);
-        });
+    route: {
+        data ({ to: { params: { customer }}}) {
+            var vm = this;
+            http.get('customers/' + customer, {}, (data) => {
+                vm.customer = transformer.receive(data.data);
+            });
+        }
     }
 };

@@ -10,7 +10,7 @@ export default {
                         text: 'Home'
                     },
                     link: {
-                        to : 'invoice.index'
+                        to: 'invoice.index'
                     }
                 },
                 {
@@ -18,7 +18,7 @@ export default {
                         text: 'Invoices'
                     },
                     link: {
-                        to : 'invoice.index'
+                        to: 'invoice.index'
                     }
                 },
                 {
@@ -91,13 +91,13 @@ export default {
                     'primary'
                 ]
             },
-            vPagination : {
-                fn : this.getAllInvoices
+            vPagination: {
+                fn: this.getAllInvoices
             }
         }
     },
     vuex: {
-        state: {
+        getters: {
             invoices: ({invoice}) => invoice.data,
             pagination: ({invoice}) => invoice.pagination
         },

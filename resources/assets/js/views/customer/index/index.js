@@ -98,7 +98,7 @@ export default {
     },
 
     vuex: {
-        state: {
+        getters: {
             customers: ({customer}) => customer.data,
             pagination: ({customer}) => customer.pagination
         },
