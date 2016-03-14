@@ -1,7 +1,7 @@
 import store from './../../../vuex/store'
 import http from './../../../services/http';
 import transformer from './../../../transformers/CustomerTransformer';
-import { storeCustomer, addNotification } from './../../../vuex/actions'
+import { updateCustomer, addNotification } from './../../../vuex/actions'
 
 export default {
     data () {
@@ -63,9 +63,9 @@ export default {
     },
 
     methods: {
-        addCustomer () {
+        editCustomer () {
             var vm = this;
-            storeCustomer(this.customer, () => {
+            updateCustomer(this.customer, () => {
                 addNotification({
                     variants: ['success'],
                     timer: {
@@ -80,7 +80,7 @@ export default {
                     },
                     body: {
                         variants: ['success'],
-                        text: 'The customer has been created...'
+                        text: 'The customer has been updated...'
                     },
                     close: {
                         variants: ['success']
@@ -104,7 +104,7 @@ export default {
                     },
                     body: {
                         variants: ['danger'],
-                        text: 'The customer could not be created...'
+                        text: 'The customer could not be updated...'
                     },
                     close: {
                         variants: ['danger']
