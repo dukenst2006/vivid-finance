@@ -5,6 +5,7 @@ namespace VividFinance\Http\Controllers\API;
 use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\CustomerHasBeenCreated;
+use VividFinance\Filters\CustomerFilters;
 use VividFinance\Http\Requests;
 use VividFinance\Http\Requests\API\Customer\DestroyRequest;
 use VividFinance\Http\Requests\API\Customer\IndexRequest;
@@ -46,13 +47,14 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(IndexRequest $request)
+    public function index(IndexRequest $request, CustomerFilters $filters)
     {
         if (Input::get('limit')) {
             $this->setPagination(Input::get('limit'));
         }
 
-        $customer = Customer::paginate($this->getPagination());
+        $customer = Customer::filter($filters);
+        $customer = $customer->paginate($this->getPagination());
 
         return $this->respondWithPagination($customer, [
             'data' => $this->customerTransformer->transformCollection($customer->all())

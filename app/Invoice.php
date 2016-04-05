@@ -4,6 +4,7 @@ namespace VividFinance;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
+use VividFinance\Traits\Filterable;
 
 /**
  * VividFinance\Invoice
@@ -27,11 +28,12 @@ use Illuminate\Database\Query\Builder;
  * @method static Builder|Invoice whereExpirationDate( $value )
  * @method static Builder|Invoice whereCreatedAt( $value )
  * @method static Builder|Invoice whereUpdatedAt( $value )
- * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filtered($filters)
  * @mixin \Eloquent
  */
 class Invoice extends Model
 {
+    use Filterable;
 
     /**
      * The name of the database table

@@ -3,6 +3,7 @@
 namespace VividFinance;
 
 use Illuminate\Database\Eloquent\Model;
+use VividFinance\Traits\Filterable;
 
 /**
  * VividFinance\Customer
@@ -28,12 +29,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereBuildingNumber( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt( $value )
- * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filtered($filters)
  * @mixin \Eloquent
  */
 class Customer extends Model
 {
-
+    use Filterable;
+    
     /**
      * The name of the database table
      *
