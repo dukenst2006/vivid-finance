@@ -5,10 +5,20 @@ namespace VividFinance\Filters;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
+/**
+ * Class QueryFilters
+ * @package VividFinance\Filters
+ */
 abstract class QueryFilters
 {
+    /**
+     * @var Request
+     */
     protected $request;
 
+    /**
+     * @var
+     */
     protected $builder;
 
     /**
@@ -20,6 +30,10 @@ abstract class QueryFilters
         $this->request = $request;
     }
 
+    /**
+     * @param Builder $builder
+     * @return Builder
+     */
     public function apply(Builder $builder)
     {
         $this->builder = $builder;
@@ -40,6 +54,9 @@ abstract class QueryFilters
         return $this->builder;
     }
 
+    /**
+     * @return array
+     */
     public function filters()
     {
         return $this->request->all();

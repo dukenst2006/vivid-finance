@@ -45,6 +45,7 @@ class CustomerController extends Controller
      *
      * @param IndexRequest $request
      *
+     * @param CustomerFilters $filters
      * @return \Illuminate\Http\Response
      */
     public function index(IndexRequest $request, CustomerFilters $filters)
