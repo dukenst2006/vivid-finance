@@ -87,14 +87,22 @@ export default {
         },
 
         previousItems() {
-            return [];
+            var pages = [];
+
+            for (var i = this.steps; i > 0; i--) {
+                if (!(this.pagination.current_page - i <= 0)) {
+                    pages.push(this.pagination.current_page - i);
+                }
+            }
+
+            return pages;
         },
 
         nextItems() {
             var pages = [];
 
             for (var i = 0; i < this.steps; i++) {
-                if (!(this.pagination.current_page + i > this.pagination.total_pages)) {
+                if (!(this.pagination.current_page + i >= this.pagination.total_pages)) {
                     pages.push(this.pagination.current_page + i);
                 }
             }
@@ -104,10 +112,6 @@ export default {
 
         lastItems() {
             var pages = [];
-
-            if (this.pagination.total_pages < this.steps) {
-                return pages;
-            }
 
             for (var i = this.steps; i > 0; i--) {
                 pages.push(this.pagination.total_pages - i);

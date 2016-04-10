@@ -27,11 +27,11 @@
 		</span>
     </li>
     <li class="Pagination__item" v-for="page in previousItems">
-        <a @click.prevent="toPage(page+1)"
+        <a @click.prevent="toPage(page)"
            class="Pagination__link"
-           :class="{ 'Pagination__link--active' : (page + 1) === pagination.current_page }"
+           :class="{ 'Pagination__link--active' : page === pagination.current_page }"
         >
-            {{ page + 1 }}
+            {{ page }}
         </a>
     </li>
     <li class="Pagination__item">
