@@ -63,8 +63,8 @@
     "img/logo/logo.svg"
   ],
   "phpUnit": {
-    "src": "./tests/",
-    "command": "./vendor/bin/phpunit"
+    "src": "tests/",
+    "command": "vendor\\bin\\phpunit"
   },
   "browserSync": {
     "proxy": "vivid-finance.app"

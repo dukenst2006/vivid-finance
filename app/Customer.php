@@ -79,4 +79,11 @@ class Customer extends Model
     {
         return $this->hasMany(Invoice::class);
     }
+
+
+    public static function search($query)
+    {
+        return static::where('name', 'like', '%' . $query . '%')->orWhere('email', 'like',
+            '%' . $query . '%')->orWhere('telephone', 'like', '%' . $query . '%');
+    }
 }

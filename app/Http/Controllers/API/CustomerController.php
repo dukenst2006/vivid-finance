@@ -52,7 +52,11 @@ class CustomerController extends Controller
             $this->setPagination(Input::get('limit'));
         }
 
-        $customer = Customer::paginate($this->getPagination());
+        if (Input::get('q')) {
+            $customer = Customer::search(Input::get('q'))->paginate($this->getPagination());
+        } else {
+            $customer = Customer::paginate($this->getPagination());
+        }
 
         return $this->respondWithPagination($customer, [
             'data' => $this->customerTransformer->transformCollection($customer->all())
