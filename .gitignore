@@ -6,9 +6,11 @@
 Homestead.yaml
 Homestead.json
 .env
+tags
 
 _ide_helper.php
 _ide_helper_models.php
+.phpstorm.meta.php
 
 # Ignore the public directories
 /public/*
