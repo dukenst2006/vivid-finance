@@ -9,25 +9,25 @@ use VividFinance\Traits\Filterable;
 /**
  * VividFinance\Invoice
  *
- * @property integer                     $id
- * @property integer                     $customer_id
- * @property string                      $title
- * @property string                      $state
- * @property string                      $file
- * @property \Carbon\Carbon              $expiration_date
- * @property \Carbon\Carbon              $created_at
- * @property \Carbon\Carbon              $updated_at
+ * @property integer $id
+ * @property integer $customer_id
+ * @property string $title
+ * @property string $state
+ * @property string $file
+ * @property \Carbon\Carbon $expiration_date
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @property-read \VividFinance\Customer $customers
- * @property-read \VividFinance\User     $user
+ * @property-read \VividFinance\User $user
  * @method static Builder|Invoice notPayed()
- * @method static Builder|Invoice whereId( $value )
- * @method static Builder|Invoice whereCustomerId( $value )
- * @method static Builder|Invoice whereTitle( $value )
- * @method static Builder|Invoice whereState( $value )
- * @method static Builder|Invoice whereFile( $value )
- * @method static Builder|Invoice whereExpirationDate( $value )
- * @method static Builder|Invoice whereCreatedAt( $value )
- * @method static Builder|Invoice whereUpdatedAt( $value )
+ * @method static Builder|Invoice whereId($value)
+ * @method static Builder|Invoice whereCustomerId($value)
+ * @method static Builder|Invoice whereTitle($value)
+ * @method static Builder|Invoice whereState($value)
+ * @method static Builder|Invoice whereFile($value)
+ * @method static Builder|Invoice whereExpirationDate($value)
+ * @method static Builder|Invoice whereCreatedAt($value)
+ * @method static Builder|Invoice whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filtered($filters)
  * @mixin \Eloquent
  */
@@ -75,17 +75,6 @@ class Invoice extends Model
 
 
     /**
-     * An invoice belongs to an user
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The user
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-
-    /**
      * The scope which will filter the invoices that are not payed
      *
      * @param $query Builder The old query
@@ -108,7 +97,14 @@ class Invoice extends Model
         return storage_path() . '/customers/' . $this->customer_id . '/invoices';
     }
 
-    public function getFullFile() {
+
+    /**
+     * Method used to retrieve the full file path
+     * 
+     * @return string
+     */
+    public function getFullFile()
+    {
         return $this->getFilePath() . '/' . $this->file;
     }
 }

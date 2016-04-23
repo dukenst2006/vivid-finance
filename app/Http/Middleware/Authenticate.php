@@ -4,11 +4,11 @@ namespace VividFinance\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use VividFinance\Traits\APITrait;
+use VividFinance\Traits\RestAble;
 
 class Authenticate
 {
-    use APITrait;
+    use RestAble;
     /**
      * Handle an incoming request.
      *

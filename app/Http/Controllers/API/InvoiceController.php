@@ -6,6 +6,7 @@ use File;
 use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\InvoiceHasBeenCreated;
+use VividFinance\Filters\InvoiceFilters;
 use VividFinance\Http\Requests;
 use VividFinance\Http\Requests\API\Invoice\DestroyRequest;
 use VividFinance\Http\Requests\API\Invoice\DownloadRequest;
@@ -49,13 +50,14 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(IndexRequest $request)
+    public function index(IndexRequest $request, InvoiceFilters $filters)
     {
         if (Input::get('limit')) {
             $this->setPagination(Input::get('limit'));
         }
 
-        $invoices = Invoice::paginate($this->getPagination());
+        $invoices = Invoice::filter($filters)
+            ->paginate($this->getPagination());
 
         return $this->respondWithPagination($invoices, [
             'data' => $this->invoiceTransformer->transformCollection($invoices->all())
@@ -78,7 +80,7 @@ class InvoiceController extends Controller
         $file = $request->file('file');
 
         // Creating the invoice
-        $invoice       = new Invoice($request->all());
+        $invoice = new Invoice($request->all());
         $invoice->file = $request->title . '.' . $file->getClientOriginalExtension();
         $customer->addInvoice($invoice);
 
@@ -94,7 +96,7 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param ShowRequest            $request
+     * @param ShowRequest $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
@@ -108,7 +110,7 @@ class InvoiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateRequest          $request
+     * @param UpdateRequest $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
@@ -125,7 +127,7 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyRequest         $request
+     * @param DestroyRequest $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
@@ -143,13 +145,13 @@ class InvoiceController extends Controller
      * Download the desired invoice
      *
      * @param DownloadRequest $request
-     * @param Invoice         $invoice
+     * @param Invoice $invoice
      *
      * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function download(DownloadRequest $request, Invoice $invoice)
     {
-        if ( ! File::exists($invoice->getFullFile())) {
+        if (!File::exists($invoice->getFullFile())) {
             return $this->respondNotFound('File not found');
         }
 
