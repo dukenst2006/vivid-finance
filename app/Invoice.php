@@ -74,7 +74,7 @@ class Invoice extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The company
      */
-    public function customers()
+    public function customer()
     {
         return $this->belongsTo(Customer::class);
     }

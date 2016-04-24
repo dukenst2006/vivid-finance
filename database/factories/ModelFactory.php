@@ -43,7 +43,10 @@ $factory->define(VividFinance\Invoice::class, function (Faker\Generator $faker) 
         'state'           => $faker->randomElement([ 'open', 'closed' ]),
         'file'            => $faker->slug . '.' . $faker->fileExtension,
         'is_recurrent'    => $faker->boolean(),
-        'recurrence'      => $faker->randomElement([ 'daily', 'weekly', 'monthly', 'yearly' ]),
-        'expiration_date' => $faker->dateTimeBetween('+1 month', '+2 months')
+        'recurrence'      => $faker->randomElement([ 'daily', 'weekly', 'monthly', 'yearly', null ]),
+        'expiration_date' => $faker->dateTimeBetween('+1 month', '+2 months'),
+        'customer_id' => function () {
+            return factory(VividFinance\Customer::class)->create()->id;
+        }
     ];
 });
