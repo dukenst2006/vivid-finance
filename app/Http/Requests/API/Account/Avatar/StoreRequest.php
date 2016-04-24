@@ -30,7 +30,11 @@ class StoreRequest extends Request
     public function rules()
     {
         return [
-            //
+            'file' => [
+                'required',
+                'max:2048',
+                'image'
+            ]
         ];
     }
 }

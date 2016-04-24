@@ -73,7 +73,8 @@ class InvoiceController extends Controller
         $customer = Customer::findOrFail($request->customer_id);
 
         $invoice = new Invoice($request->all());
-        $customer->addInvoice($invoice);
+        $invoice->customer()->associate($customer);
+        $invoice->save();
 
         event(new InvoiceHasBeenCreated($this->transformer->transform($invoice)));
 

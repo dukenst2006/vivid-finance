@@ -57,6 +57,6 @@ class Avatar extends Model
      */
     public function getFilePath()
     {
-        return storage_path() . '/users/' . $this->user_id;
+        return storage_path() . '/app/users/' . $this->user_id . '/avatars';
     }
 }

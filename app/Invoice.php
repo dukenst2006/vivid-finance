@@ -99,7 +99,7 @@ class Invoice extends Model
      */
     public function getFilePath()
     {
-        return storage_path() . '/customers/' . $this->customer_id . '/invoices';
+        return storage_path() . '/app/customers/' . $this->customer_id . '/invoices';
     }
 
 

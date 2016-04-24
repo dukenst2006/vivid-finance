@@ -62,19 +62,6 @@ class Customer extends Model
 
 
     /**
-     * Method used to add an invoice to the company
-     *
-     * @param Invoice $invoice The given invoice
-     *
-     * @return Model The invoice
-     */
-    public function addInvoice(Invoice $invoice)
-    {
-        return $this->invoices()->save($invoice);
-    }
-
-
-    /**
      * An company has one or many invoices
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany The invoice collection
