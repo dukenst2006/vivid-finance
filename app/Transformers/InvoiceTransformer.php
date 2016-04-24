@@ -24,6 +24,7 @@ class InvoiceTransformer extends Transformer
             'title'           => $invoice->title,
             'state'           => $invoice->state,
             'file'            => $invoice->file,
+            'is_recurrent'    => (bool) $invoice->is_recurrent,
             'expiration_date' => $invoice->expiration_date->toDateString(),
             'creation_date'   => $invoice->created_at->toDateString()
         ];

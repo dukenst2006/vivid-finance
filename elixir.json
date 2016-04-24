@@ -20,24 +20,21 @@
       "input": "resources/assets/metadata",
       "output": "public/metadata"
     },
-    "fonts" : {
-      "input" : [
+    "fonts": {
+      "input": [
         "resources/assets/fonts"
       ],
-      "output" : "public/fonts"
+      "output": "public/fonts"
     }
   },
-  "version" : [
+  "version": [
     "css/app.css",
-
     "js/app.js",
-
     "metadata/favicon/favicon.ico",
     "metadata/favicon/favicon-16x16.png",
     "metadata/favicon/favicon-32x32.png",
     "metadata/favicon/favicon-96x96.png",
     "metadata/favicon/favicon-194x194.png",
-
     "metadata/android/android-chrome-36x36.png",
     "metadata/android/android-chrome-48x48.png",
     "metadata/android/android-chrome-72x72.png",
@@ -45,7 +42,6 @@
     "metadata/android/android-chrome-144x144.png",
     "metadata/android/android-chrome-192x192.png",
     "metadata/android/manifest.json",
-
     "metadata/apple/apple-touch-icon.png",
     "metadata/apple/apple-touch-icon-57x57.png",
     "metadata/apple/apple-touch-icon-60x60.png",
@@ -57,19 +53,20 @@
     "metadata/apple/apple-touch-icon-152x152.png",
     "metadata/apple/apple-touch-icon-180x180.png",
     "metadata/apple/apple-touch-icon-precomposed.png",
-
     "metadata/microsoft/mstile-70x70.png",
     "metadata/microsoft/mstile-144x144.png",
     "metadata/microsoft/mstile-150x150.png",
     "metadata/microsoft/mstile-310x150.png",
     "metadata/microsoft/mstile-310x310.png",
     "metadata/microsoft/browserconfig.xml",
-
     "metadata/safari/safari-pinned-tab.svg",
-
     "img/logo/logo.svg"
   ],
-  "browserSync" : {
-    "proxy" : "vivid-finance.app"
+  "phpUnit": {
+    "src": "tests/",
+    "command": "vendor\\bin\\phpunit"
+  },
+  "browserSync": {
+    "proxy": "vivid-finance.app"
   }
 }

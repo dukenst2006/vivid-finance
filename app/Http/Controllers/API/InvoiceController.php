@@ -6,13 +6,15 @@ use File;
 use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\InvoiceHasBeenCreated;
+use VividFinance\Filters\InvoiceFilters;
 use VividFinance\Http\Requests;
 use VividFinance\Http\Requests\API\Invoice\DestroyRequest;
 use VividFinance\Http\Requests\API\Invoice\DownloadRequest;
 use VividFinance\Http\Requests\API\Invoice\IndexRequest;
 use VividFinance\Http\Requests\API\Invoice\ShowRequest;
-use VividFinance\Http\Requests\API\Invoice\UpdateRequest;
 use VividFinance\Http\Requests\API\Invoice\StoreRequest;
+use VividFinance\Http\Requests\API\Invoice\UpdateRequest;
+use VividFinance\Http\Requests\API\Invoice\UploadRequest;
 use VividFinance\Invoice;
 use VividFinance\Transformers\InvoiceTransformer;
 
@@ -45,17 +47,18 @@ class InvoiceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param IndexRequest $request
+     * @param IndexRequest   $request
+     * @param InvoiceFilters $filters
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(IndexRequest $request)
+    public function index(IndexRequest $request, InvoiceFilters $filters)
     {
         if (Input::get('limit')) {
             $this->setPagination(Input::get('limit'));
         }
 
-        $invoices = Invoice::paginate($this->getPagination());
+        $invoices = Invoice::filter($filters)->paginate($this->getPagination());
 
         return $this->respondWithPagination($invoices, [
             'data' => $this->invoiceTransformer->transformCollection($invoices->all())
@@ -74,20 +77,12 @@ class InvoiceController extends Controller
     {
         $customer = Customer::findOrFail($request->customer_id);
 
-        // Retrieving the file
-        $file = $request->file('file');
-
-        // Creating the invoice
-        $invoice       = new Invoice($request->all());
-        $invoice->file = $request->title . '.' . $file->getClientOriginalExtension();
+        $invoice = new Invoice($request->all());
         $customer->addInvoice($invoice);
-
-        // Moving the invoice
-        $file->move($invoice->getFilePath(), $invoice->file);
 
         event(new InvoiceHasBeenCreated($this->invoiceTransformer->transform($invoice)));
 
-        return $this->respondCreated('Invoice created');
+        return $this->respondCreated('The invoice created has been created');
     }
 
 
@@ -136,6 +131,28 @@ class InvoiceController extends Controller
         $invoice->delete();
 
         return $this->respondWithSuccess('The invoice has been deleted');
+    }
+
+
+    /**
+     * Method used to upload the invoice file
+     *
+     * @param UploadRequest $request
+     * @param Invoice       $invoice
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function upload(UploadRequest $request, Invoice $invoice)
+    {
+        $file = $request->file('file');
+
+        $invoice->file = $invoice->title . '.' . $file->getClientOriginalExtension();
+
+        // Moving the invoice
+        $file->move($invoice->getFilePath(), $invoice->file);
+        $invoice->save();
+
+        return $this->respondWithSuccess('The file has been uploaded');
     }
 
 

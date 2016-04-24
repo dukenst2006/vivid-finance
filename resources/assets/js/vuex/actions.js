@@ -16,6 +16,10 @@ export const storeCustomer = ({dispatch}, customer, fn, errorFn) => {
     dispatch(types.STORE_CUSTOMER, customer, fn, errorFn);
 };
 
+export const editCustomer = ({dispatch}, customer, fn, errorFn) => {
+
+};
+
 export const addCustomer = ({dispatch}, customer) => {
     dispatch(types.ADD_CUSTOMER, customer);
 };

@@ -53,11 +53,6 @@ class StoreRequest extends Request
             'customer_id'     => [
                 'required',
                 'integer'
-            ],
-            'file'            => [
-                'required',
-                'max:5120',
-                'mimes:application/pdf,pdf'
             ]
         ];
     }

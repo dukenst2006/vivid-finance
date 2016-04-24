@@ -5,6 +5,7 @@ namespace VividFinance;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use VividFinance\Traits\Filterable;
 
 /**
  * VividFinance\User
@@ -19,6 +20,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string         $sex
  * @property string         $bio
  * @property string         $remember_token
+ * @property string         $api_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereId( $value )
@@ -33,15 +35,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereRememberToken( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereCreatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereUpdatedAt( $value )
- * @mixin \Eloquent
- * @property string         $api_token
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereApiToken( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filtered( $filters )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filter($filters)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
 
-    use Authorizable, CanResetPassword;
+    use Authorizable, CanResetPassword, Filterable;
 
     /**
      * The name of the database table

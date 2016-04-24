@@ -2,15 +2,15 @@
 
 namespace VividFinance\Traits;
 
-use Illuminate\Http\Response as IlluminateResponse;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Http\Response as IlluminateResponse;
 use Response;
 
 /**
  * Class API
  * @package VividFinance\Traits
  */
-trait APITrait
+trait RestAble
 {
 
     /**
@@ -155,6 +155,7 @@ trait APITrait
 
         return $this->respondWithError($message, $headers);
     }
+
 
     /**
      * Will result in a 401 error code

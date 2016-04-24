@@ -1,38 +1,79 @@
 <ul class="Pagination">
-	<li class="Pagination__item">
-		<a class="Pagination__link" @click.prevent="firstPage">
-			<v-icon
-					:variants="['chevron-double-left']"
-			></v-icon>
-		</a>
-	</li>
-	<li class="Pagination__item">
-		<a class="Pagination__link" @click.prevent="previousPage">
-			<v-icon
-					:variants="['chevron-left']"
-			></v-icon>
-		</a>
-	</li>
-	<li class="Pagination__item" v-for="page in pagination.total_pages">
-		<a @click.prevent="toPage(page+1)"
-		   class="Pagination__link Pagination__link--active"
-		   :class="{ 'Pagination__link--active' : (page + 1) === pagination.current_page }"
-		>
-			{{ page + 1 }}
-		</a>
-	</li>
-	<li class="Pagination__item">
-		<a class="Pagination__link" @click.prevent="nextPage">
-			<v-icon
-				:variants="['chevron-right']"
-			></v-icon>
-		</a>
-	</li>
-	<li class="Pagination__item">
-		<a class="Pagination__link" @click.prevent="lastPage">
-			<v-icon
-					:variants="['chevron-double-right']"
-			></v-icon>
-		</a>
-	</li>
+    <li class="Pagination__item">
+        <a class="Pagination__link" @click.prevent="firstPage">
+            <v-icon
+                    :variants="['chevron-double-left']"
+            ></v-icon>
+        </a>
+    </li>
+    <li class="Pagination__item">
+        <a class="Pagination__link" @click.prevent="previousPage">
+            <v-icon
+                    :variants="['chevron-left']"
+            ></v-icon>
+        </a>
+    </li>
+    <li class="Pagination__item" v-for="page in firstItems">
+        <a @click.prevent="toPage(page+1)"
+           class="Pagination__link"
+           :class="{ 'Pagination__link--active' : (page + 1) === pagination.current_page }"
+        >
+            {{ page + 1 }}
+        </a>
+    </li>
+    <li class="Pagination__item">
+		<span class="Pagination__link">
+			...
+		</span>
+    </li>
+    <li class="Pagination__item" v-for="page in previousItems">
+        <a @click.prevent="toPage(page)"
+           class="Pagination__link"
+           :class="{ 'Pagination__link--active' : page === pagination.current_page }"
+        >
+            {{ page }}
+        </a>
+    </li>
+    <li class="Pagination__item">
+        <a @click.prevent="toPage(pagination.current_page)"
+            class="Pagination__link Pagination__link--active"
+        >
+            {{ pagination.current_page}}
+        </a>
+    </li>
+    <li class="Pagination__item" v-for="page in nextItems">
+        <a @click.prevent="toPage(page+1)"
+           class="Pagination__link"
+           :class="{ 'Pagination__link--active' : (page + 1) === pagination.current_page }"
+        >
+            {{ page + 1 }}
+        </a>
+    </li>
+    <li class="Pagination__item">
+		<span class="Pagination__link">
+			...
+		</span>
+    </li>
+    <li class="Pagination__item" v-for="page in lastItems">
+        <a @click.prevent="toPage(page+1)"
+           class="Pagination__link"
+           :class="{ 'Pagination__link--active' : (page + 1) === pagination.current_page }"
+        >
+            {{ page + 1 }}
+        </a>
+    </li>
+    <li class="Pagination__item">
+        <a class="Pagination__link" @click.prevent="nextPage">
+            <v-icon
+                    :variants="['chevron-right']"
+            ></v-icon>
+        </a>
+    </li>
+    <li class="Pagination__item">
+        <a class="Pagination__link" @click.prevent="lastPage">
+            <v-icon
+                    :variants="['chevron-double-right']"
+            ></v-icon>
+        </a>
+    </li>
 </ul>

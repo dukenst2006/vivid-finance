@@ -22,7 +22,7 @@ export default {
     },
 
     vuex: {
-        state: {
+        getters: {
             items: ({notification}) => notification.data
         }
     },

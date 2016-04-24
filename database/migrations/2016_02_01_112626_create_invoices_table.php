@@ -24,13 +24,13 @@ class CreateInvoicesTable extends Migration
 
             $table->enum('state', [ 'open', 'closed' ]);
 
-            $table->string('file');
+            $table->string('file')->nullable();
 
-            $table->string('file_path');
+            $table->string('file_path')->nullable();
 
-            $table->string('file_name');
+            $table->string('file_name')->nullable();
 
-            $table->string('file_extension');
+            $table->string('file_extension')->nullable();
 
             $table->date('expiration_date');
 

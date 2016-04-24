@@ -4,6 +4,12 @@ export default {
         'fn'
     ],
 
+    data() {
+        return {
+            steps: 2
+        }
+    },
+
     components: {
         'v-icon' (resolve) {
             require(['./../Icon/Icon.vue'], resolve)
@@ -39,7 +45,7 @@ export default {
          * @param {int} page The page
          */
         toPage(page) {
-            this.fn(page);
+            this.fn(page, this.pagination.limit);
         },
 
         /**
@@ -62,6 +68,56 @@ export default {
             if (this.pagination.current_page !== lastPage) {
                 this.toPage(lastPage);
             }
+        }
+    },
+
+    computed: {
+        firstItems() {
+            var pages = [];
+
+            if (this.pagination.total_pages < this.steps) {
+                return this.pagination.total_pages;
+            }
+
+            for (var i = 0; i < this.steps; i++) {
+                pages.push(i);
+            }
+
+            return pages;
+        },
+
+        previousItems() {
+            var pages = [];
+
+            for (var i = this.steps; i > 0; i--) {
+                if (!(this.pagination.current_page - i <= 0)) {
+                    pages.push(this.pagination.current_page - i);
+                }
+            }
+
+            return pages;
+        },
+
+        nextItems() {
+            var pages = [];
+
+            for (var i = 0; i < this.steps; i++) {
+                if (!(this.pagination.current_page + i >= this.pagination.total_pages)) {
+                    pages.push(this.pagination.current_page + i);
+                }
+            }
+
+            return pages;
+        },
+
+        lastItems() {
+            var pages = [];
+
+            for (var i = this.steps; i > 0; i--) {
+                pages.push(this.pagination.total_pages - i);
+            }
+
+            return pages;
         }
     }
 };

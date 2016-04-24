@@ -3,7 +3,7 @@
 namespace VividFinance\Http\Requests\API;
 
 use Illuminate\Foundation\Http\FormRequest;
-use VividFinance\Traits\APITrait;
+use VividFinance\Traits\RestAble;
 
 /**
  * Class Request
@@ -12,7 +12,7 @@ use VividFinance\Traits\APITrait;
 class Request extends FormRequest
 {
 
-    use APITrait;
+    use RestAble;
 
 
     /**

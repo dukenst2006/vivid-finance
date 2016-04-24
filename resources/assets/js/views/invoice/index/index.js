@@ -3,13 +3,14 @@ import { getAllInvoices } from './../../../vuex/actions'
 export default {
     data () {
         return {
+            limit: 5,
             breadcrumb: [
                 {
                     content: {
                         text: 'Home'
                     },
                     link: {
-                        to : 'invoice.index'
+                        to: 'invoice.index'
                     }
                 },
                 {
@@ -17,7 +18,7 @@ export default {
                         text: 'Invoices'
                     },
                     link: {
-                        to : 'invoice.index'
+                        to: 'invoice.index'
                     }
                 },
                 {
@@ -90,18 +91,26 @@ export default {
                     'primary'
                 ]
             },
-            vPagination : {
-                fn : this.getAllInvoices
+            vPagination: {
+                fn: this.getAllInvoices
             }
         }
     },
     vuex: {
-        state: {
+        getters: {
             invoices: ({invoice}) => invoice.data,
             pagination: ({invoice}) => invoice.pagination
         },
         actions: {
             getAllInvoices
+        }
+    },
+
+    watch: {
+        limit (newValue, oldValue) {
+            if (newValue !== oldValue && newValue != this.pagination.limit) {
+                this.getAllInvoices(this.pagination.current_page, newValue)
+            }
         }
     },
     components: {
@@ -120,5 +129,9 @@ export default {
         'v-pagination' (resolve) {
             require(['./../../../components/Pagination/Pagination.vue'], resolve)
         }
+    },
+
+    ready () {
+        this.limit = this.pagination.limit;
     }
 };

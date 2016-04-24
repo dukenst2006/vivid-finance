@@ -13,7 +13,7 @@
 Route::group([
     'middleware' => [
         'api',
-        //'auth'
+        'auth'
     ],
     'as'         => 'api::',
     'namespace'  => 'API',
@@ -24,11 +24,8 @@ Route::group([
         'as'     => 'user.',
         'prefix' => 'users'
     ], function () {
-        Route::get('', [ 'as' => 'index', 'uses' => 'UserController@index' ]);
-        Route::post('', [ 'as' => 'store', 'uses' => 'UserController@store' ]);
         Route::get('{user}', [ 'as' => 'show', 'uses' => 'UserController@show' ]);
         Route::put('{user}', [ 'as' => 'update', 'uses' => 'UserController@update' ]);
-        Route::delete('{user}', [ 'as' => 'destroy', 'uses' => 'UserController@destroy' ]);
     });
 
     // Customer
@@ -55,6 +52,7 @@ Route::group([
         Route::delete('{invoice}', [ 'as' => 'destroy', 'uses' => 'InvoiceController@destroy' ]);
 
         // Download route
+        Route::post('{invoice}/upload', [ 'as' => 'upload', 'uses' => 'InvoiceController@upload' ]);
         Route::get('{invoice}/download', [ 'as' => 'download', 'uses' => 'InvoiceController@download' ]);
     });
 
