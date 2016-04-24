@@ -23,6 +23,7 @@ use VividFinance\Traits\Filterable;
  * @property string         $api_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \VividFinance\Avatar $avatar
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereId( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereName( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereEmail( $value )
@@ -37,7 +38,7 @@ use VividFinance\Traits\Filterable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereApiToken( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filtered( $filters )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filter($filters)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filter( $filters )
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -60,8 +61,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
-        'birthday'
+        'birthday',
+        'website',
+        'telephone',
+        'mobile_phone',
+        'sex',
+        'bio'
     ];
 
     /**
@@ -82,4 +87,13 @@ class User extends Authenticatable
     protected $dates = [
         'birthday'
     ];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function avatar()
+    {
+        return $this->hasOne(Avatar::class);
+    }
 }

@@ -4,7 +4,7 @@ namespace VividFinance\Http\Controllers\API;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use VividFinance\Traits\RestAble;
+use VividFinance\Traits\Restable;
 
 /**
  * Class Controller
@@ -13,7 +13,7 @@ use VividFinance\Traits\RestAble;
 class Controller extends BaseController
 {
 
-    use AuthorizesRequests, RestAble;
+    use AuthorizesRequests, Restable;
 
     /**
      * The default pagination size

@@ -19,8 +19,7 @@ use VividFinance\Traits\Filterable;
  * @property \Carbon\Carbon              $updated_at
  * @property boolean                     $is_recurrent
  * @property string                      $recurrence
- * @property-read \VividFinance\Customer $customers
- * @property-read \VividFinance\User     $user
+ * @property-read \VividFinance\Customer $customer
  * @method static Builder|Invoice notPayed()
  * @method static Builder|Invoice whereId( $value )
  * @method static Builder|Invoice whereCustomerId( $value )

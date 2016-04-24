@@ -30,7 +30,7 @@ use VividFinance\Traits\Filterable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filtered( $filters )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filter($filters)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filter( $filters )
  * @mixin \Eloquent
  */
 class Customer extends Model

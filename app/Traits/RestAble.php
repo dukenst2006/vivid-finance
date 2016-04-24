@@ -10,7 +10,7 @@ use Response;
  * Class API
  * @package VividFinance\Traits
  */
-trait RestAble
+trait Restable
 {
 
     /**

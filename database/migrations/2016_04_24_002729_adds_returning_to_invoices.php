@@ -14,6 +14,7 @@ class AddsReturningToInvoices extends Migration
     {
         Schema::table('invoices', function (Blueprint $table) {
             $table->boolean('is_recurrent');
+            
             $table
                 ->enum('recurrence', ['daily', 'weekly', 'monthly', 'yearly'])
                 ->nullable();

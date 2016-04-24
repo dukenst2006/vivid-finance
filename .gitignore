@@ -18,3 +18,9 @@ _ide_helper_models.php
 !/public/index.php
 !/public/robots.txt
 !/public/web.config
+
+# Ignore the storage directories
+/storage/*
+!/storage/app
+!/storage/framework
+!/storage/logs

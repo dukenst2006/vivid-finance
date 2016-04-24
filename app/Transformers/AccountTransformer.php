@@ -6,7 +6,7 @@ namespace VividFinance\Transformers;
  * Class UserTransformer
  * @package VividFinance\Transformers
  */
-class UserTransformer extends Transformer
+class AccountTransformer extends Transformer
 {
 
     /**

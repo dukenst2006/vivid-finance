@@ -1,10 +1,11 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\User;
+namespace VividFinance\Http\Requests\API\Account;
 
-use VividFinance\Http\Requests\API\Request;
+use Auth;
+use VividFinance\Http\Requests\Request;
 
-class StoreRequest extends Request
+class UpdateRequest extends Request
 {
 
     /**
@@ -25,14 +26,15 @@ class StoreRequest extends Request
      */
     public function rules()
     {
+        $user = Auth::user();
+
         return [
             'email'        => [
                 'required',
                 'email',
-                'unique:users,email'
+                'unique:users,email,' . $user->id
             ],
             'password'     => [
-                'required',
                 'min:6',
                 'max:20',
                 'regex:/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\w\s]).)/'

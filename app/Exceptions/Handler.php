@@ -10,12 +10,12 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use VividFinance\Traits\RestAble;
+use VividFinance\Traits\Restable;
 
 class Handler extends ExceptionHandler
 {
 
-    use RestAble;
+    use Restable;
 
     /**
      * A list of the exception types that should not be reported.

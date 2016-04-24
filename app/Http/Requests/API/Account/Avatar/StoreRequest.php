@@ -1,10 +1,10 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\User;
+namespace VividFinance\Http\Requests\API\Account\Avatar;
 
-use VividFinance\Http\Requests\API\Request;
+use VividFinance\Http\Requests\Request;
 
-class IndexRequest extends Request
+class StoreRequest extends Request
 {
 
     /**
