@@ -20,7 +20,5 @@ _ide_helper_models.php
 !/public/web.config
 
 # Ignore the storage directories
-/storage/*
-!/storage/app
-!/storage/framework
-!/storage/logs
+/storage/customers
+/storage/users
