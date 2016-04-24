@@ -1,16 +1,16 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API;
+namespace VividFinance\Http\Controllers\Api;
 
 use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\CustomerHasBeenCreated;
 use VividFinance\Filters\CustomerFilters;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\Customer\DestroyRequest;
-use VividFinance\Http\Requests\API\Customer\ShowRequest;
-use VividFinance\Http\Requests\API\Customer\StoreRequest;
-use VividFinance\Http\Requests\API\Customer\UpdateRequest;
+use VividFinance\Http\Requests\Api\Customer\DestroyRequest;
+use VividFinance\Http\Requests\Api\Customer\ShowRequest;
+use VividFinance\Http\Requests\Api\Customer\StoreRequest;
+use VividFinance\Http\Requests\Api\Customer\UpdateRequest;
 use VividFinance\Transformers\CustomerTransformer;
 
 /**

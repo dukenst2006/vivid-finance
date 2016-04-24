@@ -1,9 +1,13 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\Account\Avatar;
+namespace VividFinance\Http\Requests\Api\Account\Avatar;
 
-use VividFinance\Http\Requests\Request;
+use VividFinance\Http\Requests\Api\Request;
 
+/**
+ * Class StoreRequest
+ * @package VividFinance\Http\Requests\API\Account\Avatar
+ */
 class StoreRequest extends Request
 {
 

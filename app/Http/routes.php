@@ -16,7 +16,7 @@ Route::group([
         'auth'
     ],
     'as'         => 'api::',
-    'namespace'  => 'API',
+    'namespace'  => 'Api',
     'prefix'     => 'api/v1'
 ], function () {
     // Account

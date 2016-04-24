@@ -1,6 +1,6 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API;
+namespace VividFinance\Http\Controllers\Api;
 
 use File;
 use Illuminate\Support\Facades\Input;
@@ -8,9 +8,9 @@ use VividFinance\Customer;
 use VividFinance\Events\InvoiceHasBeenCreated;
 use VividFinance\Filters\InvoiceFilters;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\Invoice\StoreRequest;
-use VividFinance\Http\Requests\API\Invoice\UpdateRequest;
-use VividFinance\Http\Requests\API\Invoice\UploadRequest;
+use VividFinance\Http\Requests\Api\Invoice\StoreRequest;
+use VividFinance\Http\Requests\Api\Invoice\UpdateRequest;
+use VividFinance\Http\Requests\Api\Invoice\UploadRequest;
 use VividFinance\Invoice;
 use VividFinance\Transformers\InvoiceTransformer;
 
@@ -128,7 +128,7 @@ class InvoiceController extends Controller
 
 
     /**
-     * Method used to upload the invoice file
+     * Upload the desired invoice.
      *
      * @param UploadRequest $request
      * @param Invoice       $invoice
@@ -150,7 +150,7 @@ class InvoiceController extends Controller
 
 
     /**
-     * Download the desired invoice
+     * Download the desired invoice.
      *
      * @param Invoice $invoice
      *

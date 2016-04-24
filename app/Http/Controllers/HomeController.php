@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
 
     /**
-     * Show the SPA to the user
+     * Show the single page application to the user.
      *
      * @return \Illuminate\Contracts\View\View The view
      */

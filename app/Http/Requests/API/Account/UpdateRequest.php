@@ -1,10 +1,14 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\Account;
+namespace VividFinance\Http\Requests\Api\Account;
 
 use Auth;
-use VividFinance\Http\Requests\Request;
+use VividFinance\Http\Requests\Api\Request;
 
+/**
+ * Class UpdateRequest
+ * @package VividFinance\Http\Requests\API\Account
+ */
 class UpdateRequest extends Request
 {
 

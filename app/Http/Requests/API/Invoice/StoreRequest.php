@@ -1,19 +1,11 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\Invoice;
+namespace VividFinance\Http\Requests\Api\Invoice;
 
-use Carbon\Carbon;
-use VividFinance\Http\Requests\API\Request;
+use VividFinance\Http\Requests\Api\Request;
 
 /**
  * Class StoreRequest
- *
- * @property string $title
- * @property string $state
- * @property Carbon $expiration_date
- * @property int    $customer_id
- * @property \File  $file
- *
  * @package VividFinance\Http\Requests\API\Invoice
  */
 class StoreRequest extends Request

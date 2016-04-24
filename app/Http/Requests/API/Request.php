@@ -1,6 +1,6 @@
 <?php
 
-namespace VividFinance\Http\Requests\API;
+namespace VividFinance\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 use VividFinance\Traits\Restable;
@@ -16,7 +16,7 @@ class Request extends FormRequest
 
 
     /**
-     * Response to a forbidden request
+     * Get the response for a forbidden operation.
      *
      * @return \Illuminate\Http\JsonResponse The JSON-response
      */

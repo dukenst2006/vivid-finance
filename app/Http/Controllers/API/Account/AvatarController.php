@@ -1,12 +1,12 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API\Account;
+namespace VividFinance\Http\Controllers\Api\Account;
 
 use Auth;
 use File;
 use VividFinance\Http\Controllers\API\Controller;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\Account\Avatar\StoreRequest;
+use VividFinance\Http\Requests\Api\Account\Avatar\StoreRequest;
 use VividFinance\Transformers\Account\AvatarTransformer;
 
 /**
@@ -17,6 +17,8 @@ class AvatarController extends Controller
 {
 
     /**
+     * The given transformer.
+     * 
      * @var AvatarTransformer
      */
     protected $transformer;
@@ -25,7 +27,7 @@ class AvatarController extends Controller
     /**
      * AvatarController constructor.
      *
-     * @param AvatarTransformer $transformer
+     * @param AvatarTransformer $transformer The given transformer
      */
     public function __construct(AvatarTransformer $transformer)
     {
@@ -34,6 +36,8 @@ class AvatarController extends Controller
 
 
     /**
+     * Display the specified resource.
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function show()
@@ -49,7 +53,9 @@ class AvatarController extends Controller
 
 
     /**
-     * @param StoreRequest $request
+     * Store a newly created resource in storage.
+     * 
+     * @param StoreRequest $request The given request
      *
      * @return \Illuminate\Http\JsonResponse
      */

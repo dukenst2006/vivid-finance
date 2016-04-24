@@ -10,7 +10,7 @@ class InvoiceFilters extends QueryFilters
 {
 
     /**
-     * Searches for title
+     * Searches for title.
      *
      * @param String $title The given title
      *
@@ -23,7 +23,7 @@ class InvoiceFilters extends QueryFilters
 
 
     /**
-     * Searcher for the state
+     * Searches for the state.
      *
      * @param String $state The given state
      *

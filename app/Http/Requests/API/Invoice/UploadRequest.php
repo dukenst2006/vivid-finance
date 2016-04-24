@@ -1,9 +1,13 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\Invoice;
+namespace VividFinance\Http\Requests\Api\Invoice;
 
-use VividFinance\Http\Requests\API\Request;
+use VividFinance\Http\Requests\Api\Request;
 
+/**
+ * Class UploadRequest
+ * @package VividFinance\Http\Requests\API\Invoice
+ */
 class UploadRequest extends Request
 {
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API;
+namespace VividFinance\Http\Controllers\Api;
 
 use Auth;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\Account\UpdateRequest;
+use VividFinance\Http\Requests\Api\Account\UpdateRequest;
 use VividFinance\Transformers\AccountTransformer;
 
 /**
@@ -15,6 +15,8 @@ class AccountController extends Controller
 {
 
     /**
+     * The given transformer.
+     * 
      * @var AccountTransformer
      */
     protected $transformer;
@@ -32,6 +34,8 @@ class AccountController extends Controller
 
 
     /**
+     * Display the specified resource.
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function show()
@@ -43,7 +47,9 @@ class AccountController extends Controller
 
 
     /**
-     * @param UpdateRequest $request
+     * Update the specified resource in storage.
+     * 
+     * @param UpdateRequest $request The request
      *
      * @return \Illuminate\Http\JsonResponse
      */
