@@ -41,10 +41,9 @@ $factory->define(VividFinance\Invoice::class, function (Faker\Generator $faker) 
     return [
         'title'           => $faker->title,
         'state'           => $faker->randomElement([ 'open', 'closed' ]),
-        'file'            => '/public/invoices/' . $faker->slug . '.' . $faker->fileExtension,
-        'file_path'       => '/public/invoices',
-        'file_name'       => $faker->slug,
-        'file_extension'  => $faker->fileExtension,
+        'file'            => $faker->slug . '.' . $faker->fileExtension,
+        'is_recurrent'    => $faker->boolean(),
+        'recurrence'      => $faker->randomElement([ 'daily', 'weekly', 'monthly', 'yearly' ]),
         'expiration_date' => $faker->dateTimeBetween('+1 month', '+2 months')
     ];
 });

@@ -77,7 +77,7 @@ class CustomerController extends Controller
 
         event(new CustomerHasBeenCreated($this->customerTransformer->transform($customer)));
 
-        return $this->respondCreated('Customer created');
+        return $this->respondCreated('The customer has been created');
     }
 
 

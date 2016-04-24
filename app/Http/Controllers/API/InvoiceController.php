@@ -82,7 +82,7 @@ class InvoiceController extends Controller
 
         event(new InvoiceHasBeenCreated($this->invoiceTransformer->transform($invoice)));
 
-        return $this->respondCreated('The invoice created has been created');
+        return $this->respondCreated('The invoice has been created');
     }
 
 
