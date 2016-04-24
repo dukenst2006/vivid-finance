@@ -9,30 +9,36 @@ use VividFinance\Traits\Filterable;
 /**
  * VividFinance\Invoice
  *
- * @property integer $id
- * @property integer $customer_id
- * @property string $title
- * @property string $state
- * @property string $file
- * @property \Carbon\Carbon $expiration_date
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property integer                     $id
+ * @property integer                     $customer_id
+ * @property string                      $title
+ * @property string                      $state
+ * @property string                      $file
+ * @property \Carbon\Carbon              $expiration_date
+ * @property \Carbon\Carbon              $created_at
+ * @property \Carbon\Carbon              $updated_at
+ * @property boolean                     $is_recurrent
+ * @property string                      $recurrence
  * @property-read \VividFinance\Customer $customers
- * @property-read \VividFinance\User $user
+ * @property-read \VividFinance\User     $user
  * @method static Builder|Invoice notPayed()
- * @method static Builder|Invoice whereId($value)
- * @method static Builder|Invoice whereCustomerId($value)
- * @method static Builder|Invoice whereTitle($value)
- * @method static Builder|Invoice whereState($value)
- * @method static Builder|Invoice whereFile($value)
- * @method static Builder|Invoice whereExpirationDate($value)
- * @method static Builder|Invoice whereCreatedAt($value)
- * @method static Builder|Invoice whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filtered($filters)
+ * @method static Builder|Invoice whereId( $value )
+ * @method static Builder|Invoice whereCustomerId( $value )
+ * @method static Builder|Invoice whereTitle( $value )
+ * @method static Builder|Invoice whereState( $value )
+ * @method static Builder|Invoice whereFile( $value )
+ * @method static Builder|Invoice whereExpirationDate( $value )
+ * @method static Builder|Invoice whereCreatedAt( $value )
+ * @method static Builder|Invoice whereUpdatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereIsRecurrent( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereRecurrence( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filtered( $filters )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filter( $filters )
  * @mixin \Eloquent
  */
 class Invoice extends Model
 {
+
     use Filterable;
 
     /**
@@ -100,7 +106,7 @@ class Invoice extends Model
 
     /**
      * Method used to retrieve the full file path
-     * 
+     *
      * @return string
      */
     public function getFullFile()

@@ -20,9 +20,9 @@ use VividFinance\Traits\Filterable;
  * @property string         $sex
  * @property string         $bio
  * @property string         $remember_token
+ * @property string         $api_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property string         $api_token
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereId( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereName( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereEmail( $value )
@@ -36,11 +36,13 @@ use VividFinance\Traits\Filterable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereCreatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\User whereApiToken( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filtered($filters)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filtered( $filters )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\User filter($filters)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
+
     use Authorizable, CanResetPassword, Filterable;
 
     /**

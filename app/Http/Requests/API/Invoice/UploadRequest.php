@@ -2,9 +2,9 @@
 
 namespace VividFinance\Http\Requests\API\Invoice;
 
-use VividFinance\Http\Requests\Request;
+use VividFinance\Http\Requests\API\Request;
 
-class DownloadRequest extends Request
+class UploadRequest extends Request
 {
 
     /**
@@ -26,7 +26,11 @@ class DownloadRequest extends Request
     public function rules()
     {
         return [
-            //
+            'file' => [
+                'required',
+                'max:5120',
+                'mimes:application/pdf,pdf'
+            ]
         ];
     }
 }

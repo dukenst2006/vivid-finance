@@ -12,8 +12,9 @@ use VividFinance\Http\Requests\API\Invoice\DestroyRequest;
 use VividFinance\Http\Requests\API\Invoice\DownloadRequest;
 use VividFinance\Http\Requests\API\Invoice\IndexRequest;
 use VividFinance\Http\Requests\API\Invoice\ShowRequest;
-use VividFinance\Http\Requests\API\Invoice\UpdateRequest;
 use VividFinance\Http\Requests\API\Invoice\StoreRequest;
+use VividFinance\Http\Requests\API\Invoice\UpdateRequest;
+use VividFinance\Http\Requests\API\Invoice\UploadRequest;
 use VividFinance\Invoice;
 use VividFinance\Transformers\InvoiceTransformer;
 
@@ -46,7 +47,8 @@ class InvoiceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param IndexRequest $request
+     * @param IndexRequest   $request
+     * @param InvoiceFilters $filters
      *
      * @return \Illuminate\Http\Response
      */
@@ -56,8 +58,7 @@ class InvoiceController extends Controller
             $this->setPagination(Input::get('limit'));
         }
 
-        $invoices = Invoice::filter($filters)
-            ->paginate($this->getPagination());
+        $invoices = Invoice::filter($filters)->paginate($this->getPagination());
 
         return $this->respondWithPagination($invoices, [
             'data' => $this->invoiceTransformer->transformCollection($invoices->all())
@@ -76,27 +77,19 @@ class InvoiceController extends Controller
     {
         $customer = Customer::findOrFail($request->customer_id);
 
-        // Retrieving the file
-        $file = $request->file('file');
-
-        // Creating the invoice
         $invoice = new Invoice($request->all());
-        $invoice->file = $request->title . '.' . $file->getClientOriginalExtension();
         $customer->addInvoice($invoice);
-
-        // Moving the invoice
-        $file->move($invoice->getFilePath(), $invoice->file);
 
         event(new InvoiceHasBeenCreated($this->invoiceTransformer->transform($invoice)));
 
-        return $this->respondCreated('Invoice created');
+        return $this->respondCreated('The invoice created has been created');
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param ShowRequest $request
+     * @param ShowRequest            $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
@@ -110,7 +103,7 @@ class InvoiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateRequest $request
+     * @param UpdateRequest          $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
@@ -127,7 +120,7 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyRequest $request
+     * @param DestroyRequest         $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
@@ -142,16 +135,38 @@ class InvoiceController extends Controller
 
 
     /**
+     * Method used to upload the invoice file
+     *
+     * @param UploadRequest $request
+     * @param Invoice       $invoice
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function upload(UploadRequest $request, Invoice $invoice)
+    {
+        $file = $request->file('file');
+
+        $invoice->file = $invoice->title . '.' . $file->getClientOriginalExtension();
+
+        // Moving the invoice
+        $file->move($invoice->getFilePath(), $invoice->file);
+        $invoice->save();
+
+        return $this->respondWithSuccess('The file has been uploaded');
+    }
+
+
+    /**
      * Download the desired invoice
      *
      * @param DownloadRequest $request
-     * @param Invoice $invoice
+     * @param Invoice         $invoice
      *
      * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function download(DownloadRequest $request, Invoice $invoice)
     {
-        if (!File::exists($invoice->getFullFile())) {
+        if ( ! File::exists($invoice->getFullFile())) {
             return $this->respondNotFound('File not found');
         }
 

@@ -29,13 +29,15 @@ use VividFinance\Traits\Filterable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereBuildingNumber( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt( $value )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filtered($filters)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filtered( $filters )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filter($filters)
  * @mixin \Eloquent
  */
 class Customer extends Model
 {
+
     use Filterable;
-    
+
     /**
      * The name of the database table
      *
@@ -60,17 +62,6 @@ class Customer extends Model
 
 
     /**
-     * An company has one or many invoices
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany The invoice collection
-     */
-    public function invoices()
-    {
-        return $this->hasMany(Invoice::class);
-    }
-
-
-    /**
      * Method used to add an invoice to the company
      *
      * @param Invoice $invoice The given invoice
@@ -80,5 +71,16 @@ class Customer extends Model
     public function addInvoice(Invoice $invoice)
     {
         return $this->invoices()->save($invoice);
+    }
+
+
+    /**
+     * An company has one or many invoices
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany The invoice collection
+     */
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
     }
 }

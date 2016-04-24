@@ -10,8 +10,9 @@ use VividFinance\Filters\QueryFilters;
  */
 trait Filterable
 {
+
     /**
-     * @param $query
+     * @param              $query
      * @param QueryFilters $filters
      */
     public function scopeFilter($query, QueryFilters $filters)

@@ -52,6 +52,7 @@ Route::group([
         Route::delete('{invoice}', [ 'as' => 'destroy', 'uses' => 'InvoiceController@destroy' ]);
 
         // Download route
+        Route::post('{invoice}/upload', [ 'as' => 'upload', 'uses' => 'InvoiceController@upload' ]);
         Route::get('{invoice}/download', [ 'as' => 'download', 'uses' => 'InvoiceController@download' ]);
     });
 

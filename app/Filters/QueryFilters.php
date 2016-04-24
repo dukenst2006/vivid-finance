@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
  */
 abstract class QueryFilters
 {
+
     /**
      * @var Request
      */
@@ -21,8 +22,10 @@ abstract class QueryFilters
      */
     protected $builder;
 
+
     /**
      * QueryFilters constructor.
+     *
      * @param $request
      */
     public function __construct(Request $request)
@@ -30,8 +33,10 @@ abstract class QueryFilters
         $this->request = $request;
     }
 
+
     /**
      * @param Builder $builder
+     *
      * @return Builder
      */
     public function apply(Builder $builder)
@@ -40,7 +45,7 @@ abstract class QueryFilters
         foreach ($this->filters() as $name => $value) {
             $name = camel_case($name);
 
-            if (!method_exists($this, $name)) {
+            if ( ! method_exists($this, $name)) {
                 continue;
             }
 
@@ -50,9 +55,10 @@ abstract class QueryFilters
                 $this->$name();
             }
         }
-        
+
         return $this->builder;
     }
+
 
     /**
      * @return array

@@ -8,7 +8,10 @@ use VividFinance\Traits\RestAble;
 
 class Authenticate
 {
+
     use RestAble;
+
+
     /**
      * Handle an incoming request.
      *

@@ -43,9 +43,10 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param IndexRequest $request
+     * @param IndexRequest    $request
      *
      * @param CustomerFilters $filters
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(IndexRequest $request, CustomerFilters $filters)
@@ -54,8 +55,7 @@ class CustomerController extends Controller
             $this->setPagination(Input::get('limit'));
         }
 
-        $customers = Customer::filter($filters)
-            ->paginate($this->getPagination());
+        $customers = Customer::filter($filters)->paginate($this->getPagination());
 
         return $this->respondWithPagination($customers, [
             'data' => $this->customerTransformer->transformCollection($customers->all())
