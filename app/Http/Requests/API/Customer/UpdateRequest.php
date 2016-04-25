@@ -12,14 +12,6 @@ class UpdateRequest extends Request
 {
 
     /**
-     * The given customer
-     *
-     * @var int The given customer
-     */
-    protected $customer;
-
-
-    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -37,7 +29,6 @@ class UpdateRequest extends Request
      */
     public function rules()
     {
-        $this->customer = $this->route()->getParameter('customer');
 
         return [
             'name'            => [

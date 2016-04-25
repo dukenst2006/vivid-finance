@@ -54,7 +54,10 @@ class Invoice extends Model
      */
     protected $fillable = [
         'title',
+        'description',
         'state',
+        'is_recurrent',
+        'recurrence',
         'expiration_date'
     ];
 

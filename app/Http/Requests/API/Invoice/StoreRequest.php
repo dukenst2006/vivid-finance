@@ -29,10 +29,11 @@ class StoreRequest extends Request
      */
     public function rules()
     {
+
         return [
             'title'           => [
                 'required',
-                'unique:invoices,title,NULL,customer_id'
+                'unique:invoices,title,NULL,id,customer_id,' . $this->customer_id
             ],
             'state'           => [
                 'required',
@@ -45,6 +46,9 @@ class StoreRequest extends Request
             'customer_id'     => [
                 'required',
                 'integer'
+            ],
+            'recurrence'     => [
+                'in:daily,weekly,monthly,yearly'
             ]
         ];
     }

@@ -70,7 +70,10 @@ class InvoiceController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $customer = Customer::findOrFail($request->customer_id);
+        $customer = Customer::find($request->customer_id);
+        if ( ! $customer) {
+            return $this->respondNotFound('The customer could nog be found');
+        }
 
         $invoice = new Invoice($request->all());
         $invoice->customer()->associate($customer);
@@ -122,6 +125,7 @@ class InvoiceController extends Controller
      */
     public function destroy(Invoice $invoice)
     {
+        File::delete($invoice->getFullFile());
         $invoice->delete();
 
         return $this->respondWithSuccess('The invoice has been deleted');
