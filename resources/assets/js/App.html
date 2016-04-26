@@ -1,5 +1,10 @@
 <div>
-    <v-wrapper>
+    <div v-if="!user.isAuthenticated">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet atque beatae commodi dicta distinctio dolore
+        eaque est eum fuga incidunt laboriosam magni molestias, officia quas quo quod vero, voluptate?
+        <br>
+    </div>
+    <v-wrapper v-else="user.isAuthenticated">
         <v-header
                 :sidebar="header.sidebar"
                 :actions="header.actions"

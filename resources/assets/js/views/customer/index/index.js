@@ -1,4 +1,4 @@
-import { getAllCustomers } from './../../../vuex/actions'
+import {getAllCustomers} from "./../../../vuex/actions";
 
 export default {
     data () {

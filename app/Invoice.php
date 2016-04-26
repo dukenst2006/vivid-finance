@@ -19,6 +19,7 @@ use VividFinance\Traits\Filterable;
  * @property \Carbon\Carbon              $updated_at
  * @property boolean                     $is_recurrent
  * @property string                      $recurrence
+ * @property string $description
  * @property-read \VividFinance\Customer $customer
  * @method static Builder|Invoice notPayed()
  * @method static Builder|Invoice whereId( $value )
@@ -31,6 +32,7 @@ use VividFinance\Traits\Filterable;
  * @method static Builder|Invoice whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereIsRecurrent( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereRecurrence( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filtered( $filters )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filter( $filters )
  * @mixin \Eloquent

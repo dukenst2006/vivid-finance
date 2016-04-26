@@ -40,12 +40,13 @@ $factory->define(VividFinance\Customer::class, function (Faker\Generator $faker)
 $factory->define(VividFinance\Invoice::class, function (Faker\Generator $faker) {
     return [
         'title'           => $faker->title,
+        'description'     => $faker->sentence,
         'state'           => $faker->randomElement([ 'open', 'closed' ]),
         'file'            => $faker->slug . '.' . $faker->fileExtension,
         'is_recurrent'    => $faker->boolean(),
         'recurrence'      => $faker->randomElement([ 'daily', 'weekly', 'monthly', 'yearly', null ]),
         'expiration_date' => $faker->dateTimeBetween('+1 month', '+2 months'),
-        'customer_id' => function () {
+        'customer_id'     => function () {
             return factory(VividFinance\Customer::class)->create()->id;
         }
     ];
