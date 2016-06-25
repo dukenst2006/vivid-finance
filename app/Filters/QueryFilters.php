@@ -13,12 +13,16 @@ abstract class QueryFilters
 {
 
     /**
+     * The given request
+     * 
      * @var Request
      */
     protected $request;
 
     /**
-     * @var
+     * The given builder
+     * 
+     * @var Builder
      */
     protected $builder;
 
@@ -26,7 +30,7 @@ abstract class QueryFilters
     /**
      * QueryFilters constructor.
      *
-     * @param $request
+     * @param Request $request The given request
      */
     public function __construct(Request $request)
     {
@@ -35,7 +39,9 @@ abstract class QueryFilters
 
 
     /**
-     * @param Builder $builder
+     * Function to apply the filters.
+     * 
+     * @param Builder $builder The given builder
      *
      * @return Builder
      */
@@ -61,6 +67,8 @@ abstract class QueryFilters
 
 
     /**
+     * Get all the filters.
+     * 
      * @return array
      */
     public function filters()

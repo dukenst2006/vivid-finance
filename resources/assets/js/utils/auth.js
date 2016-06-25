@@ -1,0 +1,9 @@
+export default {
+    login () {
+
+    },
+
+    logout() {
+        
+    }
+};

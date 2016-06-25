@@ -1,10 +1,10 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API;
+namespace VividFinance\Http\Controllers\Api;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use VividFinance\Traits\RestAble;
+use VividFinance\Traits\Restable;
 
 /**
  * Class Controller
@@ -13,24 +13,24 @@ use VividFinance\Traits\RestAble;
 class Controller extends BaseController
 {
 
-    use AuthorizesRequests, RestAble;
+    use AuthorizesRequests, Restable;
 
     /**
-     * The default pagination size
+     * The default pagination size.
      *
      * @var int The pagination size
      */
     protected $pagination = 5;
 
     /**
-     * The maximum pagination size
+     * The maximum pagination size.
      *
      * @var int The pagination size
      */
     protected $maxLimit = 50;
 
     /**
-     * The minimum pagination size
+     * The minimum pagination size.
      *
      * @var int The pagination size
      */
@@ -38,7 +38,7 @@ class Controller extends BaseController
 
 
     /**
-     * Getter for the pagination
+     * Getter for the pagination.
      *
      * @return int The pagination size
      */
@@ -49,7 +49,7 @@ class Controller extends BaseController
 
 
     /**
-     * Sets and checks the pagination
+     * Sets and checks the pagination.
      *
      * @param int $pagination The given pagination
      */
@@ -60,7 +60,7 @@ class Controller extends BaseController
 
 
     /**
-     * Checks the pagination
+     * Checks the pagination.
      *
      * @param * $pagination The pagination
      *

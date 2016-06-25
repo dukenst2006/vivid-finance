@@ -1,5 +1,5 @@
-import http from './../services/http';
-import * as types from './mutation-types';
+import http from "./../services/http";
+import * as types from "./mutation-types";
 
 // Customer
 export const getAllCustomers = ({dispatch}, page = 1, limit = 5) => {
@@ -38,4 +38,17 @@ export const addNotification = ({dispatch}, notification) => {
 
 export const deleteNotification = ({dispatch}, id) => {
     dispatch(types.DELETE_NOTIFICATION, id);
+};
+
+// User
+export const checkAuthentication = ({dispatch}) => {
+    dispatch(types.CHECK_AUTHENTICATION);
+};
+
+export const login = ({dispatch}) => {
+    dispatch(types.LOGIN);
+};
+
+export const logout = ({dispatch}) => {
+    dispatch(types.LOGOUT);
 };

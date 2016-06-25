@@ -1,18 +1,11 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\Invoice;
+namespace VividFinance\Http\Requests\Api\Invoice;
 
-use Carbon\Carbon;
-use VividFinance\Http\Requests\API\Request;
+use VividFinance\Http\Requests\Api\Request;
 
 /**
  * Class UpdateRequest
- *
- * @property string $title
- * @property string $state
- * @property Carbon $expiration_date
- * @property int    $customer_id
- *
  * @package VividFinance\Http\Requests\API\Invoice
  */
 class UpdateRequest extends Request
@@ -36,9 +29,11 @@ class UpdateRequest extends Request
      */
     public function rules()
     {
+
         return [
             'title'           => [
-                'required'
+                'required',
+                'unique:invoices,title,' . $this->invoice->id . ',id,customer_id,' . $this->customer_id
             ],
             'state'           => [
                 'required',
@@ -51,6 +46,12 @@ class UpdateRequest extends Request
             'customer_id'     => [
                 'required',
                 'integer'
+            ],
+            'is_recurrent' => [
+                'boolean'
+            ],
+            'recurrence'     => [
+                'in:daily,weekly,monthly,yearly'
             ]
         ];
     }

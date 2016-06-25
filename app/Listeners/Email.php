@@ -19,7 +19,7 @@ class Email
 
 
     /**
-     * Handle the event
+     * Handle the event.
      *
      * @param InvoiceHasBeenCreated $event
      */

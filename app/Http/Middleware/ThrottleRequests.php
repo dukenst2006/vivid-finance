@@ -3,12 +3,12 @@
 namespace VividFinance\Http\Middleware;
 
 use Illuminate\Routing\Middleware\ThrottleRequests as BaseThrottleRequests;
-use VividFinance\Traits\RestAble;
+use VividFinance\Traits\Restable;
 
 class ThrottleRequests extends BaseThrottleRequests
 {
 
-    use RestAble;
+    use Restable;
 
 
     /**

@@ -16,16 +16,25 @@ Route::group([
         'auth'
     ],
     'as'         => 'api::',
-    'namespace'  => 'API',
+    'namespace'  => 'Api',
     'prefix'     => 'api/v1'
 ], function () {
-    // User
+    // Account
     Route::group([
-        'as'     => 'user.',
-        'prefix' => 'users'
+        'as'     => 'account.',
+        'prefix' => 'account'
     ], function () {
-        Route::get('{user}', [ 'as' => 'show', 'uses' => 'UserController@show' ]);
-        Route::put('{user}', [ 'as' => 'update', 'uses' => 'UserController@update' ]);
+        Route::get('', [ 'as' => 'show', 'uses' => 'AccountController@show' ]);
+        Route::put('', [ 'as' => 'update', 'uses' => 'AccountController@update' ]);
+
+        Route::group([
+            'as'        => 'avatar.',
+            'prefix'    => 'avatar',
+            'namespace' => 'Account'
+        ], function () {
+            Route::get('', [ 'as' => 'show', 'uses' => 'AvatarController@show' ]);
+            Route::post('', [ 'as' => 'store', 'uses' => 'AvatarController@store' ]);
+        });
     });
 
     // Customer

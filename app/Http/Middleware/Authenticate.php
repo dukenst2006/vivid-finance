@@ -4,12 +4,12 @@ namespace VividFinance\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use VividFinance\Traits\RestAble;
+use VividFinance\Traits\Restable;
 
 class Authenticate
 {
 
-    use RestAble;
+    use Restable;
 
 
     /**

@@ -19,8 +19,8 @@ use VividFinance\Traits\Filterable;
  * @property \Carbon\Carbon              $updated_at
  * @property boolean                     $is_recurrent
  * @property string                      $recurrence
- * @property-read \VividFinance\Customer $customers
- * @property-read \VividFinance\User     $user
+ * @property string $description
+ * @property-read \VividFinance\Customer $customer
  * @method static Builder|Invoice notPayed()
  * @method static Builder|Invoice whereId( $value )
  * @method static Builder|Invoice whereCustomerId( $value )
@@ -32,6 +32,7 @@ use VividFinance\Traits\Filterable;
  * @method static Builder|Invoice whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereIsRecurrent( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereRecurrence( $value )
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filtered( $filters )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Invoice filter( $filters )
  * @mixin \Eloquent
@@ -55,7 +56,10 @@ class Invoice extends Model
      */
     protected $fillable = [
         'title',
+        'description',
         'state',
+        'is_recurrent',
+        'recurrence',
         'expiration_date'
     ];
 
@@ -74,7 +78,7 @@ class Invoice extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The company
      */
-    public function customers()
+    public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
@@ -100,7 +104,7 @@ class Invoice extends Model
      */
     public function getFilePath()
     {
-        return storage_path() . '/customers/' . $this->customer_id . '/invoices';
+        return storage_path() . '/app/customers/' . $this->customer_id . '/invoices';
     }
 
 

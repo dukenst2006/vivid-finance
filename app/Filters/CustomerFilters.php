@@ -6,15 +6,11 @@ namespace VividFinance\Filters;
  * Class CustomerFilters
  * @package VividFinance\Filters
  */
-/**
- * Class CustomerFilters
- * @package VividFinance\Filters
- */
 class CustomerFilters extends QueryFilters
 {
 
     /**
-     * Searcher for name
+     * Searches for the name.
      *
      * @param String $name The given name
      *
@@ -27,7 +23,7 @@ class CustomerFilters extends QueryFilters
 
 
     /**
-     * Searches for building number
+     * Searches for the building number.
      *
      * @param String $buildingNumber The given building number
      *
@@ -35,6 +31,6 @@ class CustomerFilters extends QueryFilters
      */
     public function buildingNumber($buildingNumber)
     {
-        return $this->builder->where('building_number', 'like', "%$buildingNumber");
+        return $this->builder->where('building_number', 'like', "%$buildingNumber%");
     }
 }

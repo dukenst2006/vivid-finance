@@ -1,6 +1,6 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API;
+namespace VividFinance\Http\Controllers\Api;
 
 use File;
 use Illuminate\Support\Facades\Input;
@@ -8,13 +8,9 @@ use VividFinance\Customer;
 use VividFinance\Events\InvoiceHasBeenCreated;
 use VividFinance\Filters\InvoiceFilters;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\Invoice\DestroyRequest;
-use VividFinance\Http\Requests\API\Invoice\DownloadRequest;
-use VividFinance\Http\Requests\API\Invoice\IndexRequest;
-use VividFinance\Http\Requests\API\Invoice\ShowRequest;
-use VividFinance\Http\Requests\API\Invoice\StoreRequest;
-use VividFinance\Http\Requests\API\Invoice\UpdateRequest;
-use VividFinance\Http\Requests\API\Invoice\UploadRequest;
+use VividFinance\Http\Requests\Api\Invoice\StoreRequest;
+use VividFinance\Http\Requests\Api\Invoice\UpdateRequest;
+use VividFinance\Http\Requests\Api\Invoice\UploadRequest;
 use VividFinance\Invoice;
 use VividFinance\Transformers\InvoiceTransformer;
 
@@ -30,29 +26,28 @@ class InvoiceController extends Controller
      *
      * @var InvoiceTransformer The transformer
      */
-    protected $invoiceTransformer;
+    protected $transformer;
 
 
     /**
      * InvoiceController constructor.
      *
-     * @param \VividFinance\Transformers\InvoiceTransformer $invoiceTransformer The transformer
+     * @param \VividFinance\Transformers\InvoiceTransformer $transformer The transformer
      */
-    public function __construct(InvoiceTransformer $invoiceTransformer)
+    public function __construct(InvoiceTransformer $transformer)
     {
-        $this->invoiceTransformer = $invoiceTransformer;
+        $this->transformer = $transformer;
     }
 
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexRequest   $request
      * @param InvoiceFilters $filters
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(IndexRequest $request, InvoiceFilters $filters)
+    public function index(InvoiceFilters $filters)
     {
         if (Input::get('limit')) {
             $this->setPagination(Input::get('limit'));
@@ -61,7 +56,7 @@ class InvoiceController extends Controller
         $invoices = Invoice::filter($filters)->paginate($this->getPagination());
 
         return $this->respondWithPagination($invoices, [
-            'data' => $this->invoiceTransformer->transformCollection($invoices->all())
+            'data' => $this->transformer->transformCollection($invoices->all())
         ]);
     }
 
@@ -75,28 +70,31 @@ class InvoiceController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $customer = Customer::findOrFail($request->customer_id);
+        $customer = Customer::find($request->customer_id);
+        if ( ! $customer) {
+            return $this->respondNotFound('The customer could nog be found');
+        }
 
         $invoice = new Invoice($request->all());
-        $customer->addInvoice($invoice);
+        $invoice->customer()->associate($customer);
+        $invoice->save();
 
-        event(new InvoiceHasBeenCreated($this->invoiceTransformer->transform($invoice)));
+        event(new InvoiceHasBeenCreated($this->transformer->transform($invoice)));
 
-        return $this->respondCreated('The invoice created has been created');
+        return $this->respondCreated('The invoice has been created');
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param ShowRequest            $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(ShowRequest $request, Invoice $invoice)
+    public function show(Invoice $invoice)
     {
-        return $this->respond($this->invoiceTransformer->transform($invoice));
+        return $this->respond($this->transformer->transform($invoice));
     }
 
 
@@ -120,14 +118,14 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyRequest         $request
      * @param  \VividFinance\Invoice $invoice
      *
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public function destroy(DestroyRequest $request, Invoice $invoice)
+    public function destroy(Invoice $invoice)
     {
+        File::delete($invoice->getFullFile());
         $invoice->delete();
 
         return $this->respondWithSuccess('The invoice has been deleted');
@@ -135,7 +133,7 @@ class InvoiceController extends Controller
 
 
     /**
-     * Method used to upload the invoice file
+     * Upload the desired invoice.
      *
      * @param UploadRequest $request
      * @param Invoice       $invoice
@@ -157,23 +155,18 @@ class InvoiceController extends Controller
 
 
     /**
-     * Download the desired invoice
+     * Download the desired invoice.
      *
-     * @param DownloadRequest $request
-     * @param Invoice         $invoice
+     * @param Invoice $invoice
      *
      * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function download(DownloadRequest $request, Invoice $invoice)
+    public function download(Invoice $invoice)
     {
         if ( ! File::exists($invoice->getFullFile())) {
             return $this->respondNotFound('File not found');
         }
 
-        $headers = [
-            'Content-Type: application/pdf'
-        ];
-
-        return $this->respondWithFile($invoice->getFullFile(), $invoice->file, $headers);
+        return $this->respondWithFile($invoice->getFullFile(), $invoice->file);
     }
 }

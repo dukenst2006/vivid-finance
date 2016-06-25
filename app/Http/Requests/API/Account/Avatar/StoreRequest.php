@@ -1,10 +1,14 @@
 <?php
 
-namespace VividFinance\Http\Requests\API\User;
+namespace VividFinance\Http\Requests\Api\Account\Avatar;
 
-use VividFinance\Http\Requests\API\Request;
+use VividFinance\Http\Requests\Api\Request;
 
-class IndexRequest extends Request
+/**
+ * Class StoreRequest
+ * @package VividFinance\Http\Requests\API\Account\Avatar
+ */
+class StoreRequest extends Request
 {
 
     /**
@@ -26,7 +30,11 @@ class IndexRequest extends Request
     public function rules()
     {
         return [
-            //
+            '*' => [
+                'required',
+                'max:2048',
+                'image'
+            ]
         ];
     }
 }

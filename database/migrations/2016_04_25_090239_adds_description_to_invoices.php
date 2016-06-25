@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddsReturningToInvoices extends Migration
+class AddsDescriptionToInvoices extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class AddsReturningToInvoices extends Migration
     public function up()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->boolean('is_recurrent');
-            
-            $table
-                ->enum('recurrence', ['daily', 'weekly', 'monthly', 'yearly'])
-                ->nullable();
+            $table->text('description')->nullable();
+
+            $table->unique(['customer_id', 'title']);
         });
     }
 
@@ -29,8 +27,7 @@ class AddsReturningToInvoices extends Migration
     public function down()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->dropColumn('is_recurrent');
-            $table->dropColumn('recurrence');
+            $table->dropColumn('description');
         });
     }
 }

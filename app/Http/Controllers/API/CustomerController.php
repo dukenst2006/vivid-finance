@@ -1,17 +1,14 @@
 <?php
 
-namespace VividFinance\Http\Controllers\API;
+namespace VividFinance\Http\Controllers\Api;
 
 use Illuminate\Support\Facades\Input;
 use VividFinance\Customer;
 use VividFinance\Events\CustomerHasBeenCreated;
 use VividFinance\Filters\CustomerFilters;
 use VividFinance\Http\Requests;
-use VividFinance\Http\Requests\API\Customer\DestroyRequest;
-use VividFinance\Http\Requests\API\Customer\IndexRequest;
-use VividFinance\Http\Requests\API\Customer\ShowRequest;
-use VividFinance\Http\Requests\API\Customer\StoreRequest;
-use VividFinance\Http\Requests\API\Customer\UpdateRequest;
+use VividFinance\Http\Requests\Api\Customer\StoreRequest;
+use VividFinance\Http\Requests\Api\Customer\UpdateRequest;
 use VividFinance\Transformers\CustomerTransformer;
 
 /**
@@ -26,30 +23,28 @@ class CustomerController extends Controller
      *
      * @var CustomerTransformer The transformer
      */
-    protected $customerTransformer;
+    protected $transformer;
 
 
     /**
      * CustomerController constructor.
      *
-     * @param \VividFinance\Transformers\CustomerTransformer $customerTransformer The transformer
+     * @param \VividFinance\Transformers\CustomerTransformer $transformer The transformer
      */
-    public function __construct(CustomerTransformer $customerTransformer)
+    public function __construct(CustomerTransformer $transformer)
     {
-        $this->customerTransformer = $customerTransformer;
+        $this->transformer = $transformer;
     }
 
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexRequest    $request
-     *
      * @param CustomerFilters $filters
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(IndexRequest $request, CustomerFilters $filters)
+    public function index(CustomerFilters $filters)
     {
         if (Input::get('limit')) {
             $this->setPagination(Input::get('limit'));
@@ -58,7 +53,7 @@ class CustomerController extends Controller
         $customers = Customer::filter($filters)->paginate($this->getPagination());
 
         return $this->respondWithPagination($customers, [
-            'data' => $this->customerTransformer->transformCollection($customers->all())
+            'data' => $this->transformer->transformCollection($customers->all())
         ]);
     }
 
@@ -75,23 +70,22 @@ class CustomerController extends Controller
         $customer = new Customer($request->all());
         $customer->save();
 
-        event(new CustomerHasBeenCreated($this->customerTransformer->transform($customer)));
+        event(new CustomerHasBeenCreated($this->transformer->transform($customer)));
 
-        return $this->respondCreated('Customer created');
+        return $this->respondCreated('The customer has been created');
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param ShowRequest             $request
      * @param  \VividFinance\Customer $customer
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(ShowRequest $request, Customer $customer)
+    public function show(Customer $customer)
     {
-        return $this->respond($this->customerTransformer->transform($customer));
+        return $this->respond($this->transformer->transform($customer));
     }
 
 
@@ -115,13 +109,12 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyRequest          $request
      * @param  \VividFinance\Customer $customer
      *
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public function destroy(DestroyRequest $request, Customer $customer)
+    public function destroy(Customer $customer)
     {
         $customer->delete();
 

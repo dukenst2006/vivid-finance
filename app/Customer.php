@@ -30,7 +30,7 @@ use VividFinance\Traits\Filterable;
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereCreatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filtered( $filters )
- * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filter($filters)
+ * @method static \Illuminate\Database\Query\Builder|\VividFinance\Customer filter( $filters )
  * @mixin \Eloquent
  */
 class Customer extends Model
@@ -59,19 +59,6 @@ class Customer extends Model
         'postcode',
         'building_number'
     ];
-
-
-    /**
-     * Method used to add an invoice to the company
-     *
-     * @param Invoice $invoice The given invoice
-     *
-     * @return Model The invoice
-     */
-    public function addInvoice(Invoice $invoice)
-    {
-        return $this->invoices()->save($invoice);
-    }
 
 
     /**

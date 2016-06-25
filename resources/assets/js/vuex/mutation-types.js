@@ -10,3 +10,8 @@ export const RECEIVE_INVOICES = 'RECEIVE_INVOICES';
 // Notifications
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
 export const DELETE_NOTIFICATION = 'DELETE_NOTIFICATION';
+
+// User
+export const CHECK_AUTHENTICATION = 'CHECK_AUTHENTICATION';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
