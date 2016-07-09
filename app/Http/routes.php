@@ -13,7 +13,7 @@
 Route::group([
     'middleware' => [
         'api',
-        'auth'
+        //'auth'
     ],
     'as'         => 'api::',
     'namespace'  => 'Api',

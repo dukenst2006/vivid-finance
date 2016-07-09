@@ -1,7 +1,7 @@
 import Pusher from "pusher-js";
 import config from "./config/env";
 import store from "./vuex/store";
-import {getAllCustomers, getAllInvoices, addCustomer, checkAuthentication, login, logout} from "./vuex/actions";
+import {getAllCustomers, getAllInvoices, addCustomer} from "./vuex/actions";
 
 export default {
     store,
@@ -45,16 +45,10 @@ export default {
     },
 
     vuex: {
-        getters: {
-            user: ({user}) => user
-        },
         actions: {
             getAllCustomers,
             getAllInvoices,
-            checkAuthentication,
-            addCustomer,
-            login,
-            logout
+            addCustomer
         }
     },
 
@@ -75,15 +69,6 @@ export default {
             require(['./components/Notification/Notification.vue'], resolve)
         }
     },
-    methods: {
-        logTheUserIn() {
-            this.login();
-        },
-        
-        logTheUserOut() {
-            this.logout();
-        }
-    },
 
     created () {
         this.pusher = new Pusher(config.pusher_key, {
@@ -92,17 +77,16 @@ export default {
 
         this.pusherChannel = this.pusher.subscribe(config.pusher_channel);
 
-        this.checkAuthentication();
+        // Bind events
+        this.pusherChannel.bind('VividFinance\\Events\\CustomerHasBeenCreated', data => {
+            this.addCustomer(data);
+        });
 
-        // this.pusherChannel.bind('VividFinance\\Events\\CustomerHasBeenCreated', data => {
-        //     this.addCustomer(data);
-        // });
-        //
-        // this.pusherChannel.bind('VividFinance\\Events\\InvoiceHasBeenCreated', data => {
-        //     this.getAllInvoices();
-        // });
-        //
-        // this.getAllCustomers();
-        // this.getAllInvoices();
+        this.pusherChannel.bind('VividFinance\\Events\\InvoiceHasBeenCreated', () => {
+            this.getAllInvoices();
+        });
+
+        this.getAllCustomers();
+        this.getAllInvoices();
     }
 }

@@ -1,12 +1,10 @@
 // Import Node Modules
-import Vue from 'vue';
-import VueResource from 'vue-resource';
-import VueRouter from 'vue-router';
-import store from './vuex/store';
-
-import App from './App.vue';
-import routes from './routes/routes';
-import config from './config/env'
+import Vue from "vue";
+import VueResource from "vue-resource";
+import VueRouter from "vue-router";
+import App from "./App.vue";
+import routes from "./routes/routes";
+import config from "./config/env";
 
 var app,
     router;

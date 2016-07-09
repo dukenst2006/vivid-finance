@@ -67,6 +67,6 @@
     "command": "vendor\\bin\\phpunit"
   },
   "browserSync": {
-    "proxy": "vivid-finance.app"
+    "proxy": "vivid-finance.dev"
   }
 }
