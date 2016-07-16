@@ -1,0 +1,25 @@
+<span>
+  <a
+    v-if="hasTo"
+    v-link="{name : to}"
+    :class="classNames"
+  >
+
+    <v-icon
+      :variants="icon.variants"
+    ></v-icon>
+
+  </a>
+
+  <span
+    v-if="hasAction"
+    :class="classNames"
+    @click="action"
+  >
+
+    <v-icon
+      :variants="icon.variants"
+    ></v-icon>
+
+  </span>
+</span>

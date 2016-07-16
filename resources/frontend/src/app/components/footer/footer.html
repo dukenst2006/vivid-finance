@@ -1,0 +1,17 @@
+<div
+  :class="classNames"
+>
+
+	<v-footer-header
+			v-if="hasHeader"
+			:variants="header.variants"
+			:title="title"
+	></v-footer-header>
+
+	<v-footer-body
+			:variants="body.variants"
+	>
+		<slot name="body" slot="body"></slot>
+	</v-footer-body>
+
+</div>

@@ -1,0 +1,14 @@
+// Imports
+@import "./../../../../assets/stylus/settings/variables.styl"
+@import "./../../../../assets/stylus/mixins/bem.styl"
+@import "./../../../../assets/stylus/mixins/transition.styl"
+@import "./../../../../assets/stylus/functions/opacity.styl"
+
+.user
+  +has(action)
+    cursor: pointer
+
+    +variant(sidebar)
+      color: #fff
+      font-weight: 500
+      text-decoration: none

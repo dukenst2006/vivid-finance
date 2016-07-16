@@ -1,0 +1,13 @@
+<div
+  :class="classNames"
+>
+
+  <v-header-action
+    v-for="item in items"
+    :to="item.to"
+    :action="item.action"
+    :variants="item.variants"
+    :icon="item.icon"
+  ></v-header-action>
+
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "vivid-finance-frontend",
+  "description": "The frontend for Vivid Finance",
+  "main": "",
+  "authors": [
+    "Peter van Meijgaard <petervanmeijgaard@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Vivid",
+    "Finance",
+    "Frontend"
+  ],
+  "homepage": "https://github.com/PetervMeijgaard/vivid-finance-frontend",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mdi": "^1.6.50",
+    "flexbox-grid-stylus": "^3.1.1"
+  }
+}

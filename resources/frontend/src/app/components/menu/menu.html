@@ -1,0 +1,12 @@
+<div
+  :class="classNames"
+>
+
+  <v-menu-group
+    v-for="group in groups"
+    :header="group.header"
+    :title="group.title"
+    :items="group.items"
+  ></v-menu-group>
+
+</div>
