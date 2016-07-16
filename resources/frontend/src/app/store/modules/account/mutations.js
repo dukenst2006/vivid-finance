@@ -1,10 +1,10 @@
 import {
-  RECEIVE_ACCOUNT,
+  FETCH_ACCOUNT,
   CLEAR_ACCOUNT,
 } from './mutation-types';
 
 export const mutations = {
-  [RECEIVE_ACCOUNT](state, account) {
+  [FETCH_ACCOUNT](state, account) {
     state.id = account.id;
     state.email = account.email;
     state.name = account.name;

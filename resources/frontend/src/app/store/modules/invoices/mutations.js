@@ -1,19 +1,19 @@
 import invoiceTransformer from './../../../transformers/invoice';
 import paginationTransformer from './../../../transformers/pagination';
 import {
-  RECEIVE_INVOICE,
-  RECEIVE_INVOICES,
+  FETCH_INVOICE,
+  FETCH_INVOICES,
   UPDATE_INVOICE_LIMIT,
   CLEAR_INVOICE,
 } from './mutation-types';
 
 export const mutations = {
-  [RECEIVE_INVOICES](state, invoices, pagination) {
+  [FETCH_INVOICES](state, invoices, pagination) {
     state.all = invoiceTransformer.receiveCollection(invoices);
     state.pagination = paginationTransformer.receive(pagination);
   },
 
-  [RECEIVE_INVOICE](state, invoice) {
+  [FETCH_INVOICE](state, invoice) {
     state.pagination.total_count += 1;
 
     // Check to add another page if a new invoice is added
