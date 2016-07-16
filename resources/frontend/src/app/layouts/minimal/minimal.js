@@ -1,4 +1,15 @@
+import { deleteNotification } from './../../store/modules/notifications/actions';
+
 export default {
+  vuex: {
+    getters: {
+      notifications: ({ notifications }) => notifications.all,
+    },
+    actions: {
+      deleteNotification,
+    },
+  },
+
   props: {
     background: {
       type: String,
@@ -26,6 +37,9 @@ export default {
     },
     VContent(resolve) {
       require(['./../../components/content/content.vue'], resolve);
+    },
+    VNotification(resolve) {
+      require(['./../../components/notification/notification.vue'], resolve);
     },
   },
 };

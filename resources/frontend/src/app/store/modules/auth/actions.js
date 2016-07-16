@@ -1,18 +1,13 @@
 import Vue from 'vue';
 import * as types from './mutation-types';
-import { receiveCustomers } from './../customers/actions';
-import { receiveInvoices } from './../invoices/actions';
-import { receiveAccount } from './../account/actions';
+import { receiveCustomers, clearCustomer } from './../customers/actions';
+import { receiveInvoices, clearInvoice } from './../invoices/actions';
+import { receiveAccount, clearAccount } from './../account/actions';
 import { createNotification } from './../notifications/actions';
 
 export const loginSuccessful = ({ dispatch }, token) => {
   dispatch(types.LOGIN_SUCCESSFUL, token);
-  createNotification({ dispatch },
-    {
-      type: 'success',
-      message: 'Login successful!',
-    }
-  );
+  createNotification({ dispatch }, 'Login successful!', 'success');
   receiveCustomers({ dispatch });
   receiveInvoices({ dispatch });
   receiveAccount({ dispatch });
@@ -22,12 +17,7 @@ export const loginSuccessful = ({ dispatch }, token) => {
 };
 
 export const loginFailed = ({ dispatch }, data) => {
-  createNotification({ dispatch },
-    {
-      type: 'danger',
-      message: data.error.message,
-    }
-  );
+  createNotification({ dispatch }, data.error.message, 'danger');
 };
 
 export const login = ({ dispatch }, { email, password }) => {
@@ -49,6 +39,9 @@ export const login = ({ dispatch }, { email, password }) => {
 
 export const logout = ({ dispatch }) => {
   dispatch(types.LOGOUT);
+  clearAccount({ dispatch });
+  clearCustomer({ dispatch });
+  clearInvoice({ dispatch });
   window.router.go({
     name: 'login.index',
   });

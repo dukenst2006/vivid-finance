@@ -1,0 +1,17 @@
+@import "../mixins/bem.styl"
+@import "../settings/variables.styl";
+
+.button
+  border: none
+  border-bottom: .375rem solid $primary_dark
+  font-size: 1rem
+  padding: .75rem 1rem
+  outline: none
+  &:active
+    margin-top: .375rem
+    border-bottom: 0
+  +variant('primary')
+    background-color: $primary
+    color: $white
+  +variant('block')
+    display: block

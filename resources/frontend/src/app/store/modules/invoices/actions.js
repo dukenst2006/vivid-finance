@@ -22,3 +22,7 @@ export const storeInvoice = ({ dispatch }, invoice) => {
 export const updateInvoiceLimit = ({ dispatch }, limit) => {
   dispatch(types.UPDATE_INVOICE_LIMIT, limit);
 };
+
+export const clearInvoice = ({ dispatch }) => {
+  dispatch(types.CLEAR_INVOICE);
+};

@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import {
   CREATE_NOTIFICATION,
   DELETE_NOTIFICATION,
@@ -6,7 +5,6 @@ import {
 
 export const mutations = {
   [CREATE_NOTIFICATION](state, notification) {
-    notification.id = uuid.v4();
     state.all.push(notification);
   },
   [DELETE_NOTIFICATION](state, id) {

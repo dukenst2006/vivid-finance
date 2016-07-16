@@ -1,0 +1,18 @@
+// Imports
+@import "./../../../assets/stylus/mixins/bem.styl"
+@import "./../../../assets/stylus/settings/variables.styl"
+
+.notification
+  position: relative
+  display: block
+  padding: 1rem
+  color: $white
+  margin-bottom: 1rem
+  +variant(primary)
+    background-color: $primary
+  +variant(success)
+    background-color: $success
+  +variant(danger)
+    background-color: $danger
+  +variant(warning)
+    background-color: $warning

@@ -4,6 +4,7 @@ import {
   RECEIVE_CUSTOMER,
   RECEIVE_CUSTOMERS,
   UPDATE_CUSTOMER_LIMIT,
+  CLEAR_CUSTOMER,
 } from './mutation-types';
 
 export const mutations = {
@@ -28,5 +29,15 @@ export const mutations = {
 
   [UPDATE_CUSTOMER_LIMIT](state, limit) {
     state.pagination.limit = limit;
+  },
+
+  [CLEAR_CUSTOMER](state) {
+    state.all = [];
+    state.pagination = {
+      totalCount: 0,
+      totalPages: 0,
+      currentPage: 1,
+      limit: 5,
+    };
   },
 };
