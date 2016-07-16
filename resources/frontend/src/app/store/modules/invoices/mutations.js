@@ -4,6 +4,7 @@ import {
   RECEIVE_INVOICE,
   RECEIVE_INVOICES,
   UPDATE_INVOICE_LIMIT,
+  CLEAR_INVOICE,
 } from './mutation-types';
 
 export const mutations = {
@@ -28,5 +29,15 @@ export const mutations = {
 
   [UPDATE_INVOICE_LIMIT](state, limit) {
     state.pagination.limit = limit;
+  },
+
+  [CLEAR_INVOICE](state) {
+    state.all = [];
+    state.pagination = {
+      totalCount: 0,
+      totalPages: 0,
+      currentPage: 1,
+      limit: 5,
+    };
   },
 };

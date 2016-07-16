@@ -1,47 +1,54 @@
 <v-layout
   :background="layout.background"
 >
-  <v-panel
-    :title="panel.title"
-    :header="panel.header"
-    :body="panel.body"
-    :variants="panel.variants"
+  <form
+    class="form form--transparent"
+    @submit.prevent="login(user)"
   >
-    <form class="Form"
-          @submit.prevent="login(user)"
-    >
-      <div class="Row">
-        <div class="Col Col--md">
-          <div class="Form__group">
-            <input
-              type="email"
-              class="Form__control Form__control--minimal"
-              placeholder="Email"
-              v-model="user.email"
-            />
-          </div>
-          <div class="Form__group">
-            <input
-              type="password"
-              class="Form__control Form__control--minimal"
-              placeholder="Password"
-              v-model="user.password"
-            />
-          </div>
-        </div>
+    <div class="form__group">
+      <div class="input-group">
+        <label
+          class="input-group__addon"
+          for="email"
+        >
+          <v-icon
+            :variants="['email']"
+          ></v-icon>
+        </label>
+        <input
+          class="input-group__input input input--input-group"
+          placeholder="Email"
+          type="email"
+          id="email"
+          v-model="user.email"
+        >
       </div>
-      <div class="Row">
-        <div class="Col Col--md-3">
-          <div class="Form__group Form__group--inline">
-            <button
-              class="Button Button--primary"
-              type="submit"
-            >
-              Login
-            </button>
-          </div>
-        </div>
+    </div>
+    <div class="form__group">
+      <div class="input-group">
+        <label
+          class="input-group__addon"
+          for="password"
+        >
+          <v-icon
+            :variants="['lock']"
+          ></v-icon>
+        </label>
+        <input
+          class="input-group__input input input--input-group"
+          placeholder="Password"
+          type="password"
+          id="password"
+          v-model="user.password"
+        >
       </div>
-    </form>
-  </v-panel>
+    </div>
+    <div class="form--group">
+      <button
+        class="button button--primary"
+      >
+        Login
+      </button>
+    </div>
+  </form>
 </v-layout>

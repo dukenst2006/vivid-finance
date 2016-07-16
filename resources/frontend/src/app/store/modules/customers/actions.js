@@ -22,3 +22,7 @@ export const storeCustomer = ({ dispatch }, customer) => {
 export const updateCustomerLimit = ({ dispatch }, limit) => {
   dispatch(types.UPDATE_CUSTOMER_LIMIT, limit);
 };
+
+export const clearCustomer = ({ dispatch }) => {
+  dispatch(types.CLEAR_CUSTOMER);
+};

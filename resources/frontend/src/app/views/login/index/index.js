@@ -51,5 +51,8 @@ export default {
     VLayout(resolve) {
       require(['./../../../layouts/minimal/minimal.vue'], resolve);
     },
+    VIcon(resolve) {
+      require(['./../../../components/icon/icon.vue'], resolve);
+    }
   },
 };

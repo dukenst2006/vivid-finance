@@ -1,5 +1,6 @@
 import {
   RECEIVE_ACCOUNT,
+  CLEAR_ACCOUNT,
 } from './mutation-types';
 
 export const mutations = {
@@ -13,5 +14,17 @@ export const mutations = {
     state.mobile = account.mobile;
     state.telephone = account.telephone;
     state.avatar = account.avatar;
+  },
+
+  [CLEAR_ACCOUNT](state) {
+    state.avatar = null;
+    state.bio = null;
+    state.birthday = null;
+    state.email = null;
+    state.gender = null;
+    state.id = null;
+    state.mobile = null;
+    state.name = null;
+    state.telephone = null;
   },
 };
