@@ -1,0 +1,16 @@
+<v-wrapper
+  :variants="wrapper.variants"
+  :background="background"
+>
+  <v-content
+    :variants="content.variants"
+  >
+    <div class="Grid Grid--container">
+      <div class="Row">
+        <div class="Col Col--md-6 Col--md-offset-3">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+  </v-content>
+</v-wrapper>

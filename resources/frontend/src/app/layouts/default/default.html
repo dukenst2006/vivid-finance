@@ -1,0 +1,59 @@
+<v-wrapper>
+
+  <v-header
+    :sidebar="header.sidebar"
+    :actions="header.actions"
+    :variants="header.variants"
+  ></v-header>
+
+  <v-sidebar
+    :variants="sidebar.variants"
+  >
+
+    <v-user
+      :figure="user.figure"
+      :actions="user.actions"
+      :variants="user.variants"
+    ></v-user>
+
+    <v-featured
+      :variants="featured.variants"
+      :to="featured.to"
+      :icon-group="featured.iconGroup"
+    ></v-featured>
+
+    <v-menu
+      :groups="menu.groups"
+      :variants="menu.variants"
+    ></v-menu>
+
+    <v-clearfix
+      :variants="clearfix.variants"
+    ></v-clearfix>
+
+    <v-footer
+      :variants="footer.variants"
+      :header="footer.header"
+      :title="footer.title"
+      :body="footer.body"
+    >
+
+      <v-banner
+        slot="body"
+        :variants="banner.variants"
+        :icon-group="banner.iconGroup"
+      ></v-banner>
+
+    </v-footer>
+
+  </v-sidebar>
+
+  <v-content
+    :variants="content.variants"
+  >
+
+    <slot></slot>
+
+  </v-content>
+
+</v-wrapper>
