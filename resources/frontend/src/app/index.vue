@@ -5,9 +5,9 @@
 </template>
 <script lang="babel">
   import store from './store';
-  import { receiveInvoices } from './store/modules/invoices/actions';
-  import { receiveCustomers } from './store/modules/customers/actions';
-  import { receiveAccount } from './store/modules/account/actions';
+  import { fetchInvoices } from './store/modules/invoices/actions';
+  import { fetchCustomers } from './store/modules/customers/actions';
+  import { fetchAccount } from './store/modules/account/actions';
 
   export default {
     /**
@@ -23,9 +23,9 @@
         authenticated: ({ auth }) => auth.authenticated,
       },
       actions: {
-        receiveInvoices,
-        receiveCustomers,
-        receiveAccount,
+        fetchInvoices,
+        fetchCustomers,
+        fetchAccount,
       },
     },
 
@@ -34,9 +34,9 @@
      */
     ready() {
       if (this.authenticated) {
-        this.receiveCustomers();
-        this.receiveInvoices();
-        this.receiveAccount();
+        this.fetchCustomers();
+        this.fetchInvoices();
+        this.fetchAccount();
       }
     },
   };

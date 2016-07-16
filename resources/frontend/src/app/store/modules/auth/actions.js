@@ -1,16 +1,16 @@
 import Vue from 'vue';
 import * as types from './mutation-types';
-import { receiveCustomers, clearCustomer } from './../customers/actions';
-import { receiveInvoices, clearInvoice } from './../invoices/actions';
-import { receiveAccount, clearAccount } from './../account/actions';
+import { fetchCustomers, clearCustomer } from './../customers/actions';
+import { fetchInvoices, clearInvoice } from './../invoices/actions';
+import { fetchAccount, clearAccount } from './../account/actions';
 import { createNotification } from './../notifications/actions';
 
 export const loginSuccessful = ({ dispatch }, token) => {
   dispatch(types.LOGIN_SUCCESSFUL, token);
   createNotification({ dispatch }, 'Login successful!', 'success');
-  receiveCustomers({ dispatch });
-  receiveInvoices({ dispatch });
-  receiveAccount({ dispatch });
+  fetchCustomers({ dispatch });
+  fetchInvoices({ dispatch });
+  fetchAccount({ dispatch });
   window.router.go({
     name: 'dashboard.index',
   });

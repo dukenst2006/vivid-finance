@@ -1,19 +1,19 @@
 import customerTransformer from './../../../transformers/customer';
 import paginationTransformer from './../../../transformers/pagination';
 import {
-  RECEIVE_CUSTOMER,
-  RECEIVE_CUSTOMERS,
+  FETCH_CUSTOMER,
+  FETCH_CUSTOMERS,
   UPDATE_CUSTOMER_LIMIT,
   CLEAR_CUSTOMER,
 } from './mutation-types';
 
 export const mutations = {
-  [RECEIVE_CUSTOMERS](state, customers, pagination) {
+  [FETCH_CUSTOMERS](state, customers, pagination) {
     state.all = customerTransformer.receiveCollection(customers);
     state.pagination = paginationTransformer.receive(pagination);
   },
 
-  [RECEIVE_CUSTOMER](state, customer) {
+  [FETCH_CUSTOMER](state, customer) {
     state.pagination.total_count += 1;
 
     // Check to add another page if a new customer is added

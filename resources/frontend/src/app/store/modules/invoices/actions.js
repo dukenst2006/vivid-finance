@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import * as types from './mutation-types';
 
-export const receiveInvoices = ({ dispatch }, page = 1, limit = 5) => {
+export const fetchInvoices = ({ dispatch }, page = 1, limit = 5) => {
   Vue.http.get(`invoices?page=${page}&limit=${limit}`)
     .then(({ data }) => {
-      dispatch(types.RECEIVE_INVOICES, data.data, data.pagination);
+      dispatch(types.FETCH_INVOICES, data.data, data.pagination);
     });
 };
 
-export const receiveInvoice = ({ dispatch }, invoice) => {
-  dispatch(types.RECEIVE_INVOICE, invoice);
+export const fetchInvoice = ({ dispatch }, invoice) => {
+  dispatch(types.FETCH_INVOICE, invoice);
 };
 
 export const storeInvoice = ({ dispatch }, invoice) => {
