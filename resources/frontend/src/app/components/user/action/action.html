@@ -1,0 +1,28 @@
+<span>
+  <span
+    v-if="hasTo"
+    :class="classNames"
+    v-link="{ name : to }"
+  >
+
+    <v-icon-group
+      :icon="iconGroup.icon"
+      :description="iconGroup.description"
+    ></v-icon-group>
+
+  </span>
+
+  <span
+    v-if="hasAction"
+    :class="classNames"
+    @click="action"
+  >
+
+    <v-icon-group
+      :icon="iconGroup.icon"
+      :description="iconGroup.description"
+    ></v-icon-group>
+
+  </span>
+
+</span>

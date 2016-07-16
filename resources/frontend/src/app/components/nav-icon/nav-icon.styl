@@ -1,0 +1,18 @@
+// Imports
+@import "./../../../assets/stylus/mixins/bem.styl"
+@import "./../../../assets/stylus/mixins/transition.styl"
+
+.nav-icon
+  transition(100ms)
+  background-color: #192226
+  cursor: pointer
+  display: inline-block
+  &:hover
+    transition(100ms)
+    background-color: #222d33
+
+  +variant(header)
+    display: inline-block
+    float: right
+    padding: 1.34375rem
+    vertical-align: middle

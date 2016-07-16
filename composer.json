@@ -9,7 +9,10 @@
         "laravel/framework": "5.2.*",
         "barryvdh/laravel-ide-helper": "^2.1",
         "pusher/pusher-php-server": "^2.2",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "tymon/jwt-auth": "^0.5.9",
+        "barryvdh/laravel-cors": "^0.8.0",
+        "thomaswelton/laravel-gravatar": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

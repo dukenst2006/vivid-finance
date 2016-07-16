@@ -29,11 +29,9 @@ class UpdateRequest extends Request
      */
     public function rules()
     {
-
         return [
             'title'           => [
-                'required',
-                'unique:invoices,title,' . $this->invoice->id . ',id,customer_id,' . $this->customer_id
+                'required'
             ],
             'state'           => [
                 'required',
@@ -46,12 +44,6 @@ class UpdateRequest extends Request
             'customer_id'     => [
                 'required',
                 'integer'
-            ],
-            'is_recurrent' => [
-                'boolean'
-            ],
-            'recurrence'     => [
-                'in:daily,weekly,monthly,yearly'
             ]
         ];
     }

@@ -10,6 +10,8 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use VividFinance\Traits\Restable;
 
 class Handler extends ExceptionHandler
@@ -65,6 +67,14 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof MethodNotAllowedHttpException) {
             return $this->respondNotAllowed();
+        }
+
+        if ($e instanceof TokenExpiredException) {
+            return $this->respondUnauthorized('Token expired');
+        }
+
+        if ($e instanceof TokenInvalidException) {
+            return $this->respondInternalError('Token invalid');
         }
 
         return parent::render($request, $e);

@@ -14,14 +14,14 @@ abstract class QueryFilters
 
     /**
      * The given request
-     * 
+     *
      * @var Request
      */
     protected $request;
 
     /**
      * The given builder
-     * 
+     *
      * @var Builder
      */
     protected $builder;
@@ -40,7 +40,7 @@ abstract class QueryFilters
 
     /**
      * Function to apply the filters.
-     * 
+     *
      * @param Builder $builder The given builder
      *
      * @return Builder
@@ -68,7 +68,7 @@ abstract class QueryFilters
 
     /**
      * Get all the filters.
-     * 
+     *
      * @return array
      */
     public function filters()
