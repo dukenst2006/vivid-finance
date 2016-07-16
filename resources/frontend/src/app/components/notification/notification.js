@@ -1,5 +1,6 @@
 import BlockMixin from './../../mixins/block';
 import * as VNotificationClose from './close/close.vue';
+import * as VNotificationTimer from './timer/timer.vue';
 
 export default {
   /**
@@ -17,6 +18,7 @@ export default {
   data() {
     return {
       block: 'notification',
+      timer: null,
     };
   },
 
@@ -35,22 +37,21 @@ export default {
     },
   },
 
+  components: {
+    VNotificationClose,
+    VNotificationTimer,
+  },
+
   methods: {
-    /**
-     * Method used to fire the countdown
-     */
-    startTimer() {
-      setTimeout(() => {
-        this.closeFunction(this.id);
-      }, 5000);
+    closeNotification() {
+      clearTimeout(this.timer);
+      this.closeFunction(this.id);
     },
   },
 
-  ready() {
-    this.startTimer();
-  },
-
-  components: {
-    VNotificationClose,
+  watch: {
+    timer() {
+      console.log('changed');
+    },
   },
 };

@@ -11,60 +11,8 @@
     <div
       slot="body"
     >
-      <table>
-        <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Building number
-          </th>
-          <th>
-            Postcode
-          </th>
-          <th>
-            City
-          </th>
-          <th>
-            Country
-          </th>
-          <th>
-            Email
-          </th>
-          <th>
-            Telephone
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr
-          v-for="customer in customers"
-        >
-          <td>
-            {{customer.name}}
-          </td>
-          <td>
-            {{customer.buildingNumber}}
-          </td>
-          <td>
-            {{customer.postcode}}
-          </td>
-          <td>
-            {{customer.city}}
-          </td>
-          <td>
-            {{customer.country}}
-          </td>
-          <td>
-            {{customer.email}}
-          </td>
-          <td>
-            {{customer.telephone}}
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <pre>{{customers | json}}</pre>
+      <pre>{{pagination | json}}</pre>
     </div>
 
   </v-page>

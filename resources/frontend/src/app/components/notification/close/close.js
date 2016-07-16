@@ -8,6 +8,13 @@ export default {
     ElementMixin,
   ],
 
+  props: {
+    closeNotification: {
+      type: Function,
+      required: true,
+    },
+  },
+
   /**
    * The data
    *
@@ -17,16 +24,5 @@ export default {
     return {
       element: 'close',
     };
-  },
-
-  props: {
-    closeFunction: {
-      type: Function,
-      required: true,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
   },
 };

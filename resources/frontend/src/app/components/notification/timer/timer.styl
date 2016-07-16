@@ -1,0 +1,31 @@
+@import "./../../../../assets/stylus/mixins/bem.styl"
+@import "./../../../../assets/stylus/settings/variables.styl"
+
+@keyframes timer {
+  0% {
+    width: 100%
+  }
+  100% {
+    width: 0
+  }
+}
+
+.notification
+  +has(timer)
+    animation: timer 5000ms infinite linear
+    position: absolute
+    top: 0
+    left: 0
+    height: .25rem
+    +variant(primary)
+      background: $primary_dark
+    +variant(success)
+      background: $success_dark
+    +variant(danger)
+      background: $danger_dark
+    +variant(warning)
+      background: $warning_dark
+    +variant(info)
+      background: $info_dark
+    +variant(dark)
+      background: $white

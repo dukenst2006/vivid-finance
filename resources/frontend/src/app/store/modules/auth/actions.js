@@ -42,6 +42,7 @@ export const logout = ({ dispatch }) => {
   clearAccount({ dispatch });
   clearCustomer({ dispatch });
   clearInvoice({ dispatch });
+  createNotification({ dispatch }, 'Logout successful!', 'success');
   window.router.go({
     name: 'login.index',
   });
