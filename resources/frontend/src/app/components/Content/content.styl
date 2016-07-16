@@ -1,0 +1,18 @@
+// Imports
+@import "./../../../assets/stylus/settings/variables.styl"
+@import "./../../../assets/stylus/mixins/bem.styl"
+@import "./../../../assets/stylus/mixins/transition.styl"
+@import "./../../../assets/stylus/functions/opacity.styl"
+
+.content
+  +variant(centered)
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 100%
+  +variant(main)
+    display: inline-block
+    min-height: calc(100vh - 3.75rem)
+    position: relative
+    vertical-align: top
+    width: calc(100% - 20rem)

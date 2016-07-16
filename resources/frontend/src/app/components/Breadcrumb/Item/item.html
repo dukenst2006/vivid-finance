@@ -1,0 +1,18 @@
+<div
+  :class="classNames"
+>
+
+  <v-breadcrumb-link
+    v-if="hasLink"
+    :content="content"
+    :to="link.to"
+    :variants="link.variants"
+  ></v-breadcrumb-link>
+
+  <v-breadcrumb-content
+    v-else
+    :content="content.content"
+    :variants="content.variants"
+  ></v-breadcrumb-content>
+
+</div>

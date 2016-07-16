@@ -1,0 +1,20 @@
+/.idea
+/.vagrant
+/vendor
+/node_modules
+/resources/frontend/src/assets/vendor
+Homestead.yaml
+Homestead.json
+.env
+tags
+
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# Ignore the public directories
+/public/*
+!/public/.htaccess
+!/public/index.php
+!/public/robots.txt
+!/public/web.config

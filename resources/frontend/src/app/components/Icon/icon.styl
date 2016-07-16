@@ -1,0 +1,16 @@
+// Imports
+@import "./../../../assets/stylus/settings/variables.styl"
+
+.icon
+  display: inline-block
+  font: normal normal normal 24px / 1 "Material Design Icons"
+  font-size: inherit
+  font-style: normal
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+for $num in (1..length($materialDesignIconHexes))
+  .icon--{$materialDesignIconNames[$num]}
+    &:before
+      content: '\' + $materialDesignIconHexes[$num]
