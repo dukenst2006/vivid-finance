@@ -1,4 +1,4 @@
-# vivid-finance-frontend
+# vivid-finance
 
 > The frontend for Vivid Finance
 
@@ -7,9 +7,6 @@
 ``` bash
 # install dependencies
 npm install
-
-# Copy the environment settings
-cp .env.example .env
 
 # serve with hot reload at localhost:8080
 npm run dev

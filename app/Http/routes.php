@@ -33,8 +33,8 @@ Route::group([
 
     // Customer
     Route::group([
-        'as'     => 'customer.',
-        'prefix' => 'customers',
+        'as'         => 'customer.',
+        'prefix'     => 'customers',
         'middleware' => [
             'auth',
         ],
@@ -48,8 +48,8 @@ Route::group([
 
     // Invoice
     Route::group([
-        'as'     => 'invoice.',
-        'prefix' => 'invoices',
+        'as'         => 'invoice.',
+        'prefix'     => 'invoices',
         'middleware' => [
             'auth',
         ],
@@ -71,4 +71,8 @@ Route::group([
     ], function () {
         Route::post('', [ 'as' => 'store', 'uses' => 'AuthenticateController@authenticate' ]);
     });
+});
+
+Route::get('/', function () {
+    return View::make('index');
 });
