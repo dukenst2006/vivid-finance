@@ -1,5 +1,5 @@
 import ElementMixin from './../../../mixins/element';
-import * as VHeaderAction from './../Action/Action.vue';
+import * as VHeaderAction from './../action/action.vue';
 
 export default {
   /**

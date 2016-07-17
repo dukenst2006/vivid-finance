@@ -1,6 +1,6 @@
 import BlockMixin from './../../mixins/block';
-import * as VPageBody from './Body/Body.vue';
-import * as VPageHeader from './Header/Header.vue';
+import * as VPageBody from './body/body.vue';
+import * as VPageHeader from './header/header.vue';
 
 
 export default {

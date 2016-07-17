@@ -7,10 +7,10 @@ import { createNotification } from './../notifications/actions';
 
 export const loginSuccessful = ({ dispatch }, token) => {
   dispatch(types.LOGIN_SUCCESSFUL, token);
-  createNotification({ dispatch }, 'Login successful!', 'success');
   fetchCustomers({ dispatch });
   fetchInvoices({ dispatch });
   fetchAccount({ dispatch });
+  createNotification({ dispatch }, 'Login successful!', 'success');
   window.router.go({
     name: 'dashboard.index',
   });
@@ -20,12 +20,8 @@ export const loginFailed = ({ dispatch }, data) => {
   createNotification({ dispatch }, data.error.message, 'danger');
 };
 
-export const login = ({ dispatch }, { email, password }) => {
-  Vue.http.post('auth',
-    {
-      email,
-      password,
-    })
+export const login = ({ dispatch }, user) => {
+  Vue.http.post('auth', user)
     .then(
       ({ data }) => {
         loginSuccessful({ dispatch }, data.token);
