@@ -48,10 +48,4 @@ export default {
       this.closeFunction(this.id);
     },
   },
-
-  watch: {
-    timer() {
-      console.log('changed');
-    },
-  },
 };

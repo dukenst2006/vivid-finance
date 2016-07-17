@@ -53,6 +53,6 @@ export default {
     },
     VIcon(resolve) {
       require(['./../../../components/icon/icon.vue'], resolve);
-    }
+    },
   },
 };
