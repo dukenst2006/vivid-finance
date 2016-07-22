@@ -1,0 +1,12 @@
+<div
+  :class="classNames"
+>
+
+  <v-menu-item
+    v-for="item in items"
+    :variants="item.variants"
+    :to="item.to"
+    :icon-group="item.iconGroup"
+  ></v-menu-item>
+
+</div>

@@ -1,0 +1,32 @@
+<div
+  :class="classNames"
+>
+
+  <div class="Grid">
+
+    <v-page-header
+      :variants="header.variants"
+      :title="header.title"
+    >
+
+      <slot
+        name="breadcrumb"
+        slot="breadcrumb"
+      ></slot>
+
+    </v-page-header>
+
+    <v-page-body
+      :variants="body ? body.variants : []"
+    >
+
+      <slot
+        name="body"
+        slot="body"
+      ></slot>
+
+    </v-page-body>
+
+  </div>
+
+</div>

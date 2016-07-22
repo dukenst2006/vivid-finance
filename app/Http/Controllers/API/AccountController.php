@@ -16,7 +16,7 @@ class AccountController extends Controller
 
     /**
      * The given transformer.
-     * 
+     *
      * @var AccountTransformer
      */
     protected $transformer;
@@ -35,7 +35,7 @@ class AccountController extends Controller
 
     /**
      * Display the specified resource.
-     * 
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function show()
@@ -48,7 +48,7 @@ class AccountController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * 
+     *
      * @param UpdateRequest $request The request
      *
      * @return \Illuminate\Http\JsonResponse

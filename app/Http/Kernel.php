@@ -34,6 +34,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
+            'cors'
         ],
     ];
 
@@ -45,9 +46,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'       => \VividFinance\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest'      => \VividFinance\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle'   => \VividFinance\Http\Middleware\ThrottleRequests::class
+        'auth'        => \VividFinance\Http\Middleware\Authenticate::class,
+        'auth.basic'  => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'guest'       => \VividFinance\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'    => \VividFinance\Http\Middleware\ThrottleRequests::class,
+        'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
     ];
 }

@@ -22,7 +22,6 @@ class InvoiceTransformer extends Transformer
             'id'              => (int) $invoice->id,
             'customer_id'     => (int) $invoice->customer_id,
             'title'           => $invoice->title,
-            'description'     => $invoice->description,
             'state'           => $invoice->state,
             'file'            => $invoice->file,
             'is_recurrent'    => (bool) $invoice->is_recurrent,

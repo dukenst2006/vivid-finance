@@ -13,7 +13,7 @@
 Route::group([
     'middleware' => [
         'api',
-        'auth'
+        'cors'
     ],
     'as'         => 'api::',
     'namespace'  => 'Api',
@@ -21,26 +21,23 @@ Route::group([
 ], function () {
     // Account
     Route::group([
-        'as'     => 'account.',
-        'prefix' => 'account'
+        'as'         => 'account.',
+        'prefix'     => 'account',
+        'middleware' => [
+            'auth',
+        ],
     ], function () {
         Route::get('', [ 'as' => 'show', 'uses' => 'AccountController@show' ]);
         Route::put('', [ 'as' => 'update', 'uses' => 'AccountController@update' ]);
-
-        Route::group([
-            'as'        => 'avatar.',
-            'prefix'    => 'avatar',
-            'namespace' => 'Account'
-        ], function () {
-            Route::get('', [ 'as' => 'show', 'uses' => 'AvatarController@show' ]);
-            Route::post('', [ 'as' => 'store', 'uses' => 'AvatarController@store' ]);
-        });
     });
 
     // Customer
     Route::group([
-        'as'     => 'customer.',
-        'prefix' => 'customers'
+        'as'         => 'customer.',
+        'prefix'     => 'customers',
+        'middleware' => [
+            'auth',
+        ],
     ], function () {
         Route::get('', [ 'as' => 'index', 'uses' => 'CustomerController@index' ]);
         Route::post('', [ 'as' => 'store', 'uses' => 'CustomerController@store' ]);
@@ -51,8 +48,11 @@ Route::group([
 
     // Invoice
     Route::group([
-        'as'     => 'invoice.',
-        'prefix' => 'invoices'
+        'as'         => 'invoice.',
+        'prefix'     => 'invoices',
+        'middleware' => [
+            'auth',
+        ],
     ], function () {
         Route::get('', [ 'as' => 'index', 'uses' => 'InvoiceController@index' ]);
         Route::post('', [ 'as' => 'store', 'uses' => 'InvoiceController@store' ]);
@@ -65,14 +65,14 @@ Route::group([
         Route::get('{invoice}/download', [ 'as' => 'download', 'uses' => 'InvoiceController@download' ]);
     });
 
-    Route::get('/auth', function () {
-        return Auth::user();
+    Route::group([
+        'as'     => 'authenticate.',
+        'prefix' => 'auth'
+    ], function () {
+        Route::post('', [ 'as' => 'store', 'uses' => 'AuthenticateController@authenticate' ]);
     });
 });
 
-Route::group([
-    'middleware' => [ ],
-    'as'         => 'web::'
-], function () {
-    Route::get('', [ 'as' => 'home.index', 'uses' => 'HomeController@index' ]);
+Route::get('/', function () {
+    return View::make('index');
 });

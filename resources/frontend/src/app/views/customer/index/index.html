@@ -1,0 +1,20 @@
+<v-layout>
+
+  <v-page
+    :header="page.header"
+  >
+    <v-breadcrumb
+      slot="breadcrumb"
+      :items="breadcrumb.items"
+    ></v-breadcrumb>
+
+    <div
+      slot="body"
+    >
+      <pre>{{customers | json}}</pre>
+      <pre>{{pagination | json}}</pre>
+    </div>
+
+  </v-page>
+
+</v-layout>

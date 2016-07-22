@@ -1,8 +1,9 @@
-/.idea
+.idea
 /.vagrant
 /vendor
 /node_modules
 /resources/assets/vendor
+/resources/views/index.blade.php
 Homestead.yaml
 Homestead.json
 .env

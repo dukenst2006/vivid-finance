@@ -1,0 +1,13 @@
+<div
+  :class="classNames"
+>
+  <v-notification-timer
+    :close-notification="closeNotification"
+    :variants="variants"
+    :timer.sync="timer"
+  ></v-notification-timer>
+  <v-notification-close
+    :close-notification="closeNotification"
+  ></v-notification-close>
+  {{content}}
+</div>
