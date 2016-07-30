@@ -1,5 +1,5 @@
 // Imports
-@import "./../../../assets/stylus/settings/variables.styl"
+@require "./../../../assets/stylus/helpers/spa-imports.styl"
 
 .icon
   display: inline-block
@@ -10,7 +10,7 @@
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-for $num in (1..length($materialDesignIconHexes))
-  .icon--{$materialDesignIconNames[$num]}
+for $icon in $mdi-icons
+  .icon--{$icon}
     &:before
-      content: '\' + $materialDesignIconHexes[$num]
+      content: '\' + $mdi-icons[$icon]

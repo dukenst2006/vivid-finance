@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "mdi": "^1.6.50",
-    "flexbox-grid-stylus": "^3.1.1"
+    "flexbox-grid-stylus": "^3.1.1",
+    "google-material-color": "^1.2.6"
   }
 }
