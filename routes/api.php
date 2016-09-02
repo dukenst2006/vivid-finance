@@ -13,6 +13,25 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::group([
+    'name'       => 'invoice',
+    'namespace'  => 'Api\V1',
+    'prefix'     => 'v1/invoices',
+    'middleware' => [
+        'jwt.auth'
+    ]
+], function () {
+    Route::get('', [ 'uses' => 'InvoiceController@index' ]);
+    Route::get('{invoice}', [ 'uses' => 'InvoiceController@show' ]);
+    Route::put('{invoice}', [ 'uses' => 'InvoiceController@update' ]);
+    Route::delete('{invoice}', [ 'uses' => 'InvoiceController@destroy' ]);
+    Route::post('', [ 'uses' => 'InvoiceController@store' ]);
+});
+
+Route::group([
+    'name'      => 'auth',
+    'namespace' => 'Api\V1',
+    'prefix'    => 'v1/auth'
+], function () {
+    Route::post('', [ 'uses' => 'LoginController@login' ]);
+});
