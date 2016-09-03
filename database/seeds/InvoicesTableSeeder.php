@@ -1,11 +1,13 @@
 <?php
 
+use App\Customer;
 use App\Invoice;
 use App\User;
 use Illuminate\Database\Seeder;
 
 class InvoicesTableSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
@@ -13,11 +15,13 @@ class InvoicesTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::first();
+        $user     = User::first();
+        $customer = Customer::first();
 
         $invoices = collect(factory(Invoice::class, 10)->make());
 
-        $invoices->each(function ($invoice) use ($user) {
+        $invoices->each(function ($invoice) use ($user, $customer) {
+            $invoice->customer()->associate($customer);
             $user->invoices()->save($invoice);
         });
     }

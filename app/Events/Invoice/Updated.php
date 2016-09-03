@@ -24,12 +24,13 @@ class Updated implements ShouldBroadcast
      */
     public $invoice;
 
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Invoice $invoice)
+    public function __construct($invoice)
     {
         $this->invoice = $invoice;
     }

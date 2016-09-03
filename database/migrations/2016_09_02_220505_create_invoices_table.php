@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateInvoicesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -15,12 +16,23 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->unqiue();
+
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->integer('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers');
+
+            $table->string('title')->unqiue();
+            $table->enum('state', [ 'open', 'closed' ]);
+            $table->string('file')->nullable();
+            $table->boolean('is_recurrent');
+            $table->enum('recurrence', [ 'daily', 'weekly', 'monthly', 'yearly' ])->nullable();
+            $table->date('expiration_date');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

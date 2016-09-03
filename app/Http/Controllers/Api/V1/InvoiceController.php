@@ -65,7 +65,7 @@ class InvoiceController extends Controller
 
         $user->invoices()->save($invoice);
 
-        event(new Created($invoice));
+        event(new Created($this->transformer->transform($invoice)));
 
         return $this->respondCreated('The invoice has been created');
     }
@@ -93,7 +93,7 @@ class InvoiceController extends Controller
         $invoice->fill($request->all());
         $invoice->save();
 
-        event(new Updated($invoice));
+        event(new Updated($this->transformer->transform($invoice)));
 
         return $this->respondWithSuccess('The invoice has been updated');
     }

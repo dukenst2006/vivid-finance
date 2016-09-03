@@ -13,8 +13,7 @@ return [
     |
     */
 
-    'files' => [
-        //
+    'files' => [//
     ],
 
     /*
@@ -28,8 +27,7 @@ return [
     |
     */
 
-    'providers' => [
-        //
+    'providers' => [//
     ],
 
 ];

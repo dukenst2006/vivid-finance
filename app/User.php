@@ -4,9 +4,17 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Scout\Searchable;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
+
+    use Searchable;
+
     use Notifiable;
 
     /**
@@ -15,7 +23,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'birthday',
+        'website',
+        'telephone',
+        'mobile_phone',
+        'sex',
+        'bio'
     ];
 
     /**
@@ -24,9 +39,21 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
+    /**
+     * @var array
+     */
+    protected $dates = [
+        'birthday'
+    ];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function invoices()
     {
         return $this->hasMany(Invoice::class);

@@ -17,10 +17,15 @@ class InvoiceTransformer extends Transformer
     public function transform($invoice)
     {
         return [
-            'id'         => (int) $invoice->id,
-            'user_id'    => (int) $invoice->user_id,
-            'title'      => $invoice->title,
-            'created_at' => $invoice->created_at->toDateTimeString()
+            'id'              => (int) $invoice->id,
+            'customer_id'     => (int) $invoice->customer_id,
+            'title'           => $invoice->title,
+            'state'           => $invoice->state,
+            'file'            => $invoice->file,
+            'is_recurrent'    => (bool) $invoice->is_recurrent,
+            'recurrence'      => $invoice->recurrence,
+            'expiration_date' => $invoice->expiration_date->toDateTimeString(),
+            'creation_date'   => $invoice->created_at->toDateTimeString()
         ];
     }
 }

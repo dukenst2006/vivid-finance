@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Events\Invoice;
+namespace App\Events\Customer;
 
-use App\Invoice;
+use App\Customer;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -11,15 +11,18 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 /**
- * Class Created
- * @package App\Events\Invoice
+ * Class Updated
+ * @package App\Events\Customer
  */
-class Created implements ShouldBroadcast
+class Updated implements ShouldBroadcast
 {
 
     use InteractsWithSockets, SerializesModels;
 
-    public $invoice;
+    /**
+     * @var Customer
+     */
+    public $customer;
 
 
     /**
@@ -27,9 +30,9 @@ class Created implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($invoice)
+    public function __construct($customer)
     {
-        $this->invoice = $invoice;
+        $this->customer = $customer;
     }
 
 
@@ -40,6 +43,6 @@ class Created implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('invoices');
+        return new PrivateChannel('customers');
     }
 }
