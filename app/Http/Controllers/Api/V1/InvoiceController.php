@@ -7,7 +7,7 @@ use App\Events\Invoice\Deleted;
 use App\Events\Invoice\Updated;
 use App\Http\Requests\Invoice\StoreRequest;
 use App\Http\Requests\Invoice\UpdateRequest;
-use App\Invoice;
+use App\Models\Invoice;
 use App\Transformers\InvoiceTransformer;
 use Auth;
 use Event;

@@ -8,7 +8,7 @@ class CustomerTransformer extends Transformer
     /**
      * Transformer for the models
      *
-     * @param \App\Customer $customer The model from the database
+     * @param \App\Models\Customer $customer The model from the database
      *
      * @return array The valid output, displayed in the API
      */

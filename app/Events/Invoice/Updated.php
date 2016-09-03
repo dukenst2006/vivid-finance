@@ -2,7 +2,7 @@
 
 namespace App\Events\Invoice;
 
-use App\Invoice;
+use App\Models\Invoice;
 use App\Transformers\InvoiceTransformer;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;

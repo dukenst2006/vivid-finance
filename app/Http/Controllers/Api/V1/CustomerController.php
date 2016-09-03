@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Customer;
 use App\Events\Customer\Created;
 use App\Events\Customer\Deleted;
 use App\Events\Customer\Updated;
 use App\Http\Requests;
 use App\Http\Requests\Customer\StoreRequest;
 use App\Http\Requests\Customer\UpdateRequest;
+use App\Models\Customer;
 use App\Transformers\CustomerTransformer;
 use Event;
 use Illuminate\Support\Facades\Input;

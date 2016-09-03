@@ -8,7 +8,7 @@ class UserTransformer extends Transformer
     /**
      * Transformer for the models
      *
-     * @param $user \App\User The model from the database
+     * @param $user \App\Models\User The model from the database
      *
      * @return array The valid output, displayed in the API
      */

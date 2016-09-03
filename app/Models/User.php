@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -8,7 +8,7 @@ use Laravel\Scout\Searchable;
 
 /**
  * Class User
- * @package App
+ * @package App\Models
  */
 class User extends Authenticatable
 {

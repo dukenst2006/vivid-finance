@@ -2,8 +2,8 @@
 
 namespace App\Events\User;
 
+use App\Models\User;
 use App\Transformers\UserTransformer;
-use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;

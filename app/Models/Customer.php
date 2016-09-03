@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
 /**
  * Class Customer
- * @package App
+ * @package App\Models
  */
 class Customer extends Model
 {
