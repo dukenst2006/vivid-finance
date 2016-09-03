@@ -4,7 +4,12 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
 class Handler extends ExceptionHandler
 {
@@ -49,6 +54,22 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ModelNotFoundException) {
+            return $this->respondNotFound();
+        }
+        if ($exception instanceof NotFoundHttpException) {
+            return $this->respondNotFound();
+        }
+        if ($exception instanceof MethodNotAllowedHttpException) {
+            return $this->respondNotAllowed();
+        }
+        if ($exception instanceof TokenExpiredException) {
+            return $this->respondUnauthorized('Token expired');
+        }
+        if ($exception instanceof TokenInvalidException) {
+            return $this->respondInternalError('Token invalid');
+        }
+
         return parent::render($request, $exception);
     }
 
