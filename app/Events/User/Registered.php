@@ -54,10 +54,10 @@ class Registered implements ShouldBroadcast
 
 
     /**
-     *
+     * @return array
      */
     public function broadcastWith()
     {
-        $this->transformer->transform($this->user);
+        return $this->transformer->transform($this->user);
     }
 }
