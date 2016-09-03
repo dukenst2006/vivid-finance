@@ -1,8 +1,8 @@
 <?php
 
-use App\Customer;
-use App\Invoice;
-use App\User;
+use App\Models\Customer;
+use App\Models\Invoice;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class InvoicesTableSeeder extends Seeder
