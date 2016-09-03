@@ -3,12 +3,12 @@
 namespace App\Events\Invoice;
 
 use App\Invoice;
+use App\Transformers\InvoiceTransformer;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Queue\SerializesModels;
 
 /**
  * Class Updated
@@ -24,15 +24,21 @@ class Updated implements ShouldBroadcast
      */
     public $invoice;
 
+    /**
+     * @var InvoiceTransformer
+     */
+    protected $transformer;
+
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param Invoice $invoice
      */
-    public function __construct($invoice)
+    public function __construct(Invoice $invoice)
     {
-        $this->invoice = $invoice;
+        $this->invoice     = $invoice;
+        $this->transformer = new InvoiceTransformer();
     }
 
 
@@ -44,5 +50,11 @@ class Updated implements ShouldBroadcast
     public function broadcastOn()
     {
         return new PrivateChannel('invoices');
+    }
+
+
+    public function broadcastWith()
+    {
+        return $this->transformer->transform($this->invoice);
     }
 }

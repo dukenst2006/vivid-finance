@@ -30,7 +30,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => [
                 'required',
-                'unique:invoices,title,'.$invoice->id
+                'unique:invoices,title,' . $invoice->id
             ]
         ];
     }

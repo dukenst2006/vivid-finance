@@ -10,6 +10,7 @@ use App\Http\Requests\Invoice\UpdateRequest;
 use App\Invoice;
 use App\Transformers\InvoiceTransformer;
 use Auth;
+use Event;
 use Illuminate\Support\Facades\Input;
 
 /**
@@ -65,7 +66,7 @@ class InvoiceController extends Controller
 
         $user->invoices()->save($invoice);
 
-        event(new Created($this->transformer->transform($invoice)));
+        Event::fire(new Created($invoice));
 
         return $this->respondCreated('The invoice has been created');
     }
@@ -93,7 +94,7 @@ class InvoiceController extends Controller
         $invoice->fill($request->all());
         $invoice->save();
 
-        event(new Updated($this->transformer->transform($invoice)));
+        Event::fire(new Updated($invoice));
 
         return $this->respondWithSuccess('The invoice has been updated');
     }
@@ -108,7 +109,7 @@ class InvoiceController extends Controller
     {
         $invoice->delete();
 
-        event(new Deleted($invoice->id));
+        Event::fire(new Deleted($invoice->id));
 
         return $this->respondWithSuccess('The invoice has been deleted');
     }

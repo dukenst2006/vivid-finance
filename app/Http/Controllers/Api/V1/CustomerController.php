@@ -6,11 +6,11 @@ use App\Customer;
 use App\Events\Customer\Created;
 use App\Events\Customer\Deleted;
 use App\Events\Customer\Updated;
+use App\Http\Requests;
 use App\Http\Requests\Customer\StoreRequest;
 use App\Http\Requests\Customer\UpdateRequest;
 use App\Transformers\CustomerTransformer;
-
-use App\Http\Requests;
+use Event;
 use Illuminate\Support\Facades\Input;
 
 /**
@@ -64,7 +64,7 @@ class CustomerController extends Controller
         $customer = new Customer($request->all());
         $customer->save();
 
-        event(new Created($this->transformer->transform($customer)));
+        Event::fire(new Created($customer));
 
         return $this->respondCreated('The customer has been created');
     }
@@ -92,7 +92,7 @@ class CustomerController extends Controller
         $customer->fill($request->all());
         $customer->save();
 
-        event(new Updated($this->transformer->transform($customer)));
+        Event::fire(new Updated($customer));
 
         return $this->respondWithSuccess('The customer has been updated');
     }
@@ -107,7 +107,7 @@ class CustomerController extends Controller
     {
         $customer->delete();
 
-        event(new Deleted($customer->id));
+        Event::fire(new Deleted($customer->id));
 
         return $this->respondWithSuccess('The customer has been deleted');
     }

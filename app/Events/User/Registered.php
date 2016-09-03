@@ -2,13 +2,13 @@
 
 namespace App\Events\User;
 
+use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Queue\SerializesModels;
 
 /**
  * Class Registered
@@ -24,6 +24,11 @@ class Registered implements ShouldBroadcast
      */
     public $user;
 
+    /**
+     * @var UserTransformer
+     */
+    protected $transformer;
+
 
     /**
      * Create a new event instance.
@@ -32,7 +37,8 @@ class Registered implements ShouldBroadcast
      */
     public function __construct(User $user)
     {
-        $this->user = $user;
+        $this->user        = $user;
+        $this->transformer = new UserTransformer();
     }
 
 
@@ -44,5 +50,14 @@ class Registered implements ShouldBroadcast
     public function broadcastOn()
     {
         return new PrivateChannel('users');
+    }
+
+
+    /**
+     *
+     */
+    public function broadcastWith()
+    {
+        $this->transformer->transform($this->user);
     }
 }

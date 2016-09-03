@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\Login\LoginRequest;
-
 use App\Http\Requests;
-use Tymon\JWTAuth\Exceptions\JWTException;
+use App\Http\Requests\Login\LoginRequest;
 use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 /**
  * Class LoginController

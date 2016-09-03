@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Events\User\Registered;
-use App\Http\Requests\Register\RegisterRequest;
-
 use App\Http\Requests;
+use App\Http\Requests\Register\RegisterRequest;
 use App\User;
+use Event;
 
 /**
  * Class RegisterController
@@ -26,7 +26,7 @@ class RegisterController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        event(new Registered($user));
+        Event::fire(new Registered($user));
 
         return $this->respondCreated('Successfully registered');
     }

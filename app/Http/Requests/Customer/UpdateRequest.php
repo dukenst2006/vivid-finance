@@ -30,16 +30,16 @@ class UpdateRequest extends FormRequest
         return [
             'name'            => [
                 'required',
-                'unique:customers,name,'.$customer->id
+                'unique:customers,name,' . $customer->id
             ],
             'telephone'       => [
                 'required',
-                'unique:customers,telephone,'.$customer->id
+                'unique:customers,telephone,' . $customer->id
             ],
             'email'           => [
                 'required',
                 'email',
-                'unique:customers,email,'.$customer->id
+                'unique:customers,email,' . $customer->id
             ],
             'country'         => [
                 'required'

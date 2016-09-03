@@ -2,15 +2,13 @@
 
 namespace App\Transformers;
 
-use App\Customer;
-
 class CustomerTransformer extends Transformer
 {
 
     /**
      * Transformer for the models
      *
-     * @param Customer $customer The model from the database
+     * @param \App\Customer $customer The model from the database
      *
      * @return array The valid output, displayed in the API
      */
