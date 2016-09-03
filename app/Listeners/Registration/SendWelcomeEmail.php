@@ -4,9 +4,10 @@ namespace App\Listeners\Registration;
 
 use App\Events\User\Registered;
 use App\Mail\Registration\Welcome;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 
-class SendWelcomeEmail
+class SendWelcomeEmail implements ShouldQueue
 {
 
     /**
@@ -29,7 +30,6 @@ class SendWelcomeEmail
      */
     public function handle(Registered $event)
     {
-        Mail::to($event->user->email)
-            ->send(new Welcome($event->user));
+        Mail::to($event->user->email)->send(new Welcome($event->user));
     }
 }
